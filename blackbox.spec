@@ -9,8 +9,9 @@ Group(de):	X11/Fenstermanager
 Group(pl):	X11/Zarz±dcy Okien
 Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	ftp://portal.alug.org/pub/blackbox/0.6x.x/%{name}-%{version}.tar.bz2
-Patch0:		blackbox-lowcase_name.patch
-Patch1:		blackbox-exitbutton.patch
+Source1:	%{name}.desktop
+Patch0:		%{name}-lowcase_name.patch
+Patch1:		%{name}-exitbutton.patch
 URL:		http://blackbox.alug.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -50,8 +51,11 @@ automake -a -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d RPM_BUILD_ROOT%{_datadir}/wm-properties
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/wm-properties
 
 gzip -9nf README ChangeLog
 
@@ -62,8 +66,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %config(noreplace) %verify(not size md5 mtime) %{_datadir}/blackbox/menu
-%dir %{_datadir}/blackbox
-%{_mandir}/man1/*
-
+%{_datadir}/wm-properties/blackbox.desktop
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/Blackbox/styles
+%{_mandir}/man1/*
+%dir %{_datadir}/blackbox
+%{_datadir}/blackbox/styles
