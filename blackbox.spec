@@ -56,6 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.gz ChangeLog.gz
 %config(noreplace) %verify(not size md5 mtime) %{_datadir}/Blackbox/menu
 %dir %{_datadir}/Blackbox
+%{_mandir}/man1/*
 
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/Blackbox/styles
