@@ -1,0 +1,13 @@
+diff -uNr blackbox-0.61.1.orig/configure.in blackbox-0.61.1/configure.in
+--- blackbox-0.61.1.orig/configure.in	Tue Aug 22 22:11:54 2000
++++ blackbox-0.61.1/configure.in	Mon Feb  5 11:51:46 2001
+@@ -1,7 +1,7 @@
+-dnl configure.in for Blackbox 0.61.1  - an X11 Window manager
++dnl configure.in for blackbox 0.61.1  - an X11 Window manager
+ dnl Initialize autoconf and automake
+ AC_INIT(src/blackbox.cc)
+-AM_INIT_AUTOMAKE(Blackbox,0.61.1,no-define)
++AM_INIT_AUTOMAKE(blackbox,0.61.1,no-define)
+ 
+ dnl Determine default prefix
+ test x$prefix = "xNONE" && prefix="$ac_default_prefix"
