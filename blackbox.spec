@@ -1,8 +1,8 @@
 Summary:     Very small and fast window manger for the X Window.
 Summary(pl): Ma³y i szybki menad¿er okien dla X Window.
 Name:        blackbox
-Version:     0.50.0
-Release:     3
+Version:     0.50.3
+Release:     1
 Copyright:   GPL-2.0
 Group:       X11/Window Managers
 Group(pl):   X11/Zarz±dcy okien
@@ -33,14 +33,13 @@ Blackbox oszczêdza pamiêæ i czas CPU.
 CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
 	--prefix=/usr/X11R6 \
-	--datadir=/etc/X11
+	--datadir=/etc/X11 \
+	--enable-kde
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 make install DESTDIR=$RPM_BUILD_ROOT
-
 gzip -9nf README ChangeLog
 
 %clean
@@ -55,8 +54,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755, root, root) /usr/X11R6/bin/*
 /etc/X11/Blackbox/styles
+/etc/X11/Blackbox/brueghel
 
 %changelog
+* Wed Feb 24 1999 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
+  [0.50.3-1]
+- new version,
+- enabled kde support,
+- added brueghel directory (styles).
+
 * Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
   [0.50.0-3]
 - added gzipping documentation
