@@ -4,7 +4,7 @@ Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.62.1
-Release:	6
+Release:	7
 License:	GPL
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
@@ -85,8 +85,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}
 %dir %{_datadir}/blackbox
-%{_datadir}/blackbox/styles/*
-%{_datadir}/blackbox/nls/*
+%{_datadir}/blackbox/styles
+%{_datadir}/blackbox/nls
 %{_datadir}/wm-properties/blackbox.desktop
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
