@@ -1,0 +1,2033 @@
+diff -urN blackbox-0.62.0pre2/nls/C/Configmenu.m blackbox-0.62.0pre2-epist/nls/C/Configmenu.m
+--- blackbox-0.62.0pre2/nls/C/Configmenu.m	Tue Jun 13 01:13:21 2000
++++ blackbox-0.62.0pre2-epist/nls/C/Configmenu.m	Sat Jan  5 13:02:57 2002
+@@ -16,6 +16,8 @@
+ # Focus New Windows
+ $ #FocusLast
+ # Focus Window on Workspace Change
++$ #EnableEpistrophy
++# Enable Epistrophy 
+ $ #ClickToFocus
+ # Click to Focus
+ $ #SloppyFocus
+diff -urN blackbox-0.62.0pre2/nls/C/Translation.m blackbox-0.62.0pre2-epist/nls/C/Translation.m
+--- blackbox-0.62.0pre2/nls/C/Translation.m	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/C/Translation.m	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,196 @@
++$set 1 #BaseDisplay
++
++1 %s:  X error: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
++2 %s: signal %d caught\n
++3 shutting down\n
++4 aborting... dumping core\n
++5 BaseDisplay::BaseDisplay: connection to X server failed.\n
++6 BaseDisplay::BaseDisplay: couldn't mark display connection as close-on-exec\n
++7 BaseDisplay::eventLoop(): removing bad window from event queue\n
++
++$set 2 #Basemenu
++
++1 Blackbox Menu
++
++$set 3 #Configmenu
++
++1 Config Options
++2 Focus Model
++3 Window Placement
++4 Image Dithering
++5 Opaque Window Moving
++6 Full Maximization
++7 Focus New Windows
++8 Focus Window on Workspace Change
++9 Enable Epistrophy 
++10 Click to Focus
++11 Sloppy Focus
++12 Auto Raise
++13 Smart Placement (Rows)
++14 Smart Placement (Columns)
++15 Cascade Placement
++16 Left to Right
++17 Right to Left
++18 Top to Bottom
++19 Bottom to Top
++
++$set 4 #Icon
++
++1 Icons
++
++$set 5 #Image
++
++1 BImage::render_solid: error creating pixmap\n
++2 BImage::renderXImage: error creating XImage\n
++3 BImage::renderXImage: unsupported visual\n
++4 BImage::renderPixmap: error creating pixmap\n
++5 BImageControl::BImageControl: invalid colormap size %d (%d/%d/%d) - reducing\n
++6 BImageControl::BImageControl: error allocating colormap\n
++7 BImageControl::BImageControl: failed to alloc color %d/%d/%d\n
++8 BImageControl::~BImageControl: pixmap cache - releasing %d pixmaps\n
++9 BImageControl::renderImage: cache is large, forcing cleanout\n
++10 BImageControl::getColor: color parse error: '%s'\n
++11 BImageControl::getColor: color alloc error: '%s'\n
++
++$set 6 #Screen
++
++1 BScreen::BScreen: an error occured while querying the X server.\n  \
++another window manager is already running on display %s.\n
++2 BScreen::BScreen: managing screen %d using visual 0x%lx, depth %d\n
++3 BScreen::LoadStyle(): couldn't load font '%s'\n
++4 BScreen::LoadStyle(): couldn't load default font.\n
++5 %s: empty menu file\n
++6 xterm
++7 Restart
++8 Exit
++9 BScreen::parseMenuFile: [exec] error, no menu label and/or command defined\n
++10 BScreen::parseMenuFile: [exit] error, no menu label defined\n
++11 BScreen::parseMenuFile: [style] error, no menu label and/or filename \
++defined\n
++12 BScreen::parseMenuFile: [config] error, no menu label defined\n
++13 BScreen::parseMenuFile: [include] error, no filename defined\n
++14 BScreen::parseMenuFile: [include] error, '%s' is not a regular file\n
++15 BScreen::parseMenuFile: [submenu] error, no menu label defined\n
++16 BScreen::parseMenuFile: [restart] error, no menu label defined\n
++17 BScreen::parseMenuFile: [reconfig] error, no menu label defined\n
++18 BScreen::parseMenuFile: [stylesdir/stylesmenu] error, no directory defined\n
++19 BScreen::parseMenuFile: [stylesdir/stylesmenu] error, '%s' is not a \
++directory\n
++20 BScreen::parseMenuFile: [stylesdir/stylesmenu] error, '%s' does not exist\n
++21 BScreen::parseMenuFile: [workspaces] error, no menu label defined\n
++22 0: 0000 x 0: 0000
++23 X: %4d x Y: %4d
++24 W: %4d x H: %4d
++
++
++$set 7 #Slit
++
++1 Slit
++2 Slit Direction
++3 Slit Placement
++
++$set 8 #Toolbar
++
++1 00:00000
++2 %02d/%02d/%02d
++3 %02d.%02d.%02d
++4  %02d:%02d 
++5 %02d:%02d %sm
++6 p
++7 a
++8 Toolbar
++9 Edit current workspace name
++10 Toolbar Placement
++
++$set 9 #Window
++
++
++1 BlackboxWindow::BlackboxWindow: creating 0x%lx\n
++2 BlackboxWindow::BlackboxWindow: XGetWindowAttributres failed\n
++3 BlackboxWindow::BlackboxWindow: cannot find screen for root window 0x%lx\n
++4 Unnamed
++5 BlackboxWindow::mapRequestEvent() for 0x%lx\n
++6 BlackboxWindow::unmapNotifyEvent() for 0x%lx\n
++7 BlackboxWindow::unmapnotifyEvent: reparent 0x%lx to root\n
++
++$set 10 #Windowmenu
++
++1 Send To ...
++2 Shade
++3 Iconify
++4 Maximize
++5 Raise
++6 Lower
++7 Stick
++8 Kill Client
++9 Close
++
++$set 11 #Workspace
++
++1 Workspace %d
++
++$set 12 #Workspacemenu
++
++1 Workspaces
++2 New Workspace
++3 Remove Last
++
++$set 13 #blackbox
++
++1 Blackbox::Blackbox: no managable screens found, aborting\n
++2 Blackbox::process_event: MapRequest for 0x%lx\n
++
++$set 14 #Common
++
++1 Yes
++2 No
++
++3 Direction
++4 Horizontal
++5 Vertical
++
++6 Always on top
++
++7 Placement
++8 Top Left
++9 Center Left
++10 Bottom Left
++11 Top Center
++12 BottomCenter
++13 Top Right
++14 Center Right
++15 Bottom Right
++
++16 Auto hide
++
++$set 15 #main
++
++1 error: '-rc' requires an argument\n
++2 error: '-display' requires an argument\n
++3 warning: could not set environment variable 'DISPLAY'\n
++4 Blackbox %s: (c) 1997 - 2000 Brad Hughes\n\n\
++  -display <string>\t\tuse display connection.\n\
++  -rc <string>\t\t\tuse alternate resource file.\n\
++  -version\t\t\tdisplay version and exit.\n\
++  -help\t\t\t\tdisplay this help text and exit.\n\n
++5 Compile time options:\n\
++  Debugging\t\t\t%s\n\
++  Interlacing:\t\t\t%s\n\
++  Shape:\t\t\t%s\n\
++  Slit:\t\t\t\t%s\n\
++  8bpp Ordered Dithering:\t%s\n\n
++
++$set 16 #bsetroot
++
++1 %s: error: must specify one of: -solid, -mod, -gradient\n
++2 %s 2.0: (c) 1997-2000 Brad Hughes\n\n\
++  -display <string>        display connection\n\
++  -mod <x> <y>             modula pattern\n\
++  -foreground, -fg <color> modula foreground color\n\
++  -background, -bg <color> modula background color\n\n\
++  -gradient <texture>      gradient texture\n\
++  -from <color>            gradient start color\n\
++  -to <color>              gradient end color\n\n\
++  -solid <color>           solid color\n\n\
++  -help                    print this help text and exit\n
++
+diff -urN blackbox-0.62.0pre2/nls/blackbox-nls.hh blackbox-0.62.0pre2-epist/nls/blackbox-nls.hh
+--- blackbox-0.62.0pre2/nls/blackbox-nls.hh	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/blackbox-nls.hh	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,152 @@
++#define BaseDisplaySet 0x1
++#define BaseDisplayXError 0x1
++#define BaseDisplaySignalCaught 0x2
++#define BaseDisplayShuttingDown 0x3
++#define BaseDisplayAborting 0x4
++#define BaseDisplayXConnectFail 0x5
++#define BaseDisplayCloseOnExecFail 0x6
++#define BaseDisplayBadWindowRemove 0x7
++
++#define BasemenuSet 0x2
++#define BasemenuBlackboxMenu 0x1
++
++#define ConfigmenuSet 0x3
++#define ConfigmenuConfigOptions 0x1
++#define ConfigmenuFocusModel 0x2
++#define ConfigmenuWindowPlacement 0x3
++#define ConfigmenuImageDithering 0x4
++#define ConfigmenuOpaqueMove 0x5
++#define ConfigmenuFullMax 0x6
++#define ConfigmenuFocusNew 0x7
++#define ConfigmenuFocusLast 0x8
++#define ConfigmenuEnableEpistrophy 0x9
++#define ConfigmenuClickToFocus 0xa
++#define ConfigmenuSloppyFocus 0xb
++#define ConfigmenuAutoRaise 0xc
++#define ConfigmenuSmartRows 0xd
++#define ConfigmenuSmartCols 0xe
++#define ConfigmenuCascade 0xf
++#define ConfigmenuLeftRight 0x10
++#define ConfigmenuRightLeft 0x11
++#define ConfigmenuTopBottom 0x12
++#define ConfigmenuBottomTop 0x13
++
++#define IconSet 0x4
++#define IconIcons 0x1
++
++#define ImageSet 0x5
++#define ImageErrorCreatingSolidPixmap 0x1
++#define ImageErrorCreatingXImage 0x2
++#define ImageUnsupVisual 0x3
++#define ImageErrorCreatingPixmap 0x4
++#define ImageInvalidColormapSize 0x5
++#define ImageErrorAllocatingColormap 0x6
++#define ImageColorAllocFail 0x7
++#define ImagePixmapRelease 0x8
++#define ImagePixmapCacheLarge 0x9
++#define ImageColorParseError 0xa
++#define ImageColorAllocError 0xb
++
++#define ScreenSet 0x6
++#define ScreenAnotherWMRunning 0x1
++#define ScreenManagingScreen 0x2
++#define ScreenFontLoadFail 0x3
++#define ScreenDefaultFontLoadFail 0x4
++#define ScreenEmptyMenuFile 0x5
++#define Screenxterm 0x6
++#define ScreenRestart 0x7
++#define ScreenExit 0x8
++#define ScreenEXECError 0x9
++#define ScreenEXITError 0xa
++#define ScreenSTYLEError 0xb
++#define ScreenCONFIGError 0xc
++#define ScreenINCLUDEError 0xd
++#define ScreenINCLUDEErrorReg 0xe
++#define ScreenSUBMENUError 0xf
++#define ScreenRESTARTError 0x10
++#define ScreenRECONFIGError 0x11
++#define ScreenSTYLESDIRError 0x12
++#define ScreenSTYLESDIRErrorNotDir 0x13
++#define ScreenSTYLESDIRErrorNoExist 0x14
++#define ScreenWORKSPACESError 0x15
++#define ScreenPositionLength 0x16
++#define ScreenPositionFormat 0x17
++#define ScreenGeometryFormat 0x18
++
++#define SlitSet 0x7
++#define SlitSlitTitle 0x1
++#define SlitSlitDirection 0x2
++#define SlitSlitPlacement 0x3
++
++#define ToolbarSet 0x8
++#define ToolbarNoStrftimeLength 0x1
++#define ToolbarNoStrftimeDateFormat 0x2
++#define ToolbarNoStrftimeDateFormatEu 0x3
++#define ToolbarNoStrftimeTimeFormat24 0x4
++#define ToolbarNoStrftimeTimeFormat12 0x5
++#define ToolbarNoStrftimeTimeFormatP 0x6
++#define ToolbarNoStrftimeTimeFormatA 0x7
++#define ToolbarToolbarTitle 0x8
++#define ToolbarEditWkspcName 0x9
++#define ToolbarToolbarPlacement 0xa
++
++#define WindowSet 0x9
++#define WindowCreating 0x1
++#define WindowXGetWindowAttributesFail 0x2
++#define WindowCannotFindScreen 0x3
++#define WindowUnnamed 0x4
++#define WindowMapRequest 0x5
++#define WindowUnmapNotify 0x6
++#define WindowUnmapNotifyReparent 0x7
++
++#define WindowmenuSet 0xa
++#define WindowmenuSendTo 0x1
++#define WindowmenuShade 0x2
++#define WindowmenuIconify 0x3
++#define WindowmenuMaximize 0x4
++#define WindowmenuRaise 0x5
++#define WindowmenuLower 0x6
++#define WindowmenuStick 0x7
++#define WindowmenuKillClient 0x8
++#define WindowmenuClose 0x9
++
++#define WorkspaceSet 0xb
++#define WorkspaceDefaultNameFormat 0x1
++
++#define WorkspacemenuSet 0xc
++#define WorkspacemenuWorkspacesTitle 0x1
++#define WorkspacemenuNewWorkspace 0x2
++#define WorkspacemenuRemoveLast 0x3
++
++#define blackboxSet 0xd
++#define blackboxNoManagableScreens 0x1
++#define blackboxMapRequest 0x2
++
++#define CommonSet 0xe
++#define CommonYes 0x1
++#define CommonNo 0x2
++#define CommonDirectionTitle 0x3
++#define CommonDirectionHoriz 0x4
++#define CommonDirectionVert 0x5
++#define CommonAlwaysOnTop 0x6
++#define CommonPlacementTitle 0x7
++#define CommonPlacementTopLeft 0x8
++#define CommonPlacementCenterLeft 0x9
++#define CommonPlacementBottomLeft 0xa
++#define CommonPlacementTopCenter 0xb
++#define CommonPlacementBottomCenter 0xc
++#define CommonPlacementTopRight 0xd
++#define CommonPlacementCenterRight 0xe
++#define CommonPlacementBottomRight 0xf
++#define CommonAutoHide 0x10
++
++#define mainSet 0xf
++#define mainRCRequiresArg 0x1
++#define mainDISPLAYRequiresArg 0x2
++#define mainWarnDisplaySet 0x3
++#define mainUsage 0x4
++#define mainCompileOptions 0x5
++
++#define bsetrootSet 0x10
++#define bsetrootMustSpecify 0x1
++#define bsetrootUsage 0x2
+diff -urN blackbox-0.62.0pre2/nls/da_DK/Translation.m blackbox-0.62.0pre2-epist/nls/da_DK/Translation.m
+--- blackbox-0.62.0pre2/nls/da_DK/Translation.m	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/da_DK/Translation.m	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,195 @@
++$set 1 #BaseDisplay
++
++1 %s:  X fejl: %s(%d) kode %d/%d\n  resource 0x%lx\n
++2 %s: signal %d fanget\n
++3 lukker ned\n
++4 Avbryder... dumper kernen\n
++5 BaseDisplay::BaseDisplay: tilslutning til X server mislykkedes.\n
++6 BaseDisplay::BaseDisplay: kunne ikke markere skærmtilslutning som luk-ved-afslut\n
++7 BaseDisplay::eventLoop(): fjerner dårligt vindue fra hændelseskøen\n
++
++$set 2 #Basemenu
++
++1 Blackboxmenu
++
++$set 3 #Configmenu
++
++1 Indstillinger
++2 Fokus Model
++3 Vindueplacering
++4 Billede Dithering
++5 Uklar vinduesflytning
++6 Fuld maximering
++7 Fokus nyt vindue
++8 Fokus vindue ved skrivebords ændring
++9 Klik for fokus
++10 Dovent fokus
++11 Hæv automatisk
++12 Intelligent placering (Rækker)
++13 Intelligent placering (Søjler)
++14 Kaskade placering
++15 Fra venstre mod højre
++16 Fra højre mod venstre
++17 Oppefra
++18 Nedefra
++
++$set 4 #Icon
++
++1 Ikoner
++2 Intet navn
++
++$set 5 #Image
++
++1 BImage::render_solid: fejl ved skabelse af pixmap\n
++2 BImage::renderXImage: fejl ved skabelse af XImage\n
++3 BImage::renderXImage: ikke support for farvedybden\n
++4 BImage::renderPixmap: fejl ved skabelse af pixmap\n
++5 BImageControl::BImageControl: ugyldigt farvekort størrelse %d (%d/%d/%d) - reducing\n
++6 BImageControl::BImageControl: fejl ved allokering af farvekort\n
++7 BImageControl::BImageControl: fejl ved allokering af farve %d/%d/%d\n
++8 BImageControl::~BImageControl: pixmap cache - sletter %d pixmaps\n
++9 BImageControl::renderImage: cache er for stor, gennemtvinger rensning\n
++10 BImageControl::getColor: farvefejl: '%s'\n
++11 BImageControl::getColor: farveallokeringsfejl: '%s'\n
++
++$set 6 #Screen
++
++1 BScreen::BScreen: fejl ved forespørgsel til X server.\n  \
++en anden window manager er allerede kørende på display %s.\n
++2 BScreen::BScreen: håndterer skærm %d med visuel 0x%lx, farvedybde %d\n
++3 BScreen::LoadStyle(): kunne ikke hente font '%s'\n
++4 BScreen::LoadStyle(): kunne ikke hente standardfonten.\n
++5 %s: tom menu fil\n
++6 xterm
++7 Genstart
++8 Afslut
++9 BScreen::parseMenuFile: [exec] fejl, ingen menu etikette og/eller kommando defineret\n
++10 BScreen::parseMenuFile: [exit] fejl, ingen menu etikette defineret\n
++11 BScreen::parseMenuFile: [style] fejl, ingen menu etikette og/eller filnavn \
++defineret\n
++12 BScreen::parseMenuFile: [config] fejl, ingen menu etikette defineret\n
++13 BScreen::parseMenuFile: [include] fejl, intet filnavn defineret\n
++14 BScreen::parseMenuFile: [include] fejl, '%s' er ikke en normal fil\n
++15 BScreen::parseMenuFile: [submenu] fejl, ingen menu etikette defineret\n
++16 BScreen::parseMenuFile: [restart] fejl, ingen menu etikette defineret\n
++17 BScreen::parseMenuFile: [reconfig] fejl, ingen menu etikette defineret\n
++18 BScreen::parseMenuFile: [stylesdir/stylesmenu] fejl, intet katalog defineret\n
++19 BScreen::parseMenuFile: [stylesdir/stylesmenu] fejl, '%s' er ikke et katalog\n
++20 BScreen::parseMenuFile: [stylesdir/stylesmenu] fejl, '%s' eksisterer ikke\n
++21 BScreen::parseMenuFile: [workspaces] fejl, ingen menu etikette defineret\n
++22 0: 0000 x 0: 0000
++23 X: %4d x Y: %4d
++24 W: %4d x H: %4d
++
++
++$set 7 #Slit
++
++1 Slit
++2 Slit retning
++3 Slit placering
++
++$set 8 #Toolbar
++
++1 00:00000
++2 %02d/%02d/%02d
++3 %02d.%02d.%02d
++4  %02d:%02d 
++5 %02d:%02d %sm
++6 p
++7 a
++8 Værktøjsbjælke
++9 Andring af skrivebordets navn
++10 Værktøjsbjælkens placering
++
++$set 9 #Window
++
++
++1 BlackboxWindow::BlackboxWindow: skaber 0x%lx\n
++2 BlackboxWindow::BlackboxWindow: XGetWindowAttributres fejlede\n
++3 BlackboxWindow::BlackboxWindow: kunne ikke finde skærm til hovedvinduet 0x%lx\n
++4 Intet navn
++5 BlackboxWindow::mapRequestEvent() for 0x%lx\n
++6 BlackboxWindow::unmapNotifyEvent() for 0x%lx\n
++7 BlackboxWindow::unmapnotifyEvent: sætter 0x%lx til hovedvinduet\n
++
++$set 10 #Windowmenu
++
++1 Send til ...
++2 Skygge
++3 Iconificeret
++4 Maksimer
++5 Hæv
++6 Sænk
++7 Klæbrig
++8 Dræb klient
++9 Luk
++
++$set 11 #Workspace
++
++1 Skrivebord %d
++
++$set 12 #Workspacemenu
++
++1 Skriveborde
++2 Nyt skrivebord
++3 Fjern sidste
++
++$set 13 #blackbox
++
++1 Blackbox::Blackbox: ingen håndterbare skærme fundet, afslutter\n
++2 Blackbox::process_event: MapRequest for 0x%lx\n
++
++$set 14 #Common
++
++1 Ja
++2 Nej
++
++3 Retning
++4 Horisontal
++5 Vertikal
++
++6 Altid øverst
++
++7 Placering
++8 Øverste venstre hjørne
++9 Venstre i midten
++10 Bunden til venstre
++11 Toppen i midten
++12 Bunden i midten
++13 Øverst til højre
++14 Til højre i midten
++15 Til højre i bunden
++
++16 Gem automatisk
++
++$set 15 #main
++
++1 fejl: '-rc' kræver et argument\n
++2 fjel: '-display' kræver et argument\n
++3 advarsel: kunne ikke sætte variablen 'DISPLAY'\n
++4 Blackbox %s: (c) 1997 - 2000 Brad Hughes\n\n\
++  -display <string>\t\tbrug skærm tilslutning.\n\
++  -rc <string>\t\t\tbrug alternativ resource fil.\n\
++  -version\t\t\tvis versionsnummer og afslut.\n\
++  -help\t\t\t\tvis denne hjælp og afslut.\n\n
++5 Kompileret med:\n\
++  Debugging\t\t\t%s\n\
++  Interlacing:\t\t\t%s\n\
++  Shape:\t\t\t%s\n\
++  Slit:\t\t\t\t%s\n\
++  8bpp Ordered Dithering:\t%s\n\n
++
++$set 16 #bsetroot
++
++1 %s: fejl: specificér en af følgende: -solid, -mod, -gradient\n
++2 %s 2.0: (c) 1997-2000 Brad Hughes\n\n\
++  -display <string>        skærmtilslutning\n\
++  -mod <x> <y>             modula mønster\n\
++  -foreground, -fg <color> modula foregrundsfarve\n\
++  -background, -bg <color> modula baggrundsfarve\n\n\
++  -gradient <texture>      gradient tekstur\n\
++  -from <color>            gradient start farve\n\
++  -to <color>              gradient slut farve\n\n\
++  -solid <color>           fast farve\n\n\
++  -help                    hvis denne hjælp og afslut\n
++
+diff -urN blackbox-0.62.0pre2/nls/es_ES/Translation.m blackbox-0.62.0pre2-epist/nls/es_ES/Translation.m
+--- blackbox-0.62.0pre2/nls/es_ES/Translation.m	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/es_ES/Translation.m	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,191 @@
++$set 1 #BaseDisplay
++
++1 %s:  Un error de X: %s(%d) clave de operación %d/%d\n  recurso 0x%lx\n
++2 %s: señal %d capturada\n
++3 cerrando\n
++4 cancelando... generando 'core'\n
++5 BaseDisplay::BaseDisplay: la conexión al servidor de X falló.\n
++6 BaseDisplay::BaseDisplay: no se pude marcar la conexión de despliegue como close-on-exec\n
++7 BaseDisplay::eventLoop(): quitando la ventana errónea de la cola de eventos\n
++
++$set 2 #Basemenu
++
++1 Menú de Blackbox
++
++$set 3 #Configmenu
++
++1 Opciones de configuración
++2 Modelo de enfoque
++3 Ubicación de ventanas
++4 Simulación de colores en imágenes
++5 Movimiento opaco de ventanas
++6 Maximización total
++7 Enfocar ventanas nuevas
++8 Enfocar la última ventana en el escritorio
++9 Seleccionar para enfocar
++10 Enfocar sin forma estricta
++11 Elevar automáticamente las ventanas
++12 Ubicación inteligente (filas)
++13 Ubicación inteligente (columnas)
++14 Ubicación en cascada
++15 De izquierda a derecha
++16 De derecha a izquierda
++17 De arriba hacia abajo
++18 De abajo hacia arriba
++
++$set 4 #Icon
++
++1 Iconos
++
++$set 5 #Image
++
++1 BImage::render_solid: error creando el pixmap\n
++2 BImage::renderXImage: error creando el XImage\n
++3 BImage::renderXImage: visual no soportado\n
++4 BImage::renderPixmap: error creando el pixmap\n
++5 BImageControl::BImageControl: mapa no válido de colores tamaño %d (%d/%d/%d) - reduciendo\n
++6 BImageControl::BImageControl: error en la asignación del mapa de colores\n
++7 BImageControl::BImageControl: no se puede asignar el color %d/%d/%d\n
++8 BImageControl::~BImageControl: reserva de pixmaps - liberando %d pixmaps\n
++9 BImageControl::renderImage: reserva de pixmaps grande, forzando limpieza\n
++10 BImageControl::getColor: error evaluando el color: '%s'\n
++11 BImageControl::getColor: error asignando el color: '%s'\n
++
++$set 6 #Screen
++
++1 BScreen::BScreen: un error ocurrió mientras cuestionaba el servidor X.\n  otro gestor de ventanas se está ejecutando en conexión de despliegue %s.\n
++2 BScreen::BScreen: gestionando la pantalla %d usando visual 0x%lx, profundidad %d\n
++3 BScreen::LoadStyle(): no se puede cargar el tipo de letra '%s'\n
++4 BScreen::LoadStyle(): no se puede cargar el tipo de letra por omisión.\n
++5 %s: archivo de menú vacío\n
++6 xterm
++7 Reiniciar
++8 Salir
++9 BScreen::parseMenuFile: [exec] error, no hay etiqueta de menú ni comando definido\n
++10 BScreen::parseMenuFile: [exit] error, no hay etiqueta de menú definida\n
++11 BScreen::parseMenuFile: [style] error, no hay etiqueta de menú ni archivo \
++definido\n
++12 BScreen::parseMenuFile: [config] error, no hay etiqueta de menú definida\n
++13 BScreen::parseMenuFile: [include] error, no hay nombre de archivo definido\n
++14 BScreen::parseMenuFile: [include] error, '%s' no es un archivo regular\n
++15 BScreen::parseMenuFile: [submenu] error, no hay etiqueta de menú definida\n
++16 BScreen::parseMenuFile: [restart] error, no hay etiqueta de menú definida\n
++17 BScreen::parseMenuFile: [reconfig] error, no hay etiqueta de menú definida\n
++18 BScreen::parseMenuFile: [stylesdir/stylesmenu] error, no hay directorio definido\n
++19 BScreen::parseMenuFile: [stylesdir/stylesmenu] error, '%s' no es un directorio\n
++20 BScreen::parseMenuFile: [stylesdir/stylesmenu] error, '%s' no existe\n
++21 BScreen::parseMenuFile: [workspaces] error, no hay etiqueta de menú definida\n
++22 0: 0000 x 0: 0000
++23 X: %4d x Y: %4d
++24 W: %4d x H: %4d
++
++$set 7 #Slit
++
++1 Slit
++2 Dirección de slit
++3 Ubicación de slit
++
++$set 8 #Toolbar
++
++1 00:00000
++2 %02d/%02d/%02d
++3 %02d.%02d.%02d
++4 %02d:%02d
++5 %02d:%02d %sm
++6 p
++7 a
++8 Escritorio
++9 Cambiar el nombre del escritorio actual
++10 Ubicación de la barra de herramientas
++
++$set 9 #Window
++
++
++1 BlackboxWindow::BlackboxWindow: creando 0x%lx\n
++2 BlackboxWindow::BlackboxWindow: XGetWindowAttributres falló\n
++3 BlackboxWindow::BlackboxWindow: no se puede encontrar la pantalla para la ventana \
++  raíz 0x%lx\n
++4 Sin nombre
++5 BlackboxWindow::mapRequestEvent() para 0x%lx\n
++6 BlackboxWindow::unmapNotifyEvent() para 0x%lx\n
++7 BlackboxWindow::unmapnotifyEvent: el padre nuevo para 0x%lx es la raíz\n
++
++$set 10 #Windowmenu
++
++1 Enviar a ...
++2 Enrollar
++3 Convertir en icono
++4 Maximizar
++5 Elevar
++6 Bajar
++7 Fijar
++8 Matar al cliente
++9 Cerrar
++
++$set 11 #Workspace
++
++1 Escritorio %d
++
++$set 12 #Workspacemenu
++
++1 Escritorios
++2 Escritorio nuevo
++3 Quitar el último escritorio
++
++$set 13 #blackbox
++
++1 Blackbox::Blackbox: no encontré pantallas manejables, cerrando\n
++2 Blackbox::process_event: MapRequest para 0x%lx\n
++
++$set 14 #Common
++
++1 Sí
++2 No
++
++3 Dirección
++4 Horizontal
++5 Vertical
++
++6 Siempre encima/arriba
++
++7 Ubicación 
++8 Arriba a la izquierda
++9 Centro a la izquierda
++10 Abajo a la izquierda
++11 Arriba al centro
++12 Abajo al centro
++13 Arriba a la derecha
++14 Centro a la derecha
++15 Abajo a la derecha
++
++$set 15 #main
++
++1 error: '-rc' requiere un argumento
++2 error: '-display' requiere un argumento
++3 cuidado: no se puede establecer la variable de ambiente 'DISPLAY'
++4 Blackbox %s: (c) 1997 - 2000 Brad Hughes\n\n\
++  -display <string> conexión de despliegue.\n\
++  -rc <string>      archivo alternativo de recuros.\n\
++  -version          mostrar la versión y cerrar.\n\
++  -help             mostrar este texto de ayuda y cerrar.\n\n
++5 Opciones durante la compilación:\n\
++  Información extra para depuración:               %s\n\
++  Entrelazado:                                     %s\n\
++  Forma:                                           %s\n\
++  Slit:                                            %s\n\
++  8bpp simulación ordenada de colores en imágenes: %s\n\n
++
++$set 16 #bsetroot
++
++1 %s: error: es necesario especifiar uno de: -solid, -mod, -gradient\n
++2 %s 2.0: (c) 1997-2000 Brad Hughes\n\n\
++  -display <string>        conexión de despliegue\n\
++  -mod <x> <y>             diseño de modula \n\
++  -foreground, -fg <color> color del primer plano de modula\n\
++  -background, -bg <color> color del fondo de modula\n\n\
++  -gradient <texture>      textura de la pendiente\n\
++  -from <color>            color inicial de la pendiente\n\
++  -to <color>              color final de la pendiente\n\n\
++  -solid <color>           color sólido\n\n\
++  -help                    mostrar este texto de ayuda y salir\n
++
+diff -urN blackbox-0.62.0pre2/nls/et_EE/Translation.m blackbox-0.62.0pre2-epist/nls/et_EE/Translation.m
+--- blackbox-0.62.0pre2/nls/et_EE/Translation.m	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/et_EE/Translation.m	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,192 @@
++$set 1 #BaseDisplay
++
++1 %s:  X'i viga: %s(%d) opkood %d/%d\n  resurss 0x%lx\n
++2 %s: signaal %d püütud\n
++3 lõpetame\n
++4 katkestame... mälupilt tehtud\n
++5 BaseDisplay::BaseDisplay: ühenduse saamine X serveriga ebaõnnestus.\n
++6 BaseDisplay::BaseDisplay: ühenduse märgistamine 'close-on-exec' ebaõnnestus\n
++7 BaseDisplay::eventLoop(): eemaldame vigase akna tominigute reast\n
++
++$set 2 #Basemenu
++
++1 Blackbox'i Menüü
++
++$set 3 #Configmenu
++
++1 Konfiguratsioon
++2 Fookusmood
++3 Akende paigutamine
++4 Piltide teravustamine
++5 Nähtav akende liigutamine
++6 Üle-ekraani suurendus
++7 Fookus uutele akendele
++8 Fokusseeri viimane aken
++9 Klikka fookuse saamiseks
++10 Kaasaskäiv fookus
++11 Akende esiletoomine
++12 Arukas paigutus (read)
++13 Arukas paigutus (tulbad)
++14 Kaskaadis
++15 Vasakult paremale
++16 Paremalt vasakule
++17 Ülevalt alla
++18 Alt ülesse
++
++$set 4 #Icon
++
++1 Ikoonid
++
++$set 5 #Image
++
++1 BImage::render_solid: viga pixmapi loomisel\n
++2 BImage::renderXImage: viga XImage loomisel\n
++3 BImage::renderXImage: toeta visuaal\n
++4 BImage::renderPixmap: viga pixmapi loomisel\n
++5 BImageControl::BImageControl: vale värvipaletti suurus %d (%d/%d/%d) - vähendame\n
++6 BImageControl::BImageControl: viga värvipaletti määramisel \n
++7 BImageControl::BImageControl: ei õnnestunud värvi määrata %d/%d/%d\n
++8 BImageControl::~BImageControl: pixmap cache - vabastame %d pixmappi\n
++9 BImageControl::renderImage: cache on liiga suur, sundpuhastus\n
++10 BImageControl::getColor: viga värvi analüüsimisel: '%s'\n
++11 BImageControl::getColor: viga värvi määramisel: '%s'\n
++
++$set 6 #Screen
++
++1 BScreen::BScreen: viga X serveri küsitlemisel.\n  \
++teine akahaldur juba töötab displeil %s.\n
++2 BScreen::BScreen: haldame displeid %d reolutsioonis 0x%lx, vörvisügavusel %d\n
++3 BScreen::LoadStyle(): ei saanud laadida fonti '%s'\n
++4 BScreen::LoadStyle(): ei saanud laadida vaikimisi määratud fonti.\n
++5 %s: tühi menüüfail\n
++6 xterm
++7 Restart
++8 Välju
++9 BScreen::parseMenuFile: [exec] viga, menüü pealkirja ja/või käsku pole määratud\n
++10 BScreen::parseMenuFile: [exit] viga, menüü pealkirja pole määratud\n
++11 BScreen::parseMenuFile: [style] viga, menüü pealkirja ja/või failinime \
++pole määratud\n
++12 BScreen::parseMenuFile: [config] viga, menüü pealkirja pole määratud\n
++13 BScreen::parseMenuFile: [include] viga, failinime pole määratud\n
++14 BScreen::parseMenuFile: [include] viga, '%s' ei ole tavaline fail\n
++15 BScreen::parseMenuFile: [submenu] viga, menüü pealkirja pole määratud\n
++16 BScreen::parseMenuFile: [restart] viga, menüü pealkirja pole määratud\n
++17 BScreen::parseMenuFile: [reconfig] viga, menüü pealkirja pole määratud\n
++18 BScreen::parseMenuFile: [stylesdir/stylesmenu] viga, kataloogi pole määratud\n
++19 BScreen::parseMenuFile: [stylesdir/stylesmenu] viga, '%s' pole kataloog\n
++20 BScreen::parseMenuFile: [stylesdir/stylesmenu] viga, '%s' pole olemas\n
++21 BScreen::parseMenuFile: [workspaces] viga, menüü pealkirja pole määratud\n
++22 0: 0000 x 0: 0000
++23 X: %4d x Y: %4d
++24 W: %4d x H: %4d
++
++
++$set 7 #Slit
++
++1 Pragu
++2 Prao suund
++3 Prao asukoht
++
++$set 8 #Toolbar
++
++1 00:00000
++2 %02d/%02d/%02d
++3 %02d.%02d.%02d
++4  %02d:%02d 
++5 %02d:%02d %sm
++6 p
++7 a
++8 Tegumiriba
++9 Muuda töölaua nime
++10 Tegumiriba asukoht
++
++$set 9 #Window
++
++
++1 BlackboxWindow::BlackboxWindow: loome 0x%lx\n
++2 BlackboxWindow::BlackboxWindow: XGetWindowAttributres ebaõnnestus\n
++3 BlackboxWindow::BlackboxWindow: ei leidnud displeid juuraknale 0x%lx\n
++4 Nimeta
++5 BlackboxWindow::mapRequestEvent() 0x%lx'le\n
++6 BlackboxWindow::unmapNotifyEvent() 0x%lx'le\n
++7 BlackboxWindow::unmapnotifyEvent: 0x%lx juurele\n
++
++$set 10 #Windowmenu
++
++1 Saada...
++2 Varjuta
++3 Ikoniseeri
++4 Suurenda
++5 Esiplaanile
++6 Tahaplaanile
++7 Kleebi
++8 Killi klient
++9 Sulge
++
++$set 11 #Workspace
++
++1 Töölaud %d
++
++$set 12 #Workspacemenu
++
++1 Töölauad
++2 Uus töölaud
++3 Eemalda viimane
++
++$set 13 #blackbox
++
++1 Blackbox::Blackbox: ei leidnud hallatavaid displeisid, katkestame\n
++2 Blackbox::process_event: MapRequest 0x%lx'le\n
++
++$set 14 #Common
++
++1 Jah
++2 Ei
++
++3 Suund
++4 Horisontaalne
++5 Vertikaalne
++
++6 Alati esiplaanil
++
++7 Asetus
++8 Üleval vasakul
++9 Keskel vasakul
++10 All vasakul
++11 Üleval keskel
++12 All keskel
++13 Üleval paremal
++14 Keskel paremal
++15 All paremal
++
++$set 15 #main
++
++1 viga: '-rc' vajab argumenti\n
++2 viga: '-display' vajab argumenti\n
++3 hoiatus: ei saanud määrata keskonna muutujat 'DISPLAY'\n
++4 Blackbox %s: (c) 1997 - 2000 Brad Hughes\n\n\
++  -display <string>\t\tkasuta displei ühendust.\n\
++  -rc <string>\t\t\tkasuta alternatiivseid resursse.\n\
++  -version\t\t\tnäita versiooninumber ja välju.\n\
++  -help\t\t\t\tnäita seda abiteksti ja välju.\n\n
++5 Kompileerimisoptsioonid:\n\
++  Debuggimine\t\t\t%s\n\
++  Põimimine:\t\t\t%s\n\
++  Kuju:\t\t\t%s\n\
++  Pragu:\t\t\t\t%s\n\
++  8bpp määratud teravustamine:\t%s\n\n
++
++$set 16 #bsetroot
++
++1 %s: viga: pead määratlema ühe järgnevaist: -solid, -mod, -gradient\n
++2 %s 2.0: (c) 1997-2000 Brad Hughes\n\n\
++  -display <string>        displei ühendus\n\
++  -mod <x> <y>             moodula tapeet\n\
++  -foreground, -fg <color> esiplaani värvi moodula\n\
++  -background, -bg <color> tausta värvi moodula\n\n\
++  -gradient <texture>      gradientne tekstuur\n\
++  -from <color>            gradiendi algusvärv\n\
++  -to <color>              gradiendi lõpuvärv\n\n\
++  -solid <color>           ühtne värv\n\n\
++  -help                    näida seda abiteksti ja välju\n
++
+diff -urN blackbox-0.62.0pre2/nls/fr_FR/Translation.m blackbox-0.62.0pre2-epist/nls/fr_FR/Translation.m
+--- blackbox-0.62.0pre2/nls/fr_FR/Translation.m	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/fr_FR/Translation.m	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,193 @@
++$set 1 #BaseDisplay
++
++1 %s:  Erreur de X %s(%d) opcodes %d/%d\n  ressource 0x%lx\n
++2 %s: signal %d capturé\n
++3 arrêt du programme\n
++4 annulation... ponte du fichier core\n
++5 BaseDisplay::BaseDisplay: échec de la connexion à X\n
++6 BaseDisplay::BaseDisplay: impossible d'attribuer close-on-exec à l'affichage\n
++7 BaseDisplay::eventLoop(): suppression d'une mauvaise fenêtre de la queue\n
++
++$set 2 #Basemenu
++
++1 Menu de Blackbox
++
++$set 3 #Configmenu
++
++1 Options de configuration
++2 Mode de convergence
++3 Disposition des fenêtres
++4 Lissage d'images
++5 Déplacement opaque des fenêtres
++6 Maximization complète
++7 Convergence de la nouvelle fenêtre
++8 Convergence de la dernière fenêtre
++9 Cliquer pour converger
++10 Convergence souple
++11 Premier plan automatique
++12 Disposition futée (Lignes)
++13 Disposition futée (Colonnes)
++14 Disposition en cascade
++15 De gauche à droite
++16 De droite à gauche
++17 De haut en bas
++18 De bas en haut
++
++$set 4 #Icon
++
++1 Icones
++
++$set 5 #Image
++
++1 BImage::render_solid: Erreur de création de pixmap\n
++2 BImage::renderXImage: Erreur de création de XImage\n
++3 BImage::renderXImage: Image non endossée\n
++4 BImage::renderPixmap: Erreur de création de pixmap\n
++5 BImageControl::BImageControl: Taille des couleurs parentes invalide%d (%d/%d/%d) - coupe\n
++6 BImageControl::BImageControl: Erreur d'allocation des couleurs parentes\n
++7 BImageControl::BImageControl: Echec d'allocation de couleur %d/%d/%d\n
++8 BImageControl::~BImageControl: Cache pixmap - abandon %d pixmaps\n
++9 BImageControl::renderImage: Cache important, nettoyage conséquent\n
++10 BImageControl::getColor: Erreur de lecture de couleur: '%s'\n
++11 BImageControl::getColor: Erreur d'allocation,couleur: '%s'\n
++
++$set 6 #Screen
++
++1 BScreen::BScreen: Occurence d'une erreur pendant une requête vers X.\n  \
++Un autre gestionnaire de fenêtres est déjà lancé %s.\n
++2 BScreen::BScreen: Gestion de l'écran %d avec le visuel 0x%lx, profondeur %d\n
++3 BScreen::LoadStyle(): Impossible de charger la police de caractère '%s'\n
++4 BScreen::LoadStyle(): Impossible de charger la police de caractère initiale.\n
++5 %s: Fichier de menu vide\n
++6 xterm
++7 Redémarrer
++8 Sortie
++9 BScreen::parseMenuFile: [exec] Erreur, pas d'indication de menu &/ou de commande definie\n
++10 BScreen::parseMenuFile: [exit] Erreur, aucune indication de menu définie\n
++11 BScreen::parseMenuFile: [style] Erreur, pas d'indication de menu &/ou de nom de fichier\
++defini\n
++12 BScreen::parseMenuFile: [config] Erreur, aucune indication de menu définie\n
++13 BScreen::parseMenuFile: [include] Erreur, aucun nom de fichier défini\n
++14 BScreen::parseMenuFile: [include] Erreur, '%s' est un fichier invalide\n
++15 BScreen::parseMenuFile: [submenu] Erreur, aucune indication de menu définie\n
++16 BScreen::parseMenuFile: [restart] Erreur, aucune indication de menu définie\n
++17 BScreen::parseMenuFile: [reconfig] Erreur, aucune indication de menu définie\n
++18 BScreen::parseMenuFile: [stylesdir/stylesmenu] Erreur, aucun répertoire défini\n
++19 BScreen::parseMenuFile: [stylesdir/stylesmenu] Erreur, '%s' est un répertoire \
++invalide\n
++20 BScreen::parseMenuFile: [stylesdir/stylesmenu] Erreur, '%s' est inexistant\n
++21 BScreen::parseMenuFile: [workspaces] Erreur, aucune indication de menu définie\n
++22 0: 0000 x 0: 0000
++23 X: %4d x Y: %4d
++24 L: %4d x H: %4d
++
++
++$set 7 #Slit
++
++1 Slit
++2 Orientation du Slit
++3 Disposition du Slit
++
++$set 8 #Toolbar
++
++1 00:00000
++2 %02d/%02d/%02d
++3 %02d.%02d.%02d
++4  %02d:%02d 
++5 %02d:%02d %sm
++6 p
++7 a
++8 Barre d'outils
++9 Bâptème du bureau courant
++10 Disposition de la barre d'outils
++
++$set 9 #Window
++
++
++1 BlackboxWindow::BlackboxWindow: Génération 0x%lx\n
++2 BlackboxWindow::BlackboxWindow: Echec de XGetWindowAttributres\n
++3 BlackboxWindow::BlackboxWindow: Impossible de trouver l'écran de la fenêtre racine0x%lx\n
++4 Inconnu
++5 BlackboxWindow::mapRequestEvent() pour 0x%lx\n
++6 BlackboxWindow::unmapNotifyEvent() pour 0x%lx\n
++7 BlackboxWindow::unmapnotifyEvent: réattribue 0x%lx à la fenêtre principale\n
++
++$set 10 #Windowmenu
++
++1 Redirige vers...
++2 Ombrage
++3 Iconifie
++4 Maximize
++5 Résurrection
++6 Réduit
++7 Epingle
++8 Massacre
++9 Ferme
++
++$set 11 #Workspace
++
++1 Bureau %d
++
++$set 12 #Workspacemenu
++
++1 Bureaux
++2 Nouveau bureau
++3 Supprimer le dernier
++
++$set 13 #blackbox
++
++1 Blackbox::Blackbox: Aucun écran exploitable n'a été trouvé, annulation\n
++2 Blackbox::process_event: MapRequest pour 0x%lx\n
++
++$set 14 #Common
++
++1 Oui
++2 Non
++
++3 Orientation
++4 Horizontal
++5 Vertical
++
++6 Toujours au-dessus
++
++7 Disposition
++8 En haut à gauche
++9 Au centre à gauche
++10 En bas à gauche
++11 En haut au centre
++12 En bas au centre
++13 En haut à droite
++14 Au centre à droite
++15 En bas à droite
++
++$set 15 #main
++
++1 Erreur: '-rc' nécessite un argument\n
++2 Erreur: '-display' nécessite un argument\n
++3 Attention: impossible d'attribuer la variable d'environnement 'DISPLAY'\n
++4 Blackbox %s: (c) 1997 - 2000 Brad Hughes\n\n\
++  -display <chaîne>\t\tutilise la connexion à l'affichage.\n\
++  -rc <chaîne>\t\t\tutilise un autre fichier de configuration.\n\
++  -version\t\t\taffiche la version et quitte.\n\
++  -help\t\t\t\taffiche ce texte d'aide et quitte.\n\n
++5 Options de compilation:\n\
++  Debugging\t\t\t%s\n\
++  Interlacing:\t\t\t%s\n\
++  Shape:\t\t\t%s\n\
++  Slit:\t\t\t\t%s\n\
++  8bpp Ordered Dithering:\t%s\n\n
++
++$set 16 #bsetroot
++
++1 %s: Erreur: il faut préciser: -solid, -mod, -gradient\n
++2 %s 2.0: (c) 1997-2000 Brad Hughes\n\n\
++  -display <chaîne>        	connexion à l'écran\n\
++  -mod <x> <y>             	schéma\n\
++  -foreground, -fg <couleur> 	couleur au premier plan\n\
++  -background, -bg <couleur> 	couleur au second plan\n\n\
++  -gradient <texture>      	texture du dégradé\n\
++  -from <couleur>            	couleur de départ du dégradé\n\
++  -to <couleur>              	couleur d'arrivé du dégradé\n\n\
++  -solid <couleur>           	couleur pleine\n\n\
++  -help                    	affiche ce texte d'aide et quitte\n
++
+diff -urN blackbox-0.62.0pre2/nls/pt_BR/Translation.m blackbox-0.62.0pre2-epist/nls/pt_BR/Translation.m
+--- blackbox-0.62.0pre2/nls/pt_BR/Translation.m	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/pt_BR/Translation.m	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,191 @@
++$set 1 #BaseDisplay
++
++1 %s:  X erro: %s(%d) opcodes %d/%d\n  recurso 0x%lx\n
++2 %s: recebeido sinal %d\n
++3 desligando\n
++4 abortando... gerando arquivo core\n
++5 BaseDisplay::BaseDisplay: conecção ao servidor X falhou.\n
++6 BaseDisplay::BaseDisplay: impossivel marcar a conexão ao display como close-on-exec\n
++7 BaseDisplay::eventLoop(): removendo má janela da trilha de eventos\n
++
++$set 2 #Basemenu
++
++1 Menu Blackbox
++
++$set 3 #Configmenu
++
++1 Configurações
++2 Modelo de Foco
++3 Posicionamento das Janelas
++4 Simulação de Cores em Imagens
++5 Movimento Opaco de Janelas
++6 Maximização Total
++7 Foco em Novas Janelas
++8 Foco na Ultima Janela Da Area de Trabalho
++9 Foco na Janela Quando Clicada
++10 Foco na Janela Quando Apontada
++11 Sobrepor Janela Quando Ativa
++12 Posicionamento em Fila
++13 Posicionamento em Coluna
++14 Posicionamento em Cascata
++15 Esquerda para Direita
++16 Direita para Esquerda
++17 Cima para Baixo
++18 Baixo para Cima
++
++$set 4 #Icon
++
++1 Icones
++
++$set 5 #Image
++
++1 BImage::render_solid: erro criando pixmap\n
++2 BImage::renderXImage: erro criando XImage\n
++3 BImage::renderXImage: visual não suportado\n
++4 BImage::renderPixmap: erro criando pixmap\n
++5 BImageControl::BImageControl: mapa de cores de tamanho invalido %d (%d/%d/%d) - reduzindo\n
++6 BImageControl::BImageControl: erro localizando mapa de cores\n
++7 BImageControl::BImageControl: falha localizando cor %d/%d/%d\n
++8 BImageControl::~BImageControl: reserva de pixmap cheia - liberando %d pixmaps\n
++9 BImageControl::renderImage: reserva cheia, forçando limpeza\n
++10 BImageControl::getColor: color parse error: '%s'\n
++11 BImageControl::getColor: erro localizando cor: '%s'\n
++
++$set 6 #Screen
++
++1 BScreen::BScreen: um erro occorreu enquanto chamando o servidor X.\n  \
++existe outro window menager rodando no display. %s.\n
++2 BScreen::BScreen: managing screen %d using visual 0x%lx, depth %d\n
++3 BScreen::LoadStyle(): impossivel carregar fonte '%s'\n
++4 BScreen::LoadStyle(): impossivel carregar fonte padrão.\n
++5 %s: arquivo de menu vazio\n
++6 xterm
++7 Reiniciar
++8 Sair
++9 BScreen::parseMenuFile: [exec] erro, não há indicação definida no menu e/ou comando definido\n
++10 BScreen::parseMenuFile: [exit] erro, não há indicação definida no menu\n
++11 BScreen::parseMenuFile: [style] erro, não há indicação de menu e/ou nome de arquivo difinido\n
++12 BScreen::parseMenuFile: [config] erro, não há indicação definida no menu\n
++13 BScreen::parseMenuFile: [include] erro, nome de arquivo não definido\n
++14 BScreen::parseMenuFile: [include] error, '%s' não é um arquivo regular\n
++15 BScreen::parseMenuFile: [submenu] erro, não há indicação definida no menu\n
++16 BScreen::parseMenuFile: [restart] erro, não há indicação definida no menu\n
++17 BScreen::parseMenuFile: [reconfig] erro, não há indicação definida no menu\n
++18 BScreen::parseMenuFile: [stylesdir/stylesmenu] erro, não há diretorio difinido\n
++19 BScreen::parseMenuFile: [stylesdir/stylesmenu] erro, '%s' não é um diretorio\n
++20 BScreen::parseMenuFile: [stylesdir/stylesmenu] erro, '%s' não existe\n
++21 BScreen::parseMenuFile: [workspaces] erro, não há indicação definida no menu\n
++22 0: 0000 x 0: 0000
++23 X: %4d x Y: %4d
++24 W: %4d x H: %4d
++
++
++$set 7 #Slit
++
++1 Slit
++2 Direção
++3 Posicionamento
++
++$set 8 #Toolbar
++
++1 00:00000
++2 %02d/%02d/%02d
++3 %02d.%02d.%02d
++4  %02d:%02d 
++5 %02d:%02d %sm
++6 p
++7 a
++8 Toolbar
++9 Renomear Area de Trabalho
++10 Posicionamento
++
++$set 9 #Window
++
++
++1 BlackboxWindow::BlackboxWindow: criando 0x%lx\n
++2 BlackboxWindow::BlackboxWindow: XGetWindowAttributres falhou\n
++3 BlackboxWindow::BlackboxWindow: impossivel encontrar tela para janela 0x%lx\n
++4 Sem Nome
++5 BlackboxWindow::mapRequestEvent() para 0x%lx\n
++6 BlackboxWindow::unmapNotifyEvent() para 0x%lx\n
++7 BlackboxWindow::unmapnotifyEvent: reparent 0x%lx to root\n
++
++$set 10 #Windowmenu
++
++1 Enviar Para ...
++2 Encolher
++3 Minimizar
++4 Maximizar
++5 Focalizar
++6 Desfocalizar
++7 Sempre Visivel
++8 Kill Cliente
++9 Fechar
++
++$set 11 #Workspace
++
++1 Area de Trabalho %d
++
++$set 12 #Workspacemenu
++
++1 Areas de Trabalho
++2 Nova Area de Trabalho
++3 Remover Ultima
++
++$set 13 #blackbox
++
++1 Blackbox::Blackbox: não foram encontradas telas administraveis, abortando..\n
++2 Blackbox::process_event: MapRequest para 0x%lx\n
++
++$set 14 #Common
++
++1 Sim
++2 Não
++
++3 Direção
++4 Horizontal
++5 Vertical
++
++6 Sempre Visivel
++
++7 Posicionamento
++8 No Alto a Esquerda
++9 No Centro a Esquerda
++10 Em Baixo a Esquerda
++11 No Alto e no Centro
++12 Em Baixo e no Centro
++13 No Alto a Direita
++14 No Meio a Direita
++15 Em Baixo a Direita
++
++$set 15 #main
++
++1 erro: '-rc' requer um argumento\n
++2 erro: '-display' requer um argumento\n
++3 aviso: não foi possivel setar a variavel de ambiente 'DISPLAY'\n
++4 Blackbox %s: (c) 1997 - 2000 Brad Hughes\n\n\
++  -display <string>\t\tusar conexão com o display.\n\
++  -rc <string>\t\t\tusar arquivo alternativo de recursos.\n\
++  -version\t\t\tmostrar versao e sair.\n\
++  -help\t\t\t\tmostrar esta ajuda e sair.\n\n
++5 Opções em tempo de compilação:\n\
++  Informações extras para problemas:\t\t\t%s\n\
++  Interlacing:\t\t\t%s\n\
++  Forma:\t\t\t%s\n\
++  Slit:\t\t\t\t%s\n\
++  8bpp Simulação ordenada de cores em imagens:\t%s\n\n
++
++$set 16 #bsetroot
++
++1 %s: erro: necessario especificar um dos seguintes argumentos: -solid, -mod, -gradient\n
++2 %s 2.0: (c) 1997-2000 Brad Hughes\n\n\
++  -display <string>        conexão com display\n\
++  -mod <x> <y>             modula pattern\n\
++  -foreground, -fg <color> modula foreground color\n\
++  -background, -bg <color> modula background color\n\n\
++  -gradient <texture>      textura gradiente\n\
++  -from <color>            cor de inicio do gradiente\n\
++  -to <color>              com do fim do gradiente\n\n\
++  -solid <color>           cor solida\n\n\
++  -help                    mostra essa ajuda e sai\n
++
+diff -urN blackbox-0.62.0pre2/nls/ru_RU/Translation.m blackbox-0.62.0pre2-epist/nls/ru_RU/Translation.m
+--- blackbox-0.62.0pre2/nls/ru_RU/Translation.m	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/ru_RU/Translation.m	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,191 @@
++$set 1 #BaseDisplay
++
++1 %s:  ÏÛÉÂËÁ X ÓÅÒ×ÅÒÁ: %s(%d) ÚÎÁŞÅÎÉÑ %d/%d\n ÒÅÓÕÒÓ 0x%lx\n
++2 %s: ĞÏÌÕŞÅÎ ÓÉÇÎÁÌ %d \n
++3 ÏÔËÌÀŞÅÎÉÅ\n
++4 ïÔÍÅÎÁ... ÓÏÚÄÁÅÔÓÑ ÄÁÍĞ core\n
++5 BaseDisplay::BaseDisplay: ÓÏÅÄÉÎÅÎÉÅ Ó X ÓÅÒ×ÅÒÏÍ ĞÒÏ×ÁÌÅÎÏ.\n
++6 BaseDisplay::BaseDisplay: ÎÅÔ ×ÏÚÍÏÖÎÏÓÔÉ ĞÏÍÅÔÉÔØ ÁËÔÉ×ÎÙÊ ÄÉÓĞÌÅÊ ËÁË "ÚÁËÒÙÔÙÊ-ÎÁ-ÉÓĞÏÌÎÅÎÉÅ"\n
++7 BaseDisplay::eventLoop(): ĞÌÏÈÏÅ ÏËÎÏ ÕÄÁÌÑÅÔÓÑ ÉÚ ÏŞÅÒÅÄÉ ÓÏÂÙÔÉÊ\n
++
++$set 2 #Basemenu
++
++1 íÅÎÀ BlackBox
++
++$set 3 #Configmenu
++
++1 ëÏÎÆÉÇÕÒÁÃÉÑ
++2 íÏÄÅÌØ ÆÏËÕÓÉÒÏ×ËÉ
++3 ğÏÌÏÖÅÎÉÅ ÏËÎÁ
++4 Image Dithering
++5 ğÅÒÅÍÅİÅÎÉÅ ÚÁĞÏÌÎÅÎÎÙÈ ÏËÏÎ
++6 ğÏÌÎÁÑ ÍÁËÓÉÍÉÚÁÃÉÑ
++7 ğÅÒÅÍÅİÁÔØ ÆÏËÕÓ ÎÁ ÎÏ×ÙÅ ÏËÎÁ
++8 æÏËÕÓ ÎÁ ĞÏÓÌÅÄÎÅÅ ÏËÎÏ ÒÁÂÏŞÅÇÏ ÓÔÏÌÁ
++9 æÏËÕÓ ĞÏ İÅÌŞËÕ
++10 æÏËÕÓ ĞÏ ĞÅÒÅÍÅİÅÎÉÀ
++11 á×ÔÏ×ÓĞÌÙÔÉÅ
++12 "õÍÎÏÅ" ÒÁÓĞÏÌÏÖÅÎÉÅ (ĞÏ ÇÏÒÉÚÏÎÔÁÌÉ)
++13 "õÍÎÏÅ" ÒÁÓĞÏÌÏÖÅÎÉÅ (ĞÏ ×ÅÒÔÉËÁÌÉ)
++14 ëÁÓËÁÄÏÍ
++15 óÌÅ×Á ÎÁĞÒÁ×Ï
++16 óĞÒÁ×Á ÎÁÌÅ×Ï
++17 ó×ÅÒÈÕ ×ÎÉÚ
++18 óÎÉÚÕ ××ÅÒÈ
++
++$set 4 #Icon
++
++1 ó×ÅÒÎÕÔÙÅ\nÏËÎÁ
++
++$set 5 #Image
++
++1 BImage::render_solid: ÏÛÉÂËÁ ÓÏÚÄÁÎÉÑ pixmap\n
++2 BImage::renderXImage: ÏÛÉÂËÁ ÓÏÚÄÁÎÉÑ XImage\n
++3 BImage::renderXImage: ÎÅĞÏÄÄÅÒÖÉ×ÁÅÍÙÊ ÔÉĞ ×ÉÚÕÁÌÉÚÁÃÉÉ\n
++4 BImage::renderPixmap: ÏÛÉÂËÁ ÓÏÚÄÁÎÉÑ pixmap\n
++5 BImageControl::BImageControl: ÎÅ×ÅÒÎÙÊ ÒÁÚÍÅÒ ÔÁÂÌÉÃÙ Ã×ÅÔÏ× %d (%d/%d/%d) - ÕÄÁÌÑÅÔÓÑ\n
++6 BImageControl::BImageControl: ÏÛÉÂËÁ ÒÁÚÍÅİÅÎÉÑ ÔÁÂÌÉÃÙ Ã×ÅÔÏ×\n
++7 BImageControl::BImageControl: ÎÅ×ÏÚÍÏÖÎÏ ÒÁÚÍÅÓÔÉÔØ Ã×ÅÔ %d/%d/%d × ĞÁÍÑÔÉ\n
++8 BImageControl::~BImageControl: ËÜÛ ÔÏŞÅŞÎÙÈ ÉÚÏÂÒÁÖÅÎÉÊ - ÏÓ×ÏÂÏÖÄÁÅÔÓÑ %d ÂÌÏËÏ×\n
++9 BImageControl::renderImage: ĞÅÒÅĞÏÌÎÅÎÉÅ ËÜÛÁ, ĞÒÏÉÚ×ÏÄÉÔÓÑ ÂÙÓÔÒÁÑ ÏŞÉÓÔËÁ\n
++10 BImageControl::getColor: ÏÛÉÂËÁ ÒÁÚÂÏÒÁ ÓÔÒÏËÉ, ÏĞÉÓÙ×ÁÀİÅÊ Ã×ÅÔ: '%s'\n
++11 BImageControl::getColor: ÏÛÉÂËÁ ÒÁÚÍÅİÅÎÉÑ Ã×ÅÔÁ × ĞÁÍÑÔÉ: '%s'\n
++
++$set 6 #Screen
++
++1 BScreen::BScreen: ĞÒÏÉÚÏÛÌÁ ÏÛÉÂËÁ ĞÒÉ ÏÂÒÁİÅÎÉÉ Ë X ÓÅÒ×ÅÒÕ.\n  \
++ÄÒÕÇÏÊ ÍÅÎÅÄÖÅÒ ÏËÏÎ ÕÖÅ ÚÁĞÕİÅÎ ÎÁ ÄÉÓĞÌÅÅ %s.\n
++2 BScreen::BScreen: ÏÂÓÌÕÖÉ×ÁÅÔÓÑ ÜËÒÁÎ %d, ÉÓĞÏÌØÚÕÅÍÙÊ ÔÉĞ ×ÉÚÕÁÌÉÚÁÃÉÉ 0x%lx, ÇÌÕÂÉÎÁ Ã×ÅÔÁ %d\n
++3 BScreen::LoadStyle(): ÎÅÔ ×ÏÚÍÏÖÎÏÓÔÉ ÚÁÇÒÕÚÉÔØ ÛÒÉÆÔ '%s'\n
++4 BScreen::LoadStyle(): ÎÅÔ ×ÏÚÍÏÖÎÏÓÔÉ ÚÁÇÒÕÚÉÔØ ĞÒÅÄÏĞÒÅÄÅÌÅÎÎÙÊ ÛÒÉÆÔ.\n
++5 %s: ĞÕÓÔÏÊ ÆÁÊÌ ÍÅÎÀ\n
++6 Xterm
++7 ğÅÒÅÚÁĞÕÓË
++8 ÷ÙÈÏÄ
++9 BScreen::parseMenuFile: ÏÛÉÂËÁ [exec], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÎÁÚ×ÁÎÉÅ ĞÕÎËÔÁ ÍÅÎÀ É/ÉÌÉ ÎÁÚ×ÁÎÉÅ ËÏÍÍÁÎÄÙ\n
++10 BScreen::parseMenuFile: ÏÛÉÂËÁ [exit], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÎÁÚ×ÁÎÉÅ ĞÕÎËÔÁ ÍÅÎÀ\n
++11 BScreen::parseMenuFile: ÏÛÉÂËÁ [style], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÎÁÚ×ÁÎÉÅ ĞÕÎËÔÁ ÍÅÎÀ É/ÉÌÉ ÉÍÑ ÆÁÊÌÁ\n
++12 BScreen::parseMenuFile: ÏÛÉÂËÁ [config], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÎÁÚ×ÁÎÉÅ ĞÕÎËÔÁ ÍÅÎÀ\n
++13 BScreen::parseMenuFile: ÏÛÉÂËÁ [include], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÉÍÑ ÆÁÊÌÁ\n
++14 BScreen::parseMenuFile: ÏÛÉÂËÁ [include], '%s' ÎÅ ÏÂÙŞÎÙÊ ÆÁÊÌ\n
++15 BScreen::parseMenuFile: ÏÛÉÂËÁ [submenu], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÎÁÚ×ÁÎÉÅ ĞÕÎËÔÁ ÍÅÎÀ\n
++16 BScreen::parseMenuFile: ÏÛÉÂËÁ [restart], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÎÁÚ×ÁÎÉÅ ĞÕÎËÔÁ ÍÅÎÀ\n
++17 BScreen::parseMenuFile: ÏÛÉÂËÁ [reconfig], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÎÁÚ×ÁÎÉÅ ĞÕÎËÔÁ ÍÅÎÀ\n
++18 BScreen::parseMenuFile: ÏÛÉÂËÁ [stylesdir/stylesmenu], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÉÍÑ ÄÉÒÅËÔÏÒÉÉ\n
++19 BScreen::parseMenuFile: ÏÛÉÂËÁ [stylesdir/stylesmenu], '%s' ÎÅ ÄÉÒÅËÔÏÒÉÑ\n
++20 BScreen::parseMenuFile: ÏÛÉÂËÁ [stylesdir/stylesmenu], '%s' ÎÅ ÓÕİÅÓÔ×ÕÅÔ\n
++21 BScreen::parseMenuFile: ÏÛÉÂËÁ [workspaces], ÎÅ ÏĞÒÅÄÅÌÅÎÏ ÎÁÚ×ÁÎÉÅ ĞÕÎËÔÁ ÍÅÎÀ\n
++22 0: 0000 x 0: 0000
++23 X: %4d x Y: %4d
++24 W: %4d x H: %4d
++
++
++$set 7 #Slit
++
++1 äÏËÅÒ
++2 ïÒÉÅÎÔÁÃÉÑ ÄÏËÅÒÁ
++3 íÅÓÔÏĞÏÌÏÖÅÎÉÑ ÄÏËÅÒÁ
++
++$set 8 #Toolbar
++
++1 00:00000
++2 %02d/%02d/%02d
++3 %02d.%02d.%02d
++4  %02d:%02d 
++5 %02d:%02d %sm
++6 ĞĞ
++7 ÄĞ
++8 ôÕÌÂÁÒ
++9 òÅÄÁËÔÉÒÏ×ÁÔØ ÉÍÑ ÔÅËÕİÅÇÏ ÒÁÂÏŞÅÇÏ ÓÔÏÌÁ
++10 íÅÓÔÏĞÏÌÏÖÅÎÉÅ ÔÕÌÂÁÒÁ
++
++$set 9 #Window
++
++
++1 BlackboxWindow::BlackboxWindow: ÓÏÚÄÁÅÔÓÑ 0x%lx\n
++2 BlackboxWindow::BlackboxWindow: ĞÒÏ×ÁÌÅÎ ĞÒÏÃÅÓÓ XGetWindowAttributres\n
++3 BlackboxWindow::BlackboxWindow: ÎÅÔ ×ÏÚÍÏÖÎÏÓÔÉ ÎÁÊÔÉ ÜËÒÁÎ ÄÌÑ ËÏÒÎÅ×ÏÇÏ ÏËÎÁ 0x%lx\n
++4 âÅÚÙÍÑÎÎÏÅ
++5 BlackboxWindow::mapRequestEvent() ÄÌÑ 0x%lx\n
++6 BlackboxWindow::unmapNotifyEvent() ÄÌÑ 0x%lx\n
++7 BlackboxWindow::unmapnotifyEvent: reparent 0x%lx to root\n
++
++$set 10 #Windowmenu
++
++1 ïÔĞÒÁ×ÉÔØ ÎÁ ...
++2 ó×ÅÒÎÕÔØ × ÚÁÇÏÌÏ×ÏË
++3 ó×ÅÒÎÕÔØ × ÉËÏÎËÕ
++4 íÁËÓÉÍÉÚÉÒÏ×ÁÔØ
++5 ğÏÄÎÑÔØ ÎÁ×ÅÒÈ
++6 ïĞÕÓÔÉÔØ ×ÎÉÚ
++7 ğÒÉËÌÅÉÔØ
++8 õÂÉÔØ ËÌÉÅÎÔÓËÏÅ ĞÒÉÌÏÖÅÎÉÅ
++9 úÁËÒÙÔØ
++
++$set 11 #Workspace
++
++1 òÁÂÏŞÉÊ ÓÔÏÌ %d
++
++$set 12 #Workspacemenu
++
++1 òÁÂÏŞÉÅ ÓÔÏÌÙ
++2 îÏ×ÙÊ ÒÁÂÏŞÉÊ ÓÔÏÌ
++3 õÄÁÌÉÔØ ĞÏÓÌÅÄÎÉÊ
++
++$set 13 #blackbox
++
++1 Blackbox::Blackbox: ÎÅ ÎÁÊÄÅÎÏ ÜËÒÁÎÏ× ÄÌÑ ÏÂÓÌÕÖÉ×ÁÎÉÑ, ÏÔÍÅÎÁ...\n
++2 Blackbox::process_event: MapRequest for 0x%lx\n
++
++$set 14 #Common
++
++1 äÁ
++2 îÅÔ
++
++3 îÁĞÒÁ×ÌÅÎÉÅ
++4 ğÏ ÇÏÒÉÚÏÎÔÁÌÉ
++5 ğÏ ×ÅÒÔÉËÁÌÉ
++
++6 ÷ÓÅÇÄÁ ÎÁ×ÅÒÈÕ
++
++7 íÅÓÔÏĞÏÌÏÖÅÎÉÅ
++8 óÌÅ×Á ××ÅÒÈÕ
++9 óÌÅ×Á ĞÏ ÃÅÎÔÒÕ
++10 óÌÅ×Á ×ÎÉÚÕ
++11 ó×ÅÒÈÕ ĞÏ ÃÅÎÔÒÕ
++12 óÎÉÚÕ ĞÏ ÃÅÎÔÒÕ
++13 óĞÒÁ×Á Ó×ÅÒÈÕ
++14 óĞÒÁ×Á ĞÏ ÃÅÎÔÒÕ
++15 óĞÒÁ×Á ×ÎÉÚÕ
++
++$set 15 #main
++
++1 ÏÛÉÂËÁ: '-rc' ÔÒÅÂÕÅÔ ÎÁÌÉŞÉÅ ÁÒÇÕÍÅÎÔÁ\n
++2 ÏÛÉÂËÁ: '-display' ÔÒÅÂÕÅÔ ÎÁÌÉŞÉÅ ÁÒÇÕÍÅÎÔÁ\n
++3 ĞÒÅÄÕĞÒÅÖÄÅÎÉÅ: ÎÅ×ÏÚÍÏÖÎÏ ÕÓÔÁÎÏ×ÉÔØ ĞÅÒÅÍÅÎÎÕÀ ÏËÒÕÖÅÎÉÑ 'DISPLAY'\n
++4 Blackbox %s: (c) 1997 - 2000 Brad Hughes\n\n\
++  -display <string>\t\tÉÓĞÏÌØÚÏ×ÁÔØ ÚÁÄÁÎÎÙÊ ÄÉÓĞÌÅÊ.\n\
++  -rc <string>\t\t\tÉÓĞÏÌØÚÏ×ÁÔØ ÁÌØÔÅÒÎÁÔÉ×ÎÙÊ ÆÁÊÌ ÒÅÓÕÒÓÏ×.\n\
++  -version\t\t\t×Ù×ÅÓÔÉ ÎÏÍÅÒ ×ÅÒÓÉÉ É ×ÙÊÔÉ.\n\
++  -help\t\t\t\t×Ù×ÅÓÔÉ ÜÔÕ ĞÏÄÓËÁÚËÕ É ×ÙÊÔÉ.\n\n
++5 Compile time options:\n\
++  Debugging\t\t\t%s\n\
++  Interlacing:\t\t\t%s\n\
++  Shape:\t\t\t%s\n\
++  Slit:\t\t\t\t%s\n\
++  8bpp Ordered Dithering:\t%s\n\n
++
++$set 16 #bsetroot
++
++1 %s: ÏÛÉÂËÁ: ÎÅÏÂÈÏÄÉÍÏ ÚÁÄÁÔØ ÏÄÉÎ ÉÚ ÓÌÅÄÕÀİÉÈ ËÌÀŞÅÊ: -solid, -mod, -gradient\n
++2 %s 2.0: (c) 1997-2000 Brad Hughes\n\n\
++  -display <string>        ÓÏÅÄÉÎÅÎÉÅ Ó ÄÉÓĞÌÅÅÍ\n\
++  -mod <x> <y>             ÍÁËÅÔ ËÌÅÔËÉ\n\
++  -foreground, -fg <color> Ã×ÅÔ ĞÅÒÅÄÎÅÇÏ ĞÌÁÎÁ ËÌÅÔËÉ\n\
++  -background, -bg <color> Ã×ÅÔ ÆÏÎÁ ËÌÅÔËÉ\n\n\
++  -gradient <texture>      ÇÒÁÄÉÅÎÔ\n\
++  -from <color>            ÎÁŞÁÌØÎÙÊ Ã×ÅÔ ÇÒÁÄÉÅÎÔÁ\n\
++  -to <color>              ËÏÎÅŞÎÙÊ Ã×ÅÔ ÇÒÁÄÉÅÎÔÁ\n\n\
++  -solid <color>           ÓĞÌÏÛÎÏÊ Ã×ÅÔ\n\n\
++  -help                    ×Ù×ÅÓÔÉ ÜÔÕ ĞÏÄÓËÁÚËÕ É ×ÙÊÔÉ\n
++
+diff -urN blackbox-0.62.0pre2/nls/sv_SE/Translation.m blackbox-0.62.0pre2-epist/nls/sv_SE/Translation.m
+--- blackbox-0.62.0pre2/nls/sv_SE/Translation.m	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/sv_SE/Translation.m	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,193 @@
++$set 1 #BaseDisplay
++
++1 %s:  X-fel: %s(%d) opkod %d/%d\n  resurs 0x%lx\n
++2 %s: signal %d fångad\n
++3 stänger ner\n
++4 avbryter... dumpar kärna\n
++5 BaseDisplay::BaseDisplay: anslutning till X server misslyckades.\n
++6 BaseDisplay::BaseDisplay: kunde inte markera skärmanslutning som stäng-vid-exekvering\n
++7 BaseDisplay::eventLoop(): tar bort dåligt fönster från händelsekön\n
++
++$set 2 #Basemenu
++
++1 Blackboxmeny
++
++$set 3 #Configmenu
++
++1 Inställningar
++2 Fokusmodell
++3 Fönsterplacering
++4 Bilddithering
++5 Ogenomskinlig fönsterförflyttning
++6 Full maximering
++7 Fokus på nya fönster
++8 Fokusera fönster vid skrivbordsbyte
++9 Klicka för fokus
++10 Hafsig fokus
++11 Höj automatiskt
++12 Smart placering (Rader)
++13 Smart placering (Kolumner)
++14 Kaskadplacering
++15 Från vänster
++16 Från höger
++17 Uppifrån
++18 Nerifrån
++
++$set 4 #Icon
++
++1 Ikoner
++
++$set 5 #Image
++
++1 BImage::render_solid: fel under skapande av pixmap\n
++2 BImage::renderXImage: fel under skapande av XImage\n
++3 BImage::renderXImage: ej stöd för färgdjup\n
++4 BImage::renderPixmap: fel under skapande av pixmap\n
++5 BImageControl::BImageControl: ogiltig färgkarta storlek %d (%d/%d/%d) - reducerar\n
++6 BImageControl::BImageControl: fel under allokering av färgkarta\n
++7 BImageControl::BImageControl: misslyckades att allokera färg %d/%d/%d\n
++8 BImageControl::~BImageControl: pixmap cache - släpper %d pixmappar\n
++9 BImageControl::renderImage: stor cache, tvingar upprensning\n
++10 BImageControl::getColor: färgfel: '%s'\n
++11 BImageControl::getColor: färgallokeringsfel: '%s'\n
++
++$set 6 #Screen
++
++1 BScreen::BScreen: ett fel inträffade under en förfrågan till X servern.\n  \
++en annan fönsterhanterare körs redan på skärmen %s.\n
++2 BScreen::BScreen: hanterar skärm %d med visuell 0x%lx, färgdjup %d\n
++3 BScreen::LoadStyle(): kunde inte ladda font '%s'\n
++4 BScreen::LoadStyle(): kunde inte ladda standardfont.\n
++5 %s: tom menyfil\n
++6 xterm
++7 Starta om
++8 Avsluta
++9 BScreen::parseMenuFile: [exec] fel, ingen menyetikett och/eller kommando definierat\n
++10 BScreen::parseMenuFile: [exit] fel, ingen menyetikett definierad\n
++11 BScreen::parseMenuFile: [style] fel, ingen menyetikett och/eller filnamn definierat\n
++12 BScreen::parseMenuFile: [config] fel, ingen menyetikett definierad\n
++13 BScreen::parseMenuFile: [include] fel, inget filnamn definierat\n
++14 BScreen::parseMenuFile: [include] fel, '%s' är inte en vanlig fil\n
++15 BScreen::parseMenuFile: [submenu] fel, ingen menyetikett definierad\n
++16 BScreen::parseMenuFile: [restart] fel, ingen menyetikett definiera\n
++17 BScreen::parseMenuFile: [reconfig] fel, ingen menyetikett definierad\n
++18 BScreen::parseMenuFile: [stylesdir/stylesmenu] fel, ingen katalog definierad\n
++19 BScreen::parseMenuFile: [stylesdir/stylesmenu] fel, '%s' är inte en katalog\n
++20 BScreen::parseMenuFile: [stylesdir/stylesmenu] fel, '%s' existerar inte\n
++21 BScreen::parseMenuFile: [workspaces] fel, ingen menyetikett definierad\n
++22 0: 0000 x 0: 0000
++23 X: %4d x Y: %4d
++24 W: %4d x H: %4d
++
++
++$set 7 #Slit
++
++1 Slit
++2 Slitriktning
++3 Slitplacering
++
++$set 8 #Toolbar
++
++1 00:00000
++2 %02d/%02d/%02d
++3 %02d.%02d.%02d
++4  %02d:%02d 
++5 %02d:%02d %sm
++6 p
++7 a
++8 Verktygslist
++9 Ändra namn på skrivbordet
++10 Verktygslistens placering
++
++$set 9 #Window
++
++
++1 BlackboxWindow::BlackboxWindow: skapar 0x%lx\n
++2 BlackboxWindow::BlackboxWindow: XGetWindowAttributes misslyckades\n
++3 BlackboxWindow::BlackboxWindow: kan inte hitta skärm för rootfönster 0x%lx\n
++4 Inget namn
++5 BlackboxWindow::mapRequestEvent() för 0x%lx\n
++6 BlackboxWindow::unmapNotifyEvent() för 0x%lx\n
++7 BlackboxWindow::unmapnotifyEvent: återför 0x%lx till root\n
++
++$set 10 #Windowmenu
++
++1 Skicka till...
++2 Skugga
++3 Ikonifiera
++4 Maximera
++5 Höj
++6 Sänk
++7 Klibbig
++8 Döda klient
++9 Stäng
++
++$set 11 #Workspace
++
++1 Skrivbord %d
++
++$set 12 #Workspacemenu
++
++1 Skrivbord
++2 Nytt skrivbord
++3 Ta bort sista
++
++$set 13 #blackbox
++
++1 Blackbox::Blackbox: inga hanterbara skärmar hittades, avslutar\n
++2 Blackbox::process_event: MapRequest för 0x%lx\n
++
++$set 14 #Common
++
++1 Ja
++2 Nej
++
++3 Riktning
++4 Horisontell
++5 Vertikal
++
++6 Alltid överst
++
++7 Placering
++8 Uppe till vänster
++9 Mitten till vänster
++10 Nere till vänster
++11 Uppe i mitten
++12 Nere i mitten
++13 Uppe till höger
++14 Mitten till höger
++15 Nere till höger
++
++16 Göm automatiskt
++
++$set 15 #main
++
++1 fel: '-rc' kräver ett argument\n
++2 fel: '-display' kräver ett argument\n
++3 varning: kunde inte sätta variabeln 'DISPLAY'\n
++4 Blackbox %s: (c) 1997 - 2000 Brad Hughes\n\n\
++  -display <string>\t\tanvänd skärmanslutning.\n\
++  -rc <string>\t\t\tanvänd alternativ resursfil.\n\
++  -version\t\t\tvisa version och avsluta.\n\
++  -help\t\t\t\tvisa denna hjälptext och avsluta.\n\n
++5 Kompilerad med:\n\
++  Avlusning\t\t\t%s\n\
++  Interlacing:\t\t\t%s\n\
++  Form:\t\t\t\t%s\n\
++  Slit:\t\t\t\t%s\n\
++  8bpp ordnad dithering:\t%s\n\n
++
++$set 16 #bsetroot
++
++1 %s: fel: måste specifiera en av: -solid, -mod, -gradient\n
++2 %s 2.0: (c) 1997-2000 Brad Hughes\n\n\
++  -display <string>        skärmanslutning\n\
++  -mod <x> <y>             modulamönster\n\
++  -foreground, -fg <color> förgrundsfärg för modulamönster\n\
++  -background, -bg <color> bakgrundsfärg för modulamönster\n\n\
++  -gradient <texture>      texturlutning\n\
++  -from <color>            startfärg\n\
++  -to <color>              slutfärg\n\n\
++  -solid <color>           solid färg\n\n\
++  -help                    visa denna hjälptext och avsluta\n
++
+diff -urN blackbox-0.62.0pre2/nls/tr_TR/Translation.m blackbox-0.62.0pre2-epist/nls/tr_TR/Translation.m
+--- blackbox-0.62.0pre2/nls/tr_TR/Translation.m	Wed Dec 31 19:00:00 1969
++++ blackbox-0.62.0pre2-epist/nls/tr_TR/Translation.m	Sat Jan  5 13:02:57 2002
+@@ -0,0 +1,191 @@
++$set 1 #BaseDisplay
++
++1 %s : X hatası : %s ( %d ) opkodlar %d/%d\n  kaynak 0x%lx\n
++2 %s : %d sinyali alındı \n
++3 kapatılıyorum\n
++4 kapatılıyorum ... çöküntüyü bırakıyorum\n
++5 BaseDisplay::BaseDisplay : X sunucusuna bağlanılınamadı .\n
++6 BaseDisplay::BaseDisplay : çalıştırırken kapatmada ekrana bağlanılınamadı \n
++7 BaseDisplay::eventLoop() : eylem kuyruğundaki 'kötü' pencereyi siliyorum \n
++
++$set 2 #Basemenu
++
++1 Blackbox mönüsü
++
++$set 3 #Configmenu
++
++1 Ayarlar
++2 Foküsleme
++3 Pencere yerleşimi
++4 Resim oluşturması
++5 Ekranı içerikli taşı
++6 Tam ekranla, vallahi
++7 Yeni pencereleri foküsle
++8 Masaüstündeki son pencereyi foküsle
++9 Tıklayarak foküsle
++10 Ağır foküsle
++11 Otomatikman yükselt
++12 Akıllı yerleşim( Sıralar )
++13 Akıllı yerleşim( Sütunlar )
++14 Cascade Placement
++15 Soldan sağa
++16 Sağdan sola
++17 Üstten aşağa
++18 Alttan üste
++
++$set 4 #Icon
++
++1 Ikonalar
++
++$set 5 #Image
++
++1 BImage::render_solid : resmi yaratamadım\n
++2 BImage::renderXImage : XImage'i yaratamadım\n
++3 BImage::renderXImage : desteklenmeyen görünüş( renk derinliği )\n
++4 BImage::renderPixmap : resmi yaratamadım\n
++5 BImageControl::BImageControl : geçersiz renk haritası büyüklüğü %d (%d/%d/%d) - azaltıyorum\n
++6 BImageControl::BImageControl : renk haritası ayrılanamadı\n
++7 BImageControl::BImageControl : rengi ayrırken hata oldu : %d/%d/%d\n
++8 BImageControl::~BImageControl : resim arabelleği - %d resim temizlendi\n
++9 BImageControl::renderImage : arabellek büyük, temizlemeye başlıyorum\n
++10 BImageControl::getColor : renk tarama hatası : '%s'\n
++11 BImageControl::getColor : renk ayırma hatası : '%s'\n
++
++$set 6 #Screen
++
++1 BScreen::BScreen : X sunucusunu sorgularken hata oldu.\n  \
++%s ekranında başka bir pencere yöneticisi çalışıyor gibi.\n
++2 BScreen::BScreen : %d ekranı, 0x%lx görünümüyle , %d derinliğiyle\n
++3 BScreen::LoadStyle() : '%s' yazı tipi yüklenemedi.\n
++4 BScreen::LoadStyle(): önayarlı yazı tipi yüklenemedi.\n
++5 %s : boş mönü dosyası\n
++6 X komutası
++7 Yeniden başla
++8 Çık
++9 BScreen::parseMenuFile : [exec] hatası, mönü yaftası ve/yada komuta belirlenmedi\n
++10 BScreen::parseMenuFile : [exit] hatası, mönü yaftası belirlenmedi\n
++11 BScreen::parseMenuFile : [style] hatası, mönü yaftası ve/yada dosya adı belirlenmedi\n
++12 BScreen::parseMenuFile: [config] hatası, mönü yaftası belirlenmedi\n
++13 BScreen::parseMenuFile: [include] hatası, dosya adı belirlenmedi\n
++14 BScreen::parseMenuFile: [include] hatası, '%s' vasat bir dosya değil\n
++15 BScreen::parseMenuFile: [submenu] hatası, mönü yaftası belirlenmedi\n
++16 BScreen::parseMenuFile: [restart] hatası, mönü yaftası belirlenmedi\n
++17 BScreen::parseMenuFile: [reconfig] hatası, mönü yaftası belirlenmedi\n
++18 BScreen::parseMenuFile: [stylesdir/stylesmenu] hatası, dizin adı belirlenmedi\n
++19 BScreen::parseMenuFile: [stylesdir/stylesmenu] hatası, '%s' bir dizin \
++değildir\n
++20 BScreen::parseMenuFile: [stylesdir/stylesmenu] hatası, '%s' var değil\n
++21 BScreen::parseMenuFile: [workspaces] hatası, mönü yaftası belirlenmedi\n
++22 0: 0000 x 0: 0000
++23 X: %4d x Y: %4d
++24 Y: %4d x E: %4d
++
++$set 7 #Slit
++
++1 Slit
++2 Slit yönü
++3 Slit yerleşimi
++
++$set 8 #Toolbar
++
++1 00:00000
++2 %02d/%02d/%02d
++3 %02d.%02d.%02d
++4  %02d:%02d 
++5 %02d:%02d %sm
++6 p
++7 a
++8 Blackbox çubuğu
++9 Geçerli masaüstü ismini değiştir
++10 Blackbox çubuğunun yerleşimi
++
++$set 9 #Window
++
++
++1 BlackboxWindow::BlackboxWindow : 0x%lx'i yarat#_yorum\n
++2 BlackboxWindow::BlackboxWindow : XGetWindowAttributres başarısız oldu\n
++3 BlackboxWindow::BlackboxWindow : 0x%lx ana penceresi için ekranı belirleyemedim\n
++4 Isimsiz
++5 0x%lx için BlackboxWindow::mapRequestEvent()\n
++6 0x%lx için BlackboxWindow::unmapNotifyEvent()\n
++7 BlackboxWindow::unmapnotifyEvent: 0x%lx'i ana pencereyi boya\n
++
++$set 10 #Windowmenu
++
++1 Gönder ...
++2 Topla
++3 Ikonalaştır
++4 Azamileştir
++5 Alçalt
++6 Yükselt
++7 Yapışık
++8 Öldür
++9 Kapat
++
++$set 11 #Workspace
++
++1 Masaüstü %d
++
++$set 12 #Workspacemenu
++
++1 Masaüstleri
++2 Yeni bir masaüstü
++3 Son masaüstünü sil
++
++$set 13 #blackbox
++
++1 Blackbox::Blackbox: yönetebilinen ekran bulunamadı, bitiriliyorum\n
++2 Blackbox::process_event: 0x%lx için MapRequest\n
++
++$set 14 #Common
++
++1 Evet
++2 Hayır
++
++3 Yön
++4 Ufki
++5 Dikey
++
++6 Her zaman üstte
++
++7 Yerleşim
++8 Sol üst
++9 Sol orta 
++10 Sol alt
++11 Üst orta
++12 Alt orta
++13 Sağ üst
++14 Sağ orta
++15 Sağ üst
++
++$set 15 #main
++
++1 hata : '-rc' bir argüman bekler\n
++2 hata : '-display' bir argüman bekler\n
++3 ikaz : 'DISPLAY' verisini oturtamadım\n
++4 Blackbox %s: (c) 1997 - 2000 Brad Hughes\n\n\
++  -display <metin>\t\tekranı kullan.\n\
++  -rc <metin>\t\t\tbaşka bir ayarlama dosyasını kullan.\n\
++  -version\t\t\tnesil bilgisini gösterir ve çıkar.\n\
++  -help\t\t\t\tbu yardım iletisini gösterir ve çıkar.\n\n
++5 Denetleme seçenekleri :\n\
++  Bilgilendirme\t\t\t%s\n\
++  Tızlama:\t\t\t%s\n\
++  Gölgeleme:\t\t\t%s\n\
++  Slit:\t\t\t\t%s\n\
++  R8b'e göre tızla:\t%s\n\n
++
++$set 16 #bsetroot
++
++1 %s : hata : -solid, -mod yada -gradient'den birisini belirlemek zorundasın\n
++2 %s 2.0 : Tel'if hakkı (c) 1997-2000 Brad Hughes\n\n\
++  -display <metin>         ekran belirlemesi\n\
++  -mod <x> <y>             bölüşüm işlemi\n\
++  -foreground, -fg <renk>  bölüşüm önalanı\n\
++  -background, -bg <renk>  bölüşüm ardalanı\n\n\
++  -gradient <kaplam>       geçişim kaplamı\n\
++  -from <renk>             geçişim başlama rengi\n\
++  -to <renk>               geçişim bitiş rengi\n\n\
++  -solid <renk>            tek renk\n\n\
++  -help                    bu yardım iletisini göster ve çık\n
++
+diff -urN blackbox-0.62.0pre2/src/Configmenu.cc blackbox-0.62.0pre2-epist/src/Configmenu.cc
+--- blackbox-0.62.0pre2/src/Configmenu.cc	Sun Dec 30 01:54:05 2001
++++ blackbox-0.62.0pre2-epist/src/Configmenu.cc	Sat Jan  5 13:10:52 2002
+@@ -30,6 +30,12 @@
+ # include "../config.h"
+ #endif // HAVE_CONFIG_H
+ 
++//Epistrophy inserts
++#include <signal.h>
++#include <sys/types.h>
++#include <unistd.h>
++//end Epistrophy inserts
++
+ #include "i18n.hh"
+ #include "Configmenu.hh"
+ #include "Toolbar.hh"
+@@ -60,8 +66,16 @@
+ 			  "Focus New Windows"), 4);
+   insert(i18n->getMessage(ConfigmenuSet, ConfigmenuFocusLast,
+ 			  "Focus Last Window on Workspace"), 5);
++  //Epistrophy insert
++  insert(i18n->getMessage(ConfigmenuSet, ConfigmenuEnableEpistrophy, "Enable Epistrophy (Command Keybindings)"),6);
++
+   update();
+ 
++  //Epistrophy inserts
++  pid = getpid();
++  chpid = getpid();
++  //end Epistrophy inserts
++
+   setItemSelected(2, screen->getImageControl()->doDither());
+   setItemSelected(3, screen->doOpaqueMove());
+   setItemSelected(4, screen->doFullMax());
+@@ -120,13 +134,39 @@
+     setItemSelected(index, screen->doFocusLast());
+     break;
+   }
+-  } // switch
+-}
++    //begin Epistrophy inserts
++  case 6:{//enavle Epistrophy
++    setItemSelected(index,pid==chpid); 
++    if (getpid() != chpid){
++      kill(chpid,SIGTERM);
++      chpid = getpid();
++      break;
++    }
++    if (pid == chpid){ 
++      chpid = fork();
++      if (chpid < 0){
++	//cerr << "Error: Can't Fork epistrophy" << endl;
++      }
++      if (chpid == 0){
++	extern char** environ;
++ 
++	char *args[]= {"sh", "-c", "epist", 0};
++	execve("/bin/sh", args, environ);
++	exit(0);
++      }
++    }
++    else
++      break;
++  }
++    /* END EPISTROPHY*/
++    
++  }// switch
++} 
++
+ 
+ void Configmenu::reconfigure(void) {
+   focusmenu->reconfigure();
+   placementmenu->reconfigure();
+-
+   Basemenu::reconfigure();
+ }
+ 
+diff -urN blackbox-0.62.0pre2/src/blackbox.hh blackbox-0.62.0pre2-epist/src/blackbox.hh
+--- blackbox-0.62.0pre2/src/blackbox.hh	Sun Dec 30 02:11:38 2001
++++ blackbox-0.62.0pre2-epist/src/blackbox.hh	Sat Jan  5 13:02:57 2002
+@@ -40,6 +40,7 @@
+ #    include <time.h>
+ #  endif // HAVE_SYS_TIME_H
+ #endif // TIME_WITH_SYS_TIME
++#include <signal.h>
+ 
+ 
+ #include "LinkedList.hh"
+--- blackbox-0.62.1.orig/src/Configmenu.hh	Sun Dec 30 07:43:06 2001
++++ blackbox-0.62.1/src/Configmenu.hh	Sun May  5 21:28:16 2002
+@@ -75,4 +75,6 @@
+   void reconfigure(void);
+ };
+ 
++static pid_t pid, chpid;
++
+ #endif // __Configmenu_hh
