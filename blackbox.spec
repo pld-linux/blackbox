@@ -1,8 +1,10 @@
+# --with	epistrophy	(enables using epistorophy key grabber)
+
 Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.62.1
-Release:	4.7
+Release:	5
 License:	GPL
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
@@ -15,11 +17,13 @@ Source5:	%{name}-README.PLD
 Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
 Patch2:		%{name}-nls-pl.patch
+%{?_with_epistrophy:Patch3:	%{name}-epistrophy.patch}
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	rpm >= 4.0.2-48
+%{?_with_epistrophy:Requires:	epistrophy}
 Obsoletes:	fluxbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -52,6 +56,7 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%{?_with_epistrophy:%patch3 -p1}
 
 %build
 aclocal
