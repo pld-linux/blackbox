@@ -16,7 +16,7 @@ Source5:	%{name}-README.PLD
 Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
 Patch3:		%{name}-epistrophy.patch
-Patch4:		%{name}-home_etc.patch
+Patch4:		%{name}-etc_dir.patch
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
