@@ -1,11 +1,13 @@
-# --with	epistrophy	(enables using epistorophy key grabber)
-
+#
+# Conditional build:
+# _with_epistrophy	- enables using epistorophy key grabber
+#
 Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window
 Name:		blackbox
 Version:	0.65.0
 Release:	2
-License:	GPL
+License:	BSD-like
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	http://dl.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
@@ -18,6 +20,8 @@ Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
 Patch3:		%{name}-epistrophy.patch
 Patch4:		%{name}-etc_dir.patch
+Patch5:		%{name}-nls-codesets.patch
+Patch6:		%{name}-assert.patch
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -56,6 +60,8 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 %patch1 -p1
 %{?_with_epistrophy:%patch3 -p1}
 %patch4 -p1
+%patch5 -p1
+%patch6 -p1
 
 %build
 rm -f missing
@@ -81,12 +87,40 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README* ChangeLog
+%doc AUTHORS README* ChangeLog LICENSE TODO
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}
 %dir %{_datadir}/blackbox
 %{_datadir}/blackbox/styles
-%{_datadir}/blackbox/nls
+%dir %{_datadir}/blackbox/nls
+%{_datadir}/blackbox/nls/C
+%{_datadir}/blackbox/nls/POSIX
+%{_datadir}/blackbox/nls/US_ASCII
+%{_datadir}/blackbox/nls/en*
+%lang(da) %{_datadir}/blackbox/nls/da*
+%lang(de) %{_datadir}/blackbox/nls/de*
+%lang(es) %{_datadir}/blackbox/nls/es
+%lang(es_AR) %{_datadir}/blackbox/nls/es_AR
+%lang(es) %{_datadir}/blackbox/nls/es_ES
+%lang(es) %{_datadir}/blackbox/nls/es_MX
+%lang(fr) %{_datadir}/blackbox/nls/fr*
+%lang(hu) %{_datadir}/blackbox/nls/hu*
+%lang(it) %{_datadir}/blackbox/nls/it*
+%lang(ja) %{_datadir}/blackbox/nls/ja*
+%lang(ko) %{_datadir}/blackbox/nls/ko*
+%lang(lv) %{_datadir}/blackbox/nls/lv*
+%lang(nl) %{_datadir}/blackbox/nls/nl*
+%lang(no) %{_datadir}/blackbox/nls/no*
+%lang(pl) %{_datadir}/blackbox/nls/pl*
+%lang(pt_BR) %{_datadir}/blackbox/nls/pt_BR
+%lang(ro) %{_datadir}/blackbox/nls/ro*
+%lang(ru) %{_datadir}/blackbox/nls/ru*
+%lang(sk) %{_datadir}/blackbox/nls/sk*
+%lang(sl) %{_datadir}/blackbox/nls/sl*
+%lang(sv) %{_datadir}/blackbox/nls/sv*
+%lang(uk) %{_datadir}/blackbox/nls/uk*
+%lang(zh_CN) %{_datadir}/blackbox/nls/zh_CN
+%lang(zh_TW) %{_datadir}/blackbox/nls/zh_TW
 %{_wmpropsdir}/blackbox.desktop
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
