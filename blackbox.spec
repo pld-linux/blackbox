@@ -29,7 +29,7 @@ Blackbox oszczêdza pamiêæ i czas CPU.
 %setup -q
 
 %build
-CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure --prefix=/usr/X11R6
 make
 
@@ -52,11 +52,15 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/Blackbox/rc
 
 %changelog
+* Tue Nov 24 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [0.50.0-1]
+- added CFLAGS="$RPM_OPT_FLAGS" to configure enviroment.
+
 * Thu Nov  5 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.40.12-1]
-- changelog Changed to ChangeLog in %doc,
-- files in /usr/X11R6/share/{menu,rc,Blackbox/*} marked as %config with
-  %verify rules,
+- changelog changed to ChangeLog in %doc,
+- files in /usr/X11R6/share/Blackbox/{menu,rc,styles/*} marked as %config
+  with %verify rules,
 - removed /usr/X11R6/lib/X11/app-defaults/* from %files.
 
 * Mon Nov  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
