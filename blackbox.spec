@@ -4,7 +4,7 @@ Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.62.1
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
@@ -17,7 +17,7 @@ Source5:	%{name}-README.PLD
 Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
 Patch2:		%{name}-nls-pl.patch
-%{?_with_epistrophy:Patch3:	%{name}-epistrophy.patch}
+Patch3:		%{name}-epistrophy.patch}
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -76,14 +76,12 @@ install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 install %{SOURCE4} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 cp %{SOURCE5} README.PLD
 
-gzip -9nf README* ChangeLog
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README* ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}
 %dir %{_datadir}/blackbox
@@ -91,5 +89,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/blackbox/nls/*
 %{_datadir}/wm-properties/blackbox.desktop
 %{_mandir}/man1/*
-%{_mandir}/pl/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
+%lang(ja) %{_mandir}/ja_JP/man1/*
+%lang(nl) %{_mandir}/nl_NL/man1/*
+%lang(sl) %{_mandir}/sl_SI/man1/*
 %{_sysconfdir}/menu
