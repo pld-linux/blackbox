@@ -7,7 +7,7 @@ Copyright:	GPL-2.0
 Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy okien
 Vendor:		Brad Hughes <bhughes@arn.net>
-Source:		http://linux.wiw.org/blackbox/%{name}-%{version}.tar.bz2
+Source:		ftp://balance.wiw.org/pub/blackbox/%{name}-%{version}.tar.bz2
 URL:		http://linux.wiw.org/blackbox/
 Buildroot:	/tmp/%{name}-%{version}-root
 
