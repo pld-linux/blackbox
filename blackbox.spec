@@ -1,10 +1,11 @@
-Summary:     Very small and fast window manger for the X-Windows.
-Summary(pl): Ma³y i szybki menad¿er okien dla X-Windows.
+Summary:     Very small and fast window manger for the X Window.
+Summary(pl): Ma³y i szybki menad¿er okien dla X Window.
 Name:        blackbox
 Version:     0.50.0
-Release:     2
+Release:     3
 Copyright:   GPL-2.0
 Group:       X11/Window Managers
+Group(pl):   X11/Zarz±dcy okien
 Vendor:      Brad Hughes <bhughes@arn.net>
 Source:      http://linux.wiw.org/blackbox/sources/%{name}-%{version}.tar.bz2
 URL:         http://linux.wiw.org/blackbox/
@@ -37,22 +38,31 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 make install DESTDIR=$RPM_BUILD_ROOT
+
+gzip -9nf README ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644, root, root, 755)
-%doc README ChangeLog
-/etc/X11/Blackbox/styles/*
+%doc README.gz ChangeLog.gz
 %config(noreplace) %verify(not size md5 mtime) /etc/X11/Blackbox/menu
 %config(noreplace) %verify(not size md5 mtime) /etc/X11/Blackbox/rc
-%attr(755, root, root) /usr/X11R6/bin/*
 %dir /etc/X11/Blackbox
-%dir /etc/X11/Blackbox/styles
+
+%attr(755, root, root) /usr/X11R6/bin/*
+/etc/X11/Blackbox/styles
 
 %changelog
+* Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+  [0.50.0-3]
+- added gzipping documentation
+- added Group(pl)
+- simplification in %files
+
 * Tue Nov 24 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.50.0-2]
 - %config files moved to /etc/X11,
@@ -90,4 +100,4 @@ rm -rf $RPM_BUILD_ROOT
 
 * Thu Aug 13 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.40.3-1]
-- aew version
+- new version
