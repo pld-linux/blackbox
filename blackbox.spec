@@ -16,6 +16,7 @@ Source1:	%{name}.desktop
 Source3:	%{name}.1
 Source4:	bsetroot.1
 Source5:	%{name}-README.PLD
+Source6:	%{name}-xsession.desktop
 Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
 Patch3:		%{name}-epistrophy.patch
@@ -73,7 +74,9 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_wmpropsdir},%{_mandir}/pl/man1,%{_sysconfdir}}
+install -d \
+	$RPM_BUILD_ROOT{%{_wmpropsdir},%{_mandir}/pl/man1,%{_sysconfdir}} \
+	$RPM_BUILD_ROOT%{_datadir}/xsessions
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -82,6 +85,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 install %{SOURCE4} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 cp %{SOURCE5} README.PLD
+install %{SOURCE6} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -122,6 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(uk) %{_datadir}/blackbox/nls/uk*
 %lang(zh_CN) %{_datadir}/blackbox/nls/zh_CN
 %lang(zh_TW) %{_datadir}/blackbox/nls/zh_TW
+%{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/blackbox.desktop
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
