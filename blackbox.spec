@@ -31,7 +31,7 @@ Blackbox oszczêdza pamiêæ i czas CPU.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--prefix=/usr/X11R6 \
 	--datadir=/etc/X11 \
 	--enable-kde
