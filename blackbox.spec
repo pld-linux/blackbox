@@ -1,7 +1,7 @@
 # --with	epistrophy	(enables using epistorophy key grabber)
 
 Summary:	Very small and fast window manger for the X Window
-Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
+Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window
 Name:		blackbox
 Version:	0.65.0
 Release:	1
@@ -43,7 +43,7 @@ gradients and bevels is used to draw window decorations. Remaining
 small in size, blackbox preserves memory and CPU.
 
 %description -l pl
-Blackbox jest mened¿erem okien dla X Window spe³niaj±cym prawie
+Blackbox jest zarz±dc± okien dla X Window spe³niaj±cym prawie
 wszystkie zalecenia ICCM. Jego zalet± jest estetyczny i szybki
 interfejs z wieloma pulpitami i prostym menu. Wbudowano weñ tak¿e
 algorytm rysowania dekoracji okien, które mog± byæ jednokolorowe,
