@@ -1,60 +1,27 @@
---- blackbox-0.62.1/src/Screen.cc	Sat Jan 12 12:13:09 2002
-+++ blackbox-0.62.1.with_pipe/src/Screen.cc	Sun Mar  3 20:32:30 2002
-@@ -1710,7 +1710,13 @@
-   Bool defaultMenu = True;
+--- blackbox-0.65.0/src/Screen.cc.orig	Fri Nov  1 18:00:26 2002
++++ blackbox-0.65.0/src/Screen.cc	Fri Nov  1 18:14:37 2002
+@@ -1159,7 +1159,13 @@
+   bool defaultMenu = True;
  
    if (blackbox->getMenuFilename()) {
 -    FILE *menu_file = fopen(blackbox->getMenuFilename(), "r");
 +    int pipe_menu = 0;
-+	FILE *menu_file;
-+	if (*(blackbox->getMenuFilename()) == '|') {
-+		pipe_menu = 1;
-+		menu_file = popen((blackbox->getMenuFilename()) + 1, "r");
-+	} 
++    FILE *menu_file;
++    if (*(blackbox->getMenuFilename()) == '|') {
++      pipe_menu = 1;
++      menu_file = popen((blackbox->getMenuFilename()) + 1, "r");
++    }
 +    else menu_file = fopen(blackbox->getMenuFilename(), "r");
  
      if (!menu_file) {
        perror(blackbox->getMenuFilename());
-@@ -1758,7 +1764,8 @@
- 	  }
- 	}
+@@ -1207,7 +1213,8 @@
+           }
+         }
        }
 -      fclose(menu_file);
-+	  if (pipe_menu) pclose(menu_file);
++      if (pipe_menu) pclose(menu_file);
 +      else fclose(menu_file);
      }
    }
  
-@@ -1958,12 +1965,18 @@
- 	    }
- 
- 	    if (newfile) {
--	      FILE *submenufile = fopen(newfile, "r");
-+		  int pipe_submenu = 0;
-+		  FILE *submenufile;
-+		  if (*newfile == '|') {
-+		    pipe_submenu = 1;
-+			submenufile = popen(newfile + 1, "r");
-+		  }
-+	      else submenufile = fopen(newfile, "r");
- 
- 	      if (submenufile) {
-                 struct stat buf;
--                if (fstat(fileno(submenufile), &buf) ||
--                    (! S_ISREG(buf.st_mode))) {
-+                if (!pipe_submenu && (fstat(fileno(submenufile), &buf) ||
-+                    (! S_ISREG(buf.st_mode)))) {
-                   fprintf(stderr,
- 			  i18n->getMessage(ScreenSet, ScreenINCLUDEErrorReg,
- 			     "BScreen::parseMenuFile: [include] error: "
-@@ -1974,8 +1987,8 @@
- 		if (! feof(submenufile)) {
- 		  if (! parseMenuFile(submenufile, menu))
- 		    blackbox->saveMenuFilename(newfile);
--
--		  fclose(submenufile);
-+          if (pipe_submenu) pclose(submenufile);
-+		  else fclose(submenufile);
- 		}
- 	      } else
- 		perror(newfile);

@@ -1,17 +1,16 @@
-diff -ur blackbox-0.62.0.orig/data/Makefile.am blackbox-0.62.0/data/Makefile.am
---- blackbox-0.62.0.orig/data/Makefile.am	Sat Jan 19 17:15:50 2002
-+++ blackbox-0.62.0/data/Makefile.am	Mon Jan 21 01:52:18 2002
-@@ -13,5 +13,5 @@
- 	@regex_cmd@ -e "s,@pkgdatadir@,$(pkgdatadir)," @srcdir@/menu.in > menu
+--- blackbox-0.65.0/data/Makefile.am.orig	Fri Nov  1 17:53:06 2002
++++ blackbox-0.65.0/data/Makefile.am	Fri Nov  1 17:53:32 2002
+@@ -14,7 +14,7 @@
  
  install-data-local: menu
--	test -f $(DESTDIR)$(pkgdatadir)/menu || \
+ 	test -f $(DESTDIR)$(pkgdatadir)/menu || \
 -	$(INSTALL_DATA) menu $(DESTDIR)$(pkgdatadir)
-+	${mkinstalldirs} $(DESTDIR)$(sysconfdir)
 +	$(INSTALL_DATA) menu $(DESTDIR)$(sysconfdir)
-diff -ur blackbox-0.62.0.orig/src/Makefile.am blackbox-0.62.0/src/Makefile.am
---- blackbox-0.62.0.orig/src/Makefile.am	Sat Jan  5 01:04:23 2002
-+++ blackbox-0.62.0/src/Makefile.am	Mon Jan 21 01:52:38 2002
+ 
+ uninstall-local:
+ 	rm -f $(pkgdatadir)/menu
+--- blackbox-0.65.0/src/Makefile.am.orig	Fri Nov  1 17:54:34 2002
++++ blackbox-0.65.0/src/Makefile.am	Fri Nov  1 17:56:32 2002
 @@ -19,8 +19,8 @@
  # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
  # DEALINGS IN THE SOFTWARE.
@@ -21,5 +20,5 @@ diff -ur blackbox-0.62.0.orig/src/Makefile.am blackbox-0.62.0/src/Makefile.am
 +DEFAULT_MENU=$(sysconfdir)/menu
 +DEFAULT_STYLE=$(sysconfdir)/styles/Results
  
- CPPFLAGS= @CPPFLAGS@ @SHAPE@ @SLIT@ @INTERLACE@ @ORDEREDPSEUDO@ \
- @DEBUG@ @NEWWMSPEC@ @NLS@ @TIMEDCACHE@ \
+ CPPFLAGS= @CPPFLAGS@ @SHAPE@ @ORDEREDPSEUDO@ \
+ @DEBUG@ @NLS@ @TIMEDCACHE@ \
