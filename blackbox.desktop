@@ -6,3 +6,4 @@ TryExec=blackbox
 
 [Window Manager]
 SessionManaged=true
+# vi: encoding=utf-8
