@@ -4,6 +4,7 @@
 #
 Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window
+Summary(de):	Blackbox ist ein Windowmanager
 Name:		blackbox
 Version:	0.65.0
 Release:	2
@@ -54,6 +55,12 @@ wszystkie zalecenia ICCM. Jego zalet± jest estetyczny i szybki
 interfejs z wieloma pulpitami i prostym menu. Wbudowano weñ tak¿e
 algorytm rysowania dekoracji okien, które mog± byæ jednokolorowe,
 gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
+
+%description -l de
+Blackbox ist ein Windowmanager für offene Betriebssystem wie z.B.
+Linux oder freie BSD-Varianten. Er erfreut sich einer großen
+Fangemeinde, da er sehr ressourcenschonend und voll konfigurierbar
+ist.
 
 %prep
 %setup -q
