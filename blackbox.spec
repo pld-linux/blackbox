@@ -10,7 +10,7 @@ Vendor:		Brad Hughes <blackbox@alug.org>
 Source:		ftp://portal.alug.org/pub/blackbox/0.5x.x/%{name}-%{version}.tar.bz2
 Patch:		blackbox-no-brueghel.patch
 URL:		http://blackbox.alug.org/
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		/usr/X11R6/man
