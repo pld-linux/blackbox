@@ -46,13 +46,13 @@ gzip -9nf README ChangeLog
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc README.gz ChangeLog.gz
 %config(noreplace) %verify(not size md5 mtime) /etc/X11/Blackbox/menu
 %config(noreplace) %verify(not size md5 mtime) /etc/X11/Blackbox/rc
 %dir /etc/X11/Blackbox
 
-%attr(755, root, root) /usr/X11R6/bin/*
+%attr(755,root,root) /usr/X11R6/bin/*
 /etc/X11/Blackbox/styles
 /etc/X11/Blackbox/brueghel
 
