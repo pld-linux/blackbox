@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=blackbox
+Exec=blackbox
+Terminal=False
+TryExec=blackbox
+
+[Window Manager]
+SessionManaged=true
