@@ -1,15 +1,17 @@
-Summary:	Very small and fast window manger for the X Window.
-Summary(pl):	Ma³y i szybki menad¿er okien dla X Window.
+Summary:	Very small and fast window manger for the X Window
+Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.61.1
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
+Group(de):	X11/Fenstermanager
 Group(pl):	X11/Zarz±dcy Okien
 Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	ftp://portal.alug.org/pub/blackbox/0.6x.x/%{name}-%{version}.tar.bz2
-#Patch0:		blackbox-no-brueghel.patch
 URL:		http://blackbox.alug.org/
+BUildRequires:	XFree86-devel
+BUildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -33,17 +35,17 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 
 %prep
 %setup -q
-#%patch -p1
 
 %build
-LDFLAGS="-s"; export LDFLAGS 
-%configure \
-	--enable-kde
-%{__make} CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
+CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-exceptions -fno-rtti -fno-implicit-templates"
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
+
 gzip -9nf README ChangeLog
 
 %clean
