@@ -3,20 +3,18 @@
 Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
-Version:	0.62.1
-Release:	7
+Version:	0.65.0
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	http://prdownloads.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
-Source2:	%{name}-nls-pl.tar.bz2
 Source3:	%{name}.1
 Source4:	bsetroot.1
 Source5:	%{name}-README.PLD
 Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
-Patch2:		%{name}-nls-pl.patch
 Patch3:		%{name}-epistrophy.patch
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	XFree86-devel
@@ -52,10 +50,9 @@ algorytm rysowania dekoracji okien, które mog± byæ jednokolorowe,
 gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 
 %prep
-%setup -q -a2
+%setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 %{?_with_epistrophy:%patch3 -p1}
 
 %build
@@ -68,7 +65,7 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/wm-properties,%{_mandir}/pl/man1}
+install -d $RPM_BUILD_ROOT{%{_datadir}/wm-properties,%{_mandir}/pl/man1,%{_sysconfdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -91,7 +88,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/wm-properties/blackbox.desktop
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
-%lang(ja) %{_mandir}/ja_JP/man1/*
-%lang(nl) %{_mandir}/nl_NL/man1/*
-%lang(sl) %{_mandir}/sl_SI/man1/*
 %{_sysconfdir}/menu
