@@ -1,7 +1,7 @@
 Summary:     Very small and fast window manger for the X-Windows.
 Summary(pl): Ma³y i szybki menad¿er okien dla X-Windows.
 Name:        blackbox
-Version:     0.40.9
+Version:     0.40.10
 Release:     1
 URL:         http://linux.wiw.org/blackbox/
 Copyright:   GPL-2.0
