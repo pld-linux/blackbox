@@ -1,19 +1,20 @@
 Summary:	Very small and fast window manger for the X Window.
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window.
 Name:		blackbox
-Version:	0.50.5
+Version:	0.51.3.1
 Release:	1
-Copyright:	GPL-2.0
+License:	GPL
 Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy Okien
-Vendor:		Brad Hughes <bhughes@arn.net>
-Source:		ftp://balance.wiw.org/pub/blackbox/%{name}-%{version}.tar.bz2
+Vendor:		Brad Hughes <blackbox@alug.org>
+Source:		ftp://portal.alug.org/pub/blackbox/0.5x.x/%{name}-%{version}.tar.bz2
 Patch:		blackbox-no-brueghel.patch
-URL:		http://linux.wiw.org/blackbox/
+URL:		http://blackbox.alug.org/
 Buildroot:	/tmp/%{name}-%{version}-root
 
-%define		_prefix	/usr/X11R6
-%define		_mandir	/usr/X11R6/man
+%define		_prefix		/usr/X11R6
+%define		_mandir		/usr/X11R6/man
+%define		_datadir	/etc/X11
 
 %description
 Blackbox is a window manager for the X Window environment, which is almost
@@ -35,10 +36,8 @@ Blackbox oszczêdza pamiêæ i czas CPU.
 %patch -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=%{_prefix} \
-	--datadir=/etc/X11 \
+LDFLAGS="-s"; export LDFLAGS 
+%configure \
 	--enable-kde
 make
 
@@ -53,8 +52,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.gz ChangeLog.gz
-%config(noreplace) %verify(not size md5 mtime) /etc/X11/Blackbox/menu
-%dir /etc/X11/Blackbox
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/Blackbox/menu
+%dir %{_datadir}/Blackbox
 
-%attr(755,root,root) /usr/X11R6/bin/*
-/etc/X11/Blackbox/styles
+%attr(755,root,root) %{_bindir}/*
+%{_datadir}/Blackbox/styles
