@@ -1,0 +1,253 @@
+diff -Nur blackbox-0.65.0/nls.orig/convert.awk blackbox-0.65.0/nls/convert.awk
+--- blackbox-0.65.0/nls.orig/convert.awk	Fri Nov 30 20:17:20 2001
++++ blackbox-0.65.0/nls/convert.awk	Wed Jun 11 11:05:48 2003
+@@ -28,5 +28,7 @@
+   printf "%d %s\n", minor, text > output
+ }
+   
++/^\$ codeset/ { print > output }
++
+ ! /^(\$|#)/ { print > output }
+ 
+diff -Nur blackbox-0.65.0/nls.orig/da_DK/BaseDisplay.m blackbox-0.65.0/nls/da_DK/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/da_DK/BaseDisplay.m	Fri Nov 30 20:30:26 2001
++++ blackbox-0.65.0/nls/da_DK/BaseDisplay.m	Wed Jun 11 11:05:58 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X fejl: %s(%d) kode %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/de_DE/BaseDisplay.m blackbox-0.65.0/nls/de_DE/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/de_DE/BaseDisplay.m	Fri Jan 25 10:33:38 2002
++++ blackbox-0.65.0/nls/de_DE/BaseDisplay.m	Wed Jun 11 11:06:09 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X Fehler: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/es_AR/BaseDisplay.m blackbox-0.65.0/nls/es_AR/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/es_AR/BaseDisplay.m	Wed Jul 24 23:47:56 2002
++++ blackbox-0.65.0/nls/es_AR/BaseDisplay.m	Wed Jun 11 11:06:18 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X error: %s(%d) cÛdigo de operaciÛn %d/%d\n  recurso 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/es_ES/BaseDisplay.m blackbox-0.65.0/nls/es_ES/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/es_ES/BaseDisplay.m	Wed Jul 24 16:29:45 2002
++++ blackbox-0.65.0/nls/es_ES/BaseDisplay.m	Wed Jun 11 11:06:43 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X error: %s(%d) cÛdigo de operaciÛn %d/%d\n  recurso 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/fr_FR/BaseDisplay.m blackbox-0.65.0/nls/fr_FR/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/fr_FR/BaseDisplay.m	Mon Mar 25 21:08:44 2002
++++ blackbox-0.65.0/nls/fr_FR/BaseDisplay.m	Wed Jun 11 11:06:49 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  Erreur de X %s(%d) opcodes %d/%d\n  ressource 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/hu_HU/BaseDisplay.m blackbox-0.65.0/nls/hu_HU/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/hu_HU/BaseDisplay.m	Mon Mar 25 20:58:32 2002
++++ blackbox-0.65.0/nls/hu_HU/BaseDisplay.m	Wed Jun 11 11:07:02 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-2
++
+ $ #XError
+ # %s:  X hiba: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/it_IT/BaseDisplay.m blackbox-0.65.0/nls/it_IT/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/it_IT/BaseDisplay.m	Fri Jan 25 10:21:37 2002
++++ blackbox-0.65.0/nls/it_IT/BaseDisplay.m	Wed Jun 11 11:07:09 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s: errore di X: %s(%d) opcodes %d/%d\n  risorsa 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/ja_JP/BaseDisplay.m blackbox-0.65.0/nls/ja_JP/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/ja_JP/BaseDisplay.m	Mon Jul 29 00:09:08 2002
++++ blackbox-0.65.0/nls/ja_JP/BaseDisplay.m	Wed Jun 11 11:07:19 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=eucjp
++
+ $ #XError
+ # %s:  X •®•È°º: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/ko_KR/BaseDisplay.m blackbox-0.65.0/nls/ko_KR/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/ko_KR/BaseDisplay.m	Sat Jul  6 18:19:09 2002
++++ blackbox-0.65.0/nls/ko_KR/BaseDisplay.m	Wed Jun 11 11:07:44 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=euckr
++
+ $ #XError
+ # %s:  X error: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/lv_LV/BaseDisplay.m blackbox-0.65.0/nls/lv_LV/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/lv_LV/BaseDisplay.m	Fri Sep 13 01:07:36 2002
++++ blackbox-0.65.0/nls/lv_LV/BaseDisplay.m	Wed Jun 11 11:08:06 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-13
++
+ $ #XError
+ # %s:  X kÔ˚da: %s(%d) opkodi %d/%d\n  resurss 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/nl_NL/BaseDisplay.m blackbox-0.65.0/nls/nl_NL/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/nl_NL/BaseDisplay.m	Fri Jan 25 10:18:58 2002
++++ blackbox-0.65.0/nls/nl_NL/BaseDisplay.m	Wed Jun 11 11:08:14 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X fout: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/no_NO/BaseDisplay.m blackbox-0.65.0/nls/no_NO/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/no_NO/BaseDisplay.m	Fri Jul 19 06:01:15 2002
++++ blackbox-0.65.0/nls/no_NO/BaseDisplay.m	Wed Jun 11 11:08:20 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X feil: %s(%d) kode %d/%d\n  ressurs 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/pl_PL/BaseDisplay.m blackbox-0.65.0/nls/pl_PL/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/pl_PL/BaseDisplay.m	Wed Aug 21 17:06:52 2002
++++ blackbox-0.65.0/nls/pl_PL/BaseDisplay.m	Wed Jun 11 11:08:28 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-2
++
+ $ #XError
+ # %s:  b≥±d X: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/pt_BR/BaseDisplay.m blackbox-0.65.0/nls/pt_BR/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/pt_BR/BaseDisplay.m	Thu Aug 29 16:02:24 2002
++++ blackbox-0.65.0/nls/pt_BR/BaseDisplay.m	Wed Jun 11 11:08:36 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X erro: %s(%d) opcodes %d/%d\n  recurso 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/ro_RO/BaseDisplay.m blackbox-0.65.0/nls/ro_RO/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/ro_RO/BaseDisplay.m	Fri Jul 19 15:32:39 2002
++++ blackbox-0.65.0/nls/ro_RO/BaseDisplay.m	Wed Jun 11 11:08:47 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-2
++
+ $ #XError
+ # %s:  eroare de X: %s(%d) opcode %d/%d\n  resursa 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/ru_RU/BaseDisplay.m blackbox-0.65.0/nls/ru_RU/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/ru_RU/BaseDisplay.m	Mon Aug 26 07:55:05 2002
++++ blackbox-0.65.0/nls/ru_RU/BaseDisplay.m	Wed Jun 11 11:08:58 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-5
++
+ $ #XError
+ # %s:  œ€…¬À¡ X ”≈“◊≈“¡: %s(%d) ⁄Œ¡ﬁ≈Œ…— %d/%d\n “≈”’“” 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/sk_SK/BaseDisplay.m blackbox-0.65.0/nls/sk_SK/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/sk_SK/BaseDisplay.m	Tue Aug 27 17:25:14 2002
++++ blackbox-0.65.0/nls/sk_SK/BaseDisplay.m	Wed Jun 11 11:09:06 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-2
++
+ $ #XError
+ # %s:  X chyba: %s(%d) operaËnÈ kÛdy %d/%d\n  zdroj 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/sl_SI/BaseDisplay.m blackbox-0.65.0/nls/sl_SI/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/sl_SI/BaseDisplay.m	Fri Jan 25 10:25:44 2002
++++ blackbox-0.65.0/nls/sl_SI/BaseDisplay.m	Wed Jun 11 11:09:21 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-2
++
+ $ #XError
+ # %s:  Napaka v sistemu oken X: %s(%d) operacijska koda %d/%d\n  vir 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/sv_SE/BaseDisplay.m blackbox-0.65.0/nls/sv_SE/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/sv_SE/BaseDisplay.m	Fri Nov 30 20:18:45 2001
++++ blackbox-0.65.0/nls/sv_SE/BaseDisplay.m	Wed Jun 11 11:09:32 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X-fel: %s(%d) opkod %d/%d\n  resurs 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/uk_UA/BaseDisplay.m blackbox-0.65.0/nls/uk_UA/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/uk_UA/BaseDisplay.m	Wed May 22 23:08:38 2002
++++ blackbox-0.65.0/nls/uk_UA/BaseDisplay.m	Wed Jun 11 11:09:47 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=koi8u
++
+ $ #XError
+ # %s:  –œÕ…ÃÀ¡ X ”≈“◊≈“¡: %s(%d) ⁄Œ¡ﬁ≈ŒŒ— %d/%d\n “≈”’“” 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/zh_CN/BaseDisplay.m blackbox-0.65.0/nls/zh_CN/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/zh_CN/BaseDisplay.m	Fri Jan 25 10:51:51 2002
++++ blackbox-0.65.0/nls/zh_CN/BaseDisplay.m	Wed Jun 11 11:10:09 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=gb2312
++
+ $ #XError
+ # %s:  X ¥ÌŒÛ: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur blackbox-0.65.0/nls.orig/zh_TW/BaseDisplay.m blackbox-0.65.0/nls/zh_TW/BaseDisplay.m
+--- blackbox-0.65.0/nls.orig/zh_TW/BaseDisplay.m	Tue Feb 26 06:57:46 2002
++++ blackbox-0.65.0/nls/zh_TW/BaseDisplay.m	Wed Jun 11 11:10:23 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=big5
++
+ $ #XError
+ # %s:  X error: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
