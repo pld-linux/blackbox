@@ -2,7 +2,7 @@ Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.61.1
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
