@@ -1,8 +1,10 @@
+# _with_gcc3:	budowanie z gcc3 
+
 Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.62.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
@@ -22,6 +24,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/%{name}
+
+%{?_with_gcc3:%define		__cxx		"%{__cc} -lstdc++"}
+%{!?_with_gcc3:%define		__cxx		"%{__cc}"}
 
 %description
 Blackbox is a window manager for the X Window environment, which is
@@ -47,7 +52,7 @@ aclocal
 autoconf
 automake -a -c
 %configure
-%{__make} CXX=%{?__cxx:"%{__cxx}"}%{!?__cxx:"g++"}
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
