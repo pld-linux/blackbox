@@ -11,6 +11,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}-nls-pl.tar.bz2
 Source3:	%{name}.1
 Source4:	bsetroot.1
+Source5:	%{name}-README.PLD
 Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
 Patch2:		%{name}-nls-pl.patch
@@ -68,6 +69,8 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/wm-properties,%{_mandir}/pl/man1}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/wm-properties/
 install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 install %{SOURCE4} $RPM_BUILD_ROOT%{_mandir}/pl/man1
+cp %{SOURCE5} README.PLD
+
 gzip -9nf README* ChangeLog
 
 %clean
