@@ -8,7 +8,7 @@ Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
-Source0:	http://prdownloads.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source3:	%{name}.1
 Source4:	bsetroot.1
@@ -26,6 +26,7 @@ Obsoletes:	fluxbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/X11/%{name}
+%define		_wmpropsdir	/usr/share/wm-properties
 
 %define		_gcc_ver	%(%{__cc} -dumpversion | cut -b 1)
 %if %{_gcc_ver} == 2
@@ -63,11 +64,11 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/wm-properties,%{_mandir}/pl/man1,%{_sysconfdir}}
+install -d $RPM_BUILD_ROOT{%{_wmpropsdir},%{_mandir}/pl/man1,%{_sysconfdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/wm-properties/
+install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 install %{SOURCE4} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 cp %{SOURCE5} README.PLD
@@ -83,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/blackbox
 %{_datadir}/blackbox/styles
 %{_datadir}/blackbox/nls
-%{_datadir}/wm-properties/blackbox.desktop
+%{_wmpropsdir}/blackbox.desktop
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
 %{_sysconfdir}/menu
