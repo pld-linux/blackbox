@@ -1,17 +1,16 @@
 Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
-Version:	0.61.1
-Release:	6
+Version:	0.62.0
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
 Group(pl):	X11/Zarz±dcy Okien
 Vendor:		Brad Hughes <blackbox@alug.org>
-Source0:	ftp://portal.alug.org/pub/blackbox/0.6x.x/%{name}-%{version}.tar.bz2
+Source0:	ftp://portal.alug.org/pub/blackbox/0.6x.x/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
-Patch0:		%{name}-lowcase_name.patch
-Patch1:		%{name}-am_fixes.patch
+Patch0:		%{name}-am_fixes.patch
 URL:		http://blackbox.alug.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -40,7 +39,6 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 aclocal
@@ -57,7 +55,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/wm-properties
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/wm-properties/
 
-gzip -9nf README ChangeLog
+gzip -9nf README* ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -65,10 +63,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%{_datadir}/wm-properties/blackbox.desktop
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
 %dir %{_sysconfdir}
-%{_sysconfdir}/menu
 %dir %{_datadir}/blackbox
-%{_datadir}/blackbox/styles
+%{_datadir}/blackbox/styles/*
+%{_datadir}/blackbox/nls/*
+%{_datadir}/wm-properties/blackbox.desktop
+%{_mandir}/man1/*
+%{_sysconfdir}/menu
