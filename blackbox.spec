@@ -9,6 +9,7 @@ License:	GPL
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	http://dl.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
+# Source0-md5:	08560fa287c68d65fbe894696d04deaf
 Source1:	%{name}.desktop
 Source3:	%{name}.1
 Source4:	bsetroot.1
