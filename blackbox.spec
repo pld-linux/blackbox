@@ -46,9 +46,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog
 %attr(755, root, root) /usr/X11R6/bin/*
 %dir /usr/X11R6/share/Blackbox
-%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/Blackbox/*
-%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/menu
-%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/rc
+%dir /usr/X11R6/share/Blackbox/styles
+%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/Blackbox/styles/*
+%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/Blackbox/menu
+%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/Blackbox/rc
 
 %changelog
 * Thu Nov  5 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
