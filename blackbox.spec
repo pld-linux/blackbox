@@ -6,6 +6,8 @@ Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
+Group(es):	X11/Administraadores De Ventanas
+Group(fr):	X11/Gestionnaires De Fenêtres
 Group(pl):	X11/Zarz±dcy Okien
 Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	http://prdownloads.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
