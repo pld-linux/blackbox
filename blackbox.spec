@@ -44,7 +44,7 @@ Ma wiele ciekawych w³a¶ciwo¶ci:
 
 %build
 xmkmf -a
-make CXXDEBUGFLAGS=$RPM_OPT_FLAGS CDEBUGFLAGS=$RPM_OPT_FLAGS
+make CXXDEBUGFLAGS="$RPM_OPT_FLAGS" CDEBUGFLAGS="$RPM_OPT_FLAGS"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,17 +54,15 @@ rm -rf $RPM_BUILD_ROOT
 make DESTDIR=$RPM_BUILD_ROOT install
 
 %files
-%defattr(644, root, root, 755)
-%doc README Changelog
-%attr(755, root, root) /usr/X11R6/bin/blackbox
+%defattr(644,root,root,755)
+%doc README INSTALL Changelog
+%attr(755,root,root) /usr/X11R6/bin/blackbox
 /usr/X11R6/lib/X11/app-defaults/*
-- added -q in %setup,
-- added pl translation.
 
 %changelog
 * Fri Sep 25 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
   [0.40.7-1]
-- added -q in %setup,
+- Added -q in %setup,
 - added pl translation.
 
 * Sun Aug 23 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
