@@ -1,5 +1,3 @@
-# _with_gcc3:	budowanie z gcc3 
-
 Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
@@ -25,8 +23,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/%{name}
 
-%{?_with_gcc3:%define		__cxx		"%{__cc} -lstdc++"}
-%{!?_with_gcc3:%define		__cxx		"%{__cc}"}
+%define		_gcc_ver	%(%{__cc} --version | cut -b 1)
+%if %{_gcc_ver} == 3
+%define		__cxx		"%{__cc} -lstdc++"
+%else
+%define		__cxx		"%{__cc}"
+%endif
 
 %description
 Blackbox is a window manager for the X Window environment, which is
