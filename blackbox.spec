@@ -1,7 +1,7 @@
 Summary:     Very small and fast window manger for the X-Windows.
 Summary(pl): Ma³y i szybki menad¿er okien dla X-Windows.
 Name:        blackbox
-Version:     0.40.10
+Version:     0.40.11
 Release:     1
 URL:         http://linux.wiw.org/blackbox/
 Copyright:   GPL-2.0
@@ -29,15 +29,17 @@ Blackbox oszczêdza pamiêæ i czas CPU.
 %setup -q
 
 %build
-xmkmf -a
-make CXXDEBUGFLAGS="$RPM_OPT_FLAGS" CDEBUGFLAGS="$RPM_OPT_FLAGS"
+CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure \
+	--prefix=/usr/X11R6
+make
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make DESTDIR=$RPM_BUILD_ROOT install
+make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
 
 %files
 %defattr(644, root, root, 755)
@@ -46,20 +48,24 @@ make DESTDIR=$RPM_BUILD_ROOT install
 /usr/X11R6/lib/X11/app-defaults/*
 
 %changelog
-* Sun Sep 27 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
+* Wed Oct 21 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [0.40.11-1]
+- now on building blackbox is used autoconf.
+
+* Sun Sep 27 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.40.7-2]
 - rewritten %descriptions,
 - removed INSTALL-file from %doc.
 
-* Fri Sep 25 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
+* Fri Sep 25 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.40.7-1]
 - added -q in %setup,
 - added pl translation.
 
-* Sun Aug 23 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
+* Sun Aug 23 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.40.4-1]
 - removed old log enteries.
 
-* Thu Aug 13 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
+* Thu Aug 13 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.40.3-1]
 - aew version
