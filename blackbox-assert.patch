@@ -1,0 +1,11 @@
+--- blackbox-0.65.0/src/Window.cc.orig	Tue Sep 17 15:23:35 2002
++++ blackbox-0.65.0/src/Window.cc	Wed Jun 11 11:17:15 2003
+@@ -44,6 +44,8 @@
+ #endif // HAVE_STDLIB_H
+ }
+ 
++#include <assert.h>
++
+ #include "i18n.hh"
+ #include "blackbox.hh"
+ #include "GCCache.hh"
