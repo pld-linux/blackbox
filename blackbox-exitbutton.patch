@@ -1,0 +1,10 @@
+--- blackbox-0.51.3.1/src/Screen.cc.chmou	Wed Apr  5 16:25:41 2000
++++ blackbox-0.51.3.1/src/Screen.cc	Wed Apr  5 16:53:07 2000
+@@ -1179,6 +1179,7 @@
+     rootmenu->insert(_("Exit"), BScreen::Exit);
+   } else
+     blackbox->saveMenuFilename(blackbox->getMenuFilename());
++    rootmenu->insert(("Exit"), BScreen::Exit);
+ }
+ 
+ 
