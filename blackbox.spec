@@ -25,8 +25,6 @@ BuildRequires:	rpm >= 4.0.2-48
 Obsoletes:	fluxbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/%{name}
 
 %define		_gcc_ver	%(%{__cc} -dumpversion | cut -b 1)
