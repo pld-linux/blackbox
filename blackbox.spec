@@ -5,7 +5,7 @@ Version:	0.50.5
 Release:	1
 Copyright:	GPL-2.0
 Group:		X11/Window Managers
-Group(pl):	X11/Zarz±dcy okien
+Group(pl):	X11/Zarz±dcy Okien
 Vendor:		Brad Hughes <bhughes@arn.net>
 Source:		ftp://balance.wiw.org/pub/blackbox/%{name}-%{version}.tar.bz2
 Patch:		blackbox-no-brueghel.patch
