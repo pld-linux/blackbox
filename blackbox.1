@@ -1,0 +1,833 @@
+.\"
+.\" Man page for Blackbox
+.\"
+.\" Copyright (c) 2000 by Wilbert Berendsen <wbsoft@xs4all.nl>
+.\"
+.\" This manual page may be freely distributed and modified.
+.\" Parts of the text are taken from website and several README's
+.\" by His Great Hughesness himself. Why reinvent wheels?
+.\"
+.\" Created with NEdit, tested with ``man'' and ``tkman.''
+.\" This manpage uses only standard groff and tmac.an macros.
+.\" To all translators who didn't do manpages earlier (like me ;-):
+.\" Read the Man-Page-Mini-HOWTO and the LDP manpage ``man 7 man''
+.\" There's all I needed to know about these macros.
+.\"
+.\" Updated for bb 0.61 at Sat Sep  9 06:56:04 CEST 2000
+.\"
+.\" ..define sort of <blockquote><pre> macro
+.de EX
+.ne 5
+.if n .sp 1
+.if t .sp .5
+.nf
+.in +.5i
+..
+.de EE
+.fi
+.in -.5i
+.if n .sp 1
+.if t .sp .5
+..
+.TH blackbox 1 "10 marca 2002" "0.61.1"
+.SH NAZWA
+blackbox \- menad¿er okien dla X11
+.SH STRESZCZENIE
+.BR blackbox " \-help | \-version"
+.br
+.B blackbox 
+.RI "[ \-rc" " plik_rc " "] [ \-display" " displej " ]
+.SH OPIS
+.\"
+.\" Phirst Phew ParagraPhs taken from blackbox.alug.org
+.\"
+
+Blackbox jest jednym z wielu menad¿erów okien dla X Window System, wersji 11
+wydania 6 i pó¼niejszych.
+Blackbox jest napisany w C++ i nie wspó³dzieli kodu z ¿adnym innym menad¿erem
+okien (chocia¿ implementacja graficzna jest podobna do Window Makera).
+.PP
+Od pocz±tku Blackbox jest rozwijany z nastawieniem na minimalizm.
+Za³o¿eniem nie jest przykuwanie wzroku wygl±dem, posiadanie wielu opcji
+czy mo¿liwo¶æ odwzorowania intefejsów graficznych z innych systemów operacyjnych.
+Blackbox po prostu ma byæ
+.BR szybki .
+.PP
+Blackbox posiada konfigurowalne dekoracje okien, menu z aplikacjami
+i pasek narzêdzi pokazuj±cy nazwê bie¿±cego biurka, nazwê aktywnego okna i aktualny
+czas.
+Jest tak¿e menu do dodawania lub usuwania biurek.
+`Slit' (Szczelina???) mo¿e byæ u¿yta do dokowania ma³ych aplikacji, np.
+wiêkszo¶æ bbtools-ów mo¿e tego u¿ywaæ.
+.PP
+Blackbox wprowadza specjalny sposób obs³ugi ikon: Kiedy minimalizujesz okno,
+nie pojawiaj± siê ikonki; zamiast mo¿esz obejrzeæ wszystkie zminimalizowane
+aplikacje w podmenu `Icons' (Ikony) menu biurek. 
+Twój pulpit nigdy nie bêdzie za¶miecony ikonami. Jaka alternatywa do ikon
+wprowadzone jest zas³anianie okien: podwójne klikniêcie na pasku tytu³owym
+zas³oni okno (np. okno zniknie; tylko pasek tytu³owy pozostanie widoczny).
+.PP
+Blackbox u¿ywa w³asnej klasy graficznej do renderowania obrazów w locie.
+Poprzez u¿ywanie plików stylów w du¿ym stopniu mo¿esz zdecydowaæ jak bêdzie
+wygl±daæ twój pulpit.
+Na razie Blackbox u¿ywa w³asnego protoko³u do komunikacji z innymi klientami
+takimi jak pejd¿ery.
+Trwaj± prace nad przystosowaniem siê do nowej specyfikacji menad¿erów okien,
+której u¿ywaj± ju¿ GNOME i KDE.
+.SH OPCJE
+Blackbox obs³uguje nastêpuj±ce opcje linii komend:
+.TP
+.B \-help
+Wy¶wietla opcje dostêpne z linii komend. Po czym koñczy dzia³anie.
+.TP
+.B \-version
+Wy¶wietla informacjê o wersji i koñczy dzia³anie.
+.TP
+.BI \-rc \ plik_rc
+U¿ywa innego ni¿ domy¶lny
+.IR  "~/.blackboxrc"
+pliku konfiguracyjnego.
+.TP
+.BI \-display \ displej
+Uruchamia Blackboxa na podanym displeju.
+Programy uruchamiane pod kontrol± Blackboxa bêd± mia³y
+zmienn± ¶rodowiskow±
+.B DISPLAY
+ustawian± na tê warto¶æ.
+.SH URUCHAMIANIE BLACKBOXA
+Program ten jest zwykle uruchamiany poprzez skrypt u¿ytkownika, najczê¶ciej
+jest to
+.IR ~/.xinitrc .
+¯eby uruchamiaæ blackboxa zmodyfikuj skrypt dodaj±c
+.EX 0
+exec blackbox
+.EE
+jako ostatni± wykonywan± komendê skryptu.
+Gdy zakoñczysz blackboxa, zakoñczy siê tak¿e sesja X.
+.PP
+Przy starcie Blackbox stara siê odnale¼æ domy¶lne menu w pliku
+.IR /usr/X11R6/share/blackbox/menu .
+Mo¿esz tutaj umie¶ciæ globalne menu dla swoich uzytkowników.
+.PP
+Przy koñczeniu pracy b±d¼ przy restarcie Blackbox bêdzie zapisywa³ ustawienia
+w pliku
+.I ~/.blackboxrc
+w domowym katalogu u¿ytkownika.
+Plik ten mo¿e byæ te¿ edytowany rêcznie.
+.SH U¯YWANIE BLACKBOXA
+Od wersji 0.60.x Blackbox nie zajmuje siê obs³ug± klawiatury \"osobi¶cie\";
+zamiast tego polega na programie
+.IR bbkeys (1).
+Wiêc omówimy obs³ugê Blackboxa przy pomocy myszy.
+.SS G³ówne okno (T³o):
+Po klikniêciu prawym przyciskiem myszki(button 3) pojawi siê menu,
+z którego mo¿na uruchamiaæ aplikacje. 
+Mo¿esz dostosowaæ te menu do swoich potrzeb.
+Gdzie znajduj± siê pliki za to odpowiedzialne jest opisane wy¿ej.
+Klikniêcie ¶rodkowego przycisku (button 2) powoduje wy¶wietlenie menu dla biurek.
+Mo¿esz dodaæ nowe biurko lub usun±æ ju¿ istniej±ce, zobaczyæ listê aplikacji dzia³aj±cych
+na poszczególnych biurkach, sprawdziæ zminimalizowane aplikacje i skoczyæ bezpo¶rednio
+na dowolne biurko czy do dowolnej aplikacji.
+.PP
+Klikniêcie lewego przycisku myszki (button 1) na nazwie aplikacji w menu z biurkami
+przeniesiê ciê na wskazany pulpit roboczy(biurko) i uaktywni okno z t± aplikacj±;
+Klikniêcie ¶rodkowego przycisku (button 2) przy³±czy okno z aplikacj± do bie¿±cego
+pulpitu.
+.SS Pasek narzêdzi:
+Pasek narzêdzi sk³ada siê z trzech pól: nazwy biurka,
+nazwy aktywnego okna i zegarka.
+Klikniêcie lewym przyciskiem przeniesie pasek narzêdzi na pierwszy plan.
+Klikniêcie ¶rodkowym klawiszem schowa go za innymi oknami (o ile nie jest ustawione
+AlwaysOnTop (Zawsze na wierzchu)).
+Po klikniêciu prawym przyciskiem pojawi siê malutkie menu.
+.PP
+U¿ywaj±c go mo¿esz wprowadziæ now± nazwê bie¿±cego biurka (kiedy skoñczysz naci¶nij Enter).
+Mo¿esz tak¿e wybraæ po³o¿enie paska narzêdzi, czy ma byæ zawsze na wierzchu i czy
+pasek narzêdzi powinen siê chowaæ, gdy wska¼nik myszy siê oddali.
+.PP
+Uwaga: W wersjach Blackboxa poni¿ej 0.60.0 klikniêcie prawym klawiszem myszki
+od razu wywo³ywa³o tryb edycji nazwy biurka.
+.SS Pasek tytu³owy okna i obrze¿a:
+Klikniêcie lewym przyciskiem na jakiejkolwiek czê¶ci obrze¿a okna uaktywni je.
+Trzymaj±c przycisk wci¶niêty mo¿esz przesuwaæ okno.
+Przy pomocy uchwytów w lewym dolnym i prawym dolnym rogu mo¿esz zmieniæ
+rozmiary okna.
+Klikniêcie ¶rodkowym przyciskiem od razu zmiejszy okno.
+Po klikniêcie prawym przyciskiem na obrze¿u lub pasku tytu³owym
+pojawi siê okienko z menu z nastêpuj±cymi komendami: 
+.TP
+.B Send To... (Przerzuæ do...)
+Przenosi okno na inne biurko.
+Kiedy wybierzesz biurko ¶rodkowym przyciskiem Blackbox przeniesie ciê
+razem z aplikacj± na te biurko.
+.TP
+.B Shade (Cieñ)
+Cieniuje okno (wy¶wietla tylko pasek tytu³owy).
+.TP
+.B Iconify (Minimalizuj)
+Minimalizuje okno.
+Ikonê programu mo¿na odnale¼æ w podmenu `Icons' (Ikony) menu biurka. Nie pojawi
+siê ona jednak na ekranie. 
+.TP
+.B Maximize (Maksymalizuj)
+(Nie)maksymalizuj okna.
+Kiedy klikniesz ¶rodkowym przyciskiem na tym elemencie menu
+okno powiêkszy siê tylko w pionie.
+.TP
+.B Raise (Podnie¶)
+Uaktywnia okno.
+.TP
+.B Lower (Zmiejsz)
+Deaktywuje okno.
+.TP
+.B Stick (Na ka¿dym biurku)
+(Nie) przymocowuje okno.
+Przymocowane okno bêdzie zawsze widoczne na bie¿±cym biurku.
+.TP
+.B Kill Client (Zakoñcz bezwarunkowo)
+Wysy³a sygna³ -SIGKILL do w³a¶ciciela okna. U¿yj tego w ostateczno¶ci, je¶li program
+odmawia normalnego zakoñczenia.
+.TP
+.B Close (Zamknij)
+Zakoñcz bezpiecznie aplikacjê.
+.PP
+Gdy podwójnie klikniesz na pasku tytu³owym okna tylko pasek tytu³owy
+pozostanie widoczny. Ponowne podwójne klikniêcie przywróci poprzedni wygl±d.
+.SS Przyciski okna:
+Przycisk w lewym górnym rogu okna (na pasku tytu³owym) to przycisk minimalizacji.
+Jego klikniêcie dowolnym przyciskiem myszki spowoduje minimalizacjê okna.
+Przycisk najbardziej na prawo (z X) koñczy dzia³anie aplikacji.
+Je¶li jest jaki¶ przycisk jeszcze oprócz dwóch wymienionych to maksymalizuje
+on okno na trzy sposoby:
+lewy przycisk myszki powoduje maksymalizacjê na ca³y ekran, ¦rodkowy
+tylko w pionie, prawy tylko w poziomie.
+.SS Jakiekolwiek menu:
+Klikniêcie prawego przycisku myszy schowa menu.
+Klikniêcie lewego przycisku na pasku tytu³owym lub jakimkolwiek (pod)menu
+i przeci±gniêcie w inne miejsce spowoduje, ¿e menu pozostanie widoczne.
+Nie zniknie gdy klikniesz na jakim¶ elemencie menu.
+.SS Ró¿no¶ci:
+Kiedy chcesz przeci±gn±æ okno, gdy nie widaæ dolnych uchwytów
+lub paska tytu³owego, mo¿esz wcisn±æ klawisz Alt i lewy przycisk myszki,
+i przeci±gaæ do woli.
+Tej samej kombinacji mo¿esz u¿yæ by uaktywniæ okno.
+Mo¿esz tak¿e u¿yæ Alt + ¶rodkowy przycisk myszy, ¿eby zdeaktywowaæ okno
+a Alt + przycisk prawy, ¿eby zmieniæ rozmiary okna. 
+.SH PLIK MENU 
+Domy¶lnie plik menu jest instalowany w
+.IR /usr/X11R6/share/blackbox/menu .
+Oczywi¶cie te globalne menu mo¿e byæ dla wszystkich u¿ytkowników.
+Mo¿na stworzyæ tak¿e w³asne menu.
+Konwencj± jest utworzenie katalogu
+.IR "~/.blackbox/" " (lub " "~/blackbox/" ")"
+w katalogu domowym i utworzenie w nim pliku menu, np.
+.I menu
+lub skopiowanie do niego globalnego menu. 
+Nastêpnie trzeba powiedzieæ Blackboxowi, ¿eby korzysta³ z naszego menu zamiast
+domy¶lnego.
+Robi siê to dodaj±c (albo zmieniaj±c) warto¶æ zasobu w pliku
+.I ~/.blackboxrc
+, np.:
+.EX
+session.menuFile:       ~/.blackbox/menu
+.EE
+¯eby zmiany odnios³y skutek Blackbox musi zostaæ zrestartowany.
+Upewnij siê, ¿e twoje menu nadaje siê do u¿ytku i wybierz `Restart'
+z domy¶lnego menu.
+.SS Sk³adnia menu
+Sk³adnia menu jest bardzo prosta i bardzo efektywna.
+Jest co najwy¿ej trzy pola w jednej linii menu.
+S± one postaci:
+.EX
+[tag] (etykietka lub nazwa pliku) {komenda lub nazwa pliku}
+.EE
+Nastêpuj±ce tagi mog± byæ u¿yte:
+.TP
+.B [begin] (etykietka dla g³ównego menu)
+Ten tag mówi Blackboxowi, ¿eby zacz±³ przetwarzaæ plik.
+Tag ten jest wymagany. Je¶li go nie ma w twoim pliku z menu,
+zostanie u¿yte menu domy¶lne.
+.TP
+.B [end]
+To informuje Blackboxa o koñcu menu (menu g³ównego b±d¼ jakiego¶ podmenu).
+Musi byæ przynajmniej jeden [end] w twoim menu odpowiadaj±cy [begin].
+.TP
+.B [exec] (etykietka dla komendy) {komenda pow³oki}
+Wstaw polecenie do menu.
+Je¶li wybierzesz te polecenie z menu, Blackbox wykona odpowiadaj±c± mu
+komendê pow³oki.
+.TP
+.B [exit] (etykietka dla wyj¶cia)
+Wybranie tego elementu z menu koñczy dzia³anie Blackboxa, chocia¿
+dzia³aj±ce programy nie s± zamykane.
+.TP
+.B [include] (nazwa_pliku)
+do³±cza menu z pliku
+.I nazwa_pliku
+do bie¿±cego menu. Nazwa pliku mo¿e byæ pe³n± ¶cie¿k± do pliku lub mo¿e
+zaczynaæ siê na 
+.IR ~/ ,
+co zostanie zast±pione twoim katalogiem domowym (np.
+.EX
+[include] (~/blackbox/stylesmenu)
+.EE
+do³±cza plik
+.I /home/bhughes/blackbox/stylesmenu
+do mojego menu).
+.TP
+.B [nop] (etykietka - opcjonalnie)
+Wstawia nic nie robi±cy element do menu.
+Mo¿e byæ on pomocny do formatowania menu w bloki lub sekcje, je¶li sobie tego
+¿yczymy.
+.B [nop]
+mo¿na dodaæ etykietkê, ale nie jest ona wymagana i je¶li siê jej nie poda
+wy¶wietlona bêdzie pusta linia.
+.TP 
+.B [style] (etykietka) {nazwa pliku}
+Po wybraniu tego elementu z menu, Blackbox czyta
+plik stylów 
+.I nazwa pliku
+i stosuje tekstury, kolory i czcionki z tego pliku do bie¿±cej sesji.
+.TP
+.B [stylesdir] (nazwa katalogu)
+Czyta wszystkie nazwy plików (nazwy katalogów s± pomijane) z podanego katalogu
+i tworzy elementy menu dla ka¿dego pliku. Blackbox przyjmuje, ¿e ka¿dy plik
+jest poprawnym plikiem stylów. Gdy u¿ytkownik wybierze plik stylów, Blackbox
+zastosuje go do bie¿±cej sesji.
+Etykiety tworzone w menu s± nazwami plików stylów.
+.TP
+.B [stylesmenu] (etykietka) {nazwa katalogu}
+Tworzy podmenu z etykiet±
+.I etykietka
+(która staje siê tak¿e nazw± podmenu) i wstawia wszystkie nazwy plików
+w podanym katalogu do tego podmenu w taki sam sposób jak robi to
+.B [stylesdir]
+.IP
+.RB Obydwa\  [stylesdir] \ i\  [stylesmenu]
+pozwalaj± instalowaæ pliki stylów bez edytowania pliku menu.
+.TP
+.B [submenu] (etykietka) {tytu³ dla menu - opcjonalnie}
+To mówi Blackboxowi o utworzeniu i przetwarzaniu nowego menu.
+To menu jest wstawiane jako podmenu do menu nadrzêdnego.
+Menu s± przetwarzane rekurencyjnie. Nie ma wiêc ograniczeñ na liczbê
+poziomów czy zagnie¿d¿eñ menu jakie mo¿esz mieæ.
+Tytu³ nowego menu jest opcjonalny; je¶li nie podasz ¿adnego, tytu³
+menu bêdzie taki sam jak etykietka.
+Tag
+.B [end]
+jest wymagany na koñcu podmenu.
+.TP
+.B [reconfig] (etykietka)
+Gdy wybrany jest ten element z menu, Blackbox ponownie czyta bie¿±ce
+pliki: menu i stylów, i stosuje zmiany.
+To przydaje siê, gdy stworzysz nowy styl lub temat, bo nie musisz
+ci±gle restartowaæ Blackboxa za ka¿dym razem, gdy nagrywasz swój
+styl.
+Chocia¿, Blackbox automatycznie czyta menu, gdy siê tylko ono
+zmieni.
+.TP
+.B [restart] (etykietka) {komenda pow³oki - opcjonalnie}
+To ka¿e Blackboxowi zrestartowaæ.
+Je¶li podana jest komenda, Blackbox koñczy i uruchamia komendê
+(która zwykle jest nazw± innego menad¿era okien).
+Je¶li komenda pow³oki nie by³a podana Blackbox uruchamia siê ponownie.
+.TP
+.B [config] (etykietka)
+Wstawia podmenu generowane przez Blackboxa zawieraj±ce wiele opcji
+konfiguracyjnych, takich jak: rozmieszczenie okien, sposób ich uaktywniania,
+przesuwania, itd.
+.TP
+.B [workspaces] (etykietka)
+To mówi Blackboxowi, ¿eby do³±czyæ podmenu "biurkowe" bezpo¶rednio
+do twojego menu.
+To jest przydatne u¿ytkownikom, którzy nie mog± bezpo¶rednio u¿yæ menu
+"biurkowego" (np. nie posiadaj± trzyprzyciskowej myszki).
+.PP
+Ka¿da linia zaczynaj±ca siê od '#' jest traktowana jak komentarz i pomijana
+przez Blackboxa.
+W polach etykietek/poleceñ/nazw plików mo¿esz u¿yæ znaków takich jak:
+.B (
+,
+.B )
+,
+.B {
+,
+.B }
+ poprzedzaj±c je 
+.B \\\\
+, np.
+.EX
+[exec] (\\(my cool\\) \\{XTERM\\}) {xterm -T \\"cool XTERM\\"}
+.EE
+U¿ycie `\\\\' wstawi znak backslasha w pole etykietki/polecenia/nazwy pliku.
+.SS Przyk³ad menu
+Teraz po³±czymy razem kilka elementów.
+Tutaj krótki przyk³ad menu:
+.PP
+.nf
+# Blackbox menu file
+[begin] (Blackbox 0.62.1pre0)
+  [exec] (rxvt) {rxvt -ls}
+  [exec] (Mozilla) {mozilla}
+  [exec] (The GIMP) {gimp}
+  [submenu] (Window Manager)
+    [exec] (Edit Menus) {nedit .blackbox/Menu}
+    [submenu] (Style) {Which Style?}
+      [stylesdir] (~/.blackbox/styles)
+      [stylesmenu] (Blackbox Styles) {/usr/X11R6/share/blackbox/styles}
+    [end]
+    [config] (Config Options)
+    [reconfig] (Reconfigure)
+    [restart] (Restart)
+  [end]
+  [exit] (Log Out)
+[end]
+# end of menu file
+.fi
+.SH STYLE
+Blackbox pozwala ci u¿ywaæ wyspecjalizowanych plików zawieraj±cych zasoby
+.IR X (1).
+Mo¿esz w nich ustawiæ kolory, tekstury, czcionki, które wp³ywaj± na wygl±d
+obrze¿y okien, menu i paska tytu³owego.
+.PP
+Domy¶lna instalacja Blackboxa dostarcza klika plików stylów.
+Zwykle s± one umieszczane w
+.IR /usr/X11R6/share/blackbox/styles .
+Studiuj±c lub edytuj±c zawarto¶æ tych plików mo¿na siê dowiedzieæ, jak dzia³a
+mechanizma stylów w Blackboxie.
+Mo¿esz u¿yæ w menu
+.BR [style] ", " [stylesdir] " i " [stylesmenu]
+by móc wybieraæ i zmieniaæ miêdzy stylami w locie.
+.PP
+Mo¿esz te¿ utworzyæ katalog w swoim katalogu domowym (zwykle zwany
+.I ~/.blackbox/styles)
+i umie¶ciæ w nim w³asne pliki stylów.
+Oczywi¶cie mo¿esz dowolnie nazwaæ ten katalog, ale wiele tematów, które mo¿na
+¶ci±gn±æ z internetu przyjmuje nazwê
+.I styles
+(popieraj±c schemat nazewnictwa bb.themes.org).
+.PP
+¯eby zrozumieæ, jak dzia³a mechanizm stylów, musisz mieæ trochê wiedzy na temat
+zasobów X.
+.PP
+Zasoby X sk³adaj± siê z klucza i warto¶ci.
+Klucz jest zbudowany z wielu mniejszych kluczy (czasami zwanych potomkami)
+oddzielonych przez kropkê (`.').
+Klucze mog± tak¿e zawieraæ gwiazdkê (`*'), która pe³ni funkcjê d¿okera,
+co oznacza, ¿e jedna linia tekstu mo¿e pasowaæ do wielu kluczy.
+To siê przydaje, gdy style s± oparte na jednym lub dwóch kolorach.
+.PP
+Blackbox pozwala skonfigurowaæ swoje cztery g³ówne komponenty:
+pasek tytu³owy, slit (szczelinê ???), menu i dekoracje okien.
+.PP
+Okienko, które pokazuje wspó³rzêdne x-y, gdy siê przeci±ga okna, zapo¿ycza
+swój styl z paska tytu³owego przeci±ganego okna.
+.PP
+Kilka prostych przyk³adów:
+.EX
+toolbar.clock.color:	green
+.EE
+To ustawia zasób kolor zegara na pasku narzêdzi na `zielony'. Inny przyk³ad:
+.EX
+menu*color:	rgb:3/4/5
+.EE
+To ustawia zasób `color' menu
+.I i wszystkich `potomków'
+na `rgb:3/4/5'.
+(Opis nazw kolorów znajdziesz w
+.IR X (1).)
+Ten powy¿szy stosuje siê te¿ do
+.IR menu.title.color " i " menu.frame.color .
+A z
+.EX
+*font:	-b&h-lucida-medium-r-normal-*-*-140-*
+.EE
+ustawiasz zasób `font' dla wszystkich kluczy o tej nazwie na raz.
+(¯eby dowiedzieæ siê jakie czcionki s± zainstalowane w twoim systemie mo¿esz u¿yæ
+programów, takich jak:
+.IR xfontsel "(1), " gtkfontsel ", czy " xlsfonts "(1).)"
+.PP
+To, co czyni Blackboxa tak widowiskowym, jest jego zdolno¶c do renderowania tekstur
+w locie. 
+Opis tekstury jest podany w podobny sposób jak opis kolorów przedstawiony wy¿ej,
+np.:
+.ta \w'toolbar.clock.colorTo:\ 'u
+.EX
+toolbar.clock:	Raised Gradient Diagonal Bevel1
+toolbar.clock.color:	rgb:8/6/4
+toolbar.clock.colorTo:	rgb:4/3/2
+.EE
+Nie przejmuj siê; zaraz to wyja¶nimy!
+Opis tekstury zawiera do piêciu pól, które s± nastêpuj±ce:
+.TP
+.B Flat / Raised / Sunken
+daje komponentowi p³aski, podniesiony albo zapadniêty wygl±d.
+.TP
+.B Gradient / Solid
+mówi Blackboxowi by rysowaæ teksturê z gradacj± albo rysowaæ j± jednolitym kolorem.
+.TP
+.B Horizontal / Vertical / Diagonal / Crossdiagonal / Pipecross / Elliptic / Rectangle / Pyramid
+Wybiera jedn± z tych tekstur. Dzia³aj± one tylko wtedy, gdy
+.B Gradient
+jest te¿ podany!
+.TP
+.B Interlaced
+mówi Blackboxowi by przeplataæ teksturê (¶ciemniaæ co drug± liniê).
+Opcja ta jest najczê¶ciej u¿ywana przy teksturach z gradacj±, chocia¿
+od wersji 0.60.3 dzia³a tak¿e w teksturach z jednolitym kolorem.
+.TP
+.B Bevel1 / Bevel2
+mówi Blackboxowi który typ bevel (co to jest bevel?) u¿yæ.
+Domy¶lnym jest Bevel1.
+Cieniowanie zaczyna siê na krawêdzi obrazka.
+Bevel2 jest alternatywny.
+Cieniowanie zaczyna siê jeden piksel od krawêdzi obrazka.
+.PP
+Zamiast opisu mo¿na u¿yæ opcji
+.B ParentRelative
+, która sprawia, ¿e komponent pojawia siê jako czê¶æ
+swojego rodzica (nadrzêdnego komponentu), np.
+ca³kowicie przezroczysta.
+.PP
+Wszystkie tekstury z gradacj± zbudowane s± z dwóch kolorów:
+.IR color " i " colorTo " ."
+color to pocz±tkowy kolor gradientu, colorTo - koñcowy.
+Gdy
+.B Interlaced 
+jest u¿ywane w trybie
+.B Solid
+.I colorTo
+jest u¿ywane do podania koloru przeplotu.
+.PP
+Có¿, tutaj jest kompletna lista komponentów; tak¿e, wszystkie komponenty razem
+z rodzajami warto¶ci, które mog± przyjmowaæ.
+Komentarze s± poprzedzone znakiem wykrzyknika (!), który jest tak¿e u¿ywany
+do komentarzy w plikach stylów Blackboxa, jak i w plikach zasobów X.
+.PP
+.ta \w'window.button.unfocus.picColor:\ 'u 
+.nf
+.\"
+.\" Komentarze tak¿e nale¿y t³umaczyæ!
+.\"
+! Pasek narzêdzi.
+toolbar:	Tekstura
+toolbar.color:	Kolor
+toolbar.colorTo:	Kolor
+
+! Przyciski paska narzêdzi.
+toolbar.button:	Tekstura albo \fIParentRelative\fR
+toolbar.button.color:	Kolor
+toolbar.button.colorTo:	Kolor
+
+! Kolory strza³ek 
+toolbar.button.picColor:	Kolor
+
+! Przyciski w stanie `wci¶niêty'
+toolbar.button.pressed:	Tekstura \fI(np. Sunken)\fR albo \fIParentRelative\fR
+toolbar.button.pressed.color:	Kolor
+toolbar.button.pressed.colorTo:	Kolor
+
+! Kolor, gdy wci¶niêty przycisk strza³ki.
+toolbar.button.pressed.picColor:	Kolor
+
+! Etykietka paska narzêdzi.
+toolbar.label:	Tekstura lub \fIParentRelative\fR
+toolbar.label.color:	Kolor
+toolbar.label.colorTo:	Kolor
+toolbar.label.textColor:	Kolor
+
+! Etykietka okna paska narzêdzi.
+toolbar.windowLabel:	Tekstura lub \fIParentRelative\fR
+toolbar.windowLabel.color:	Kolor
+toolbar.windowLabel.colorTo:	Kolor
+toolbar.windowLabel.textColor:	Kolor
+
+! Zegarek na pasku narzêdzi.
+toolbar.clock:	Tekstura lub \fIParentRelative\fR
+toolbar.clock.color:	Kolor
+toolbar.clock.colorTo:	Kolor
+toolbar.clock.textColor:	Kolor
+
+! W jaki sposób powinien byæ rozmieszczony tekst na pasku narzêdzi.
+toolbar.justify:	\fIcenter\fR, \fIleft\fR, albo \fIright\fR
+
+! Czcionka u¿ywana dla wszystkich komponentów paska narzêdzi.
+toolbar.font:	Czcionka \fI(np. -*-helvetica-medium-r-normal-*-*-100-*)\fR
+
+! Pasek tytu³owy menu.
+menu.title:	Tekstura
+menu.title.color:	Kolor
+menu.title.colorTo:	Kolor
+menu.title.textColor:	Kolor
+menu.title.font:	Czcionka
+menu.title.justify:	\fIcenter\fR, \fIleft\fR, albo \fIright\fR
+
+! Ramka menu.
+menu.frame:	Tekstura
+menu.frame.color:	Kolor
+menu.frame.colorTo:	Kolor
+menu.frame.textColor:	Kolor
+menu.frame.disableColor:	Kolor
+menu.frame.font:	Czcionka
+menu.frame.justify:	\fIcenter\fR, \fIleft\fR, or \fIright\fR
+
+! Kulki dla elementów podmenu.
+menu.bullet:	\fIempty\fR, \fItriangle\fR, \fIsquare\fR, lub \fIdiamond\fR
+menu.bullet.position:	\fIright\fR lub \fIleft\fR
+
+! Pod¶wietlony element menu.
+menu.hilite:	Tekstura (np. \fIRaised\fR)
+menu.hilite.color:	Kolor
+menu.hilite.colorTo:	Kolor
+menu.hilite.textColor:	Kolor
+
+! Aktywne okno.
+window.title.focus:	Tekstura
+window.title.focus.color:	Kolor
+window.title.focus.colorTo:	Kolor
+
+! Nieaktywne okno.
+window.title.unfocus:	Tekstura
+window.title.unfocus.color:	Kolor
+window.title.unfocus.colorTo:	Kolor
+
+! Etykietka okna.
+window.label.focus:	Tekstura albo \fIParentRelative\fR
+window.label.focus.color:	Kolor
+window.label.focus.colorTo:	Kolor
+window.label.focus.textColor:	Kolor
+
+window.label.unfocus:	Tekstura albo \fIParentRelative\fR
+window.label.unfocus.color:	Kolor
+window.label.unfocus.colorTo:	Kolor
+window.label.unfocus.textColor:	Kolor
+
+! Pasek z uchwytami do zmieniania rozmiarów okna.
+window.handle.focus:	Tekstura
+window.handle.focus.color:	Kolor
+window.handle.focus.colorTo:	Kolor
+
+window.handle.unfocus:	Tekstura
+window.handle.unfocus.color:	Kolor
+window.handle.unfocus.colorTo:	Kolor
+
+! Uchwyty do zmieniania rozmiarów okna.
+window.grip.focus:	Tekstura
+window.grip.focus.color:	Kolor
+window.grip.focus.colorTo:	Kolor
+
+window.grip.unfocus:	Tekstura
+window.grip.unfocus.color:	Kolor
+window.grip.unfocus.colorTo:	Kolor
+
+! Przyciski na pasku tytu³owym okna.
+window.button.focus:	Tekstura albo \fIParentRelative\fR
+window.button.focus.color:	Kolor
+window.button.focus.colorTo:	Kolor
+window.button.focus.picColor:	Kolor
+
+window.button.unfocus:	Tekstura albo \fIParentRelative\fR
+window.button.unfocus.color:	Kolor
+window.button.unfocus.colorTo:	Kolor
+window.button.unfocus.picColor:	Kolor
+
+window.button.pressed:	Tekstura (np. \fISunken\fR)
+window.button.pressed.color:	Kolor
+window.button.pressed.colorTo:	Kolor
+
+! Ramka wokó³ okna.
+window.frame.focusColor:	Kolor
+window.frame.unfocusColor:	Kolor
+
+! Czcionka i justyfikacja dla etykiet okien.
+window.font:	Czcionka
+window.justify:	\fIcenter\fR, \fIleft\fR, lub \fIright\fR
+
+! Ró¿ne zasoby.
+
+! Obrze¿e mo¿e byæ rysowane wokó³ wszystkich komponentów.
+borderWidth:	liczba pikseli, np. \fI1\fR
+borderColor:	Kolor
+
+bevelWidth:	liczba pikseli > 0
+handleWidth:	liczba pikseli > 0
+
+! Szeroko¶æ ramki okna (od wersji 0.61 w³±cznie).
+! Gdy nie podana frameWidth przyjmuje warto¶æ bevelWidth.
+frameWidth:	liczba pikseli >= 0
+
+
+! To polecenie jest wykonywane za ka¿dym razem gdy wybierany jest styl.
+! Zwykle ³adny wstawia ³adny obrazek do g³ównego okna.
+
+rootCommand:	Polecenie pow³oki, np. \fIbsetroot -mod 4 4 -fg rgb:	5/6/6 -bg grey20\fR
+
+! Niektóre programy z bbtools wykorzystuj± te stare, pochodz±ce z wersji 0.51, zasoby.
+menuFont:	Czcionka
+titleFont:	Czcionka
+.fi
+.PP
+Có¿, wygl±da to na d³ug± listê, ale pamiêtaj, ¿e, gdy tworzysz swój w³asny styl,
+mo¿esz ³atwo ustawiæ wiele kluczy jedn± komend±, np.
+.EX
+.ta \w'*unfocus.textColor:\ 'u
+*color:	slategrey
+*colorTo:	darkslategrey
+*unfocus.color:	darkslategrey
+*unfocus.colorTo:	black
+*textColor:	white
+*unfocus.textColor:	lightgrey
+*font:	lucidasans-10
+.EE
+To s± mi³e oku domy¶lne ustawienia dla wielu komponentów. 
+.SH THE SLIT (SZCZELINA)
+Slit jest specjalnym oknem Blackboxa, które zawiera dokowalne aplikacje, np.
+`bbtools' lub aplety Window Makera.
+Aplikacje wykonuj±ce siê w `szczelinie' nie posiadaj± w³asnych obramowañ;
+zamiast tego s± one oprawione w szczelinie i s± zawsze widoczne na pulpicie
+(biurku).
+Po klikniêciu przycisku 3 myszy (prawego) na krawêdzi szczeliny pojawi siê
+menu. Z tego menu mo¿na wybraæ po³o¿enie szczeliny na ekranie, czy aplikacje
+zawarte w szczelinie powinny byæ grupowane poziomo czy pionowo, i czy powinny
+siê ukrywaæ gdy przesunie siê wska¼nik myszy w inne miejsce. 
+.PP
+Wiêkszo¶æ dokowalnych aplikacji u¿ywa opcji
+.B -w
+, ¿eby uruchomiæ siê w szczelinie.
+Na przyk³ad mo¿esz wstawiæ w swoim
+.IR ~/.xinitrc :
+.EX
+bbmail -w &
+bbpager -w &
+exec blackbox
+.EE
+Oczywi¶cie, ¿eby u¿ywaæ szczeliny musisz mieæ wkompilowan± jej obs³ugê 
+(to jest domy¶lnie ustawione).
+.SH PLIK ZASOBÓW
+Zwykle plik
+.I ~/.blackboxrc
+jest tworzony i zarz±dzany przez Blackboxa.
+Wszystkie opcje menu z
+.B [config]
+(pocz±wszy od 0.60.x w³±cznie), ostatnio wybrany plik stylów, nazwy twoich
+biurek i inne s± automatycznie zapisywane w tym pliku.
+Aczkolwiek, s± tam zasoby, które mo¿esz edytowaæ samodzielnie:
+.TP
+.B session.menuFile:
+To mówi Blackboxowi gdzie szukaæ plku z menu.
+.TP
+.B session.screen0.toolbar.widthPercent:
+To decyduje ile procentowo miejsca zajmie pasek narzêdzi.
+Domy¶ln± warto¶ci± jest
+.IR 66 .
+.TP
+.B session.screen0.strftimeFormat:
+To decyduje w jaki sposób czas jest wy¶wietlany na pasku narzêdzi.
+Wykorzystywany jest format
+.IR strftime (3).
+Domy¶ln± warto¶ci± jest:
+.IR "%I:%M %p" .
+.TP
+.B session.autoRaiseDelay:
+To ustala opó¼nienie (w milisekundach). Po tym czasie okno, w którym znajduje
+siê wska¼nik myszy zostanie uaktywnione o ile wybrana by³a opcja Auto Raise
+(Automatyczne uaktywanianie). 
+Domy¶ln± warto¶ci± jest:
+.IR 250 .
+.TP
+.B session.doubleClickInterval:
+ustala maksymalny odstêp (w milisekundach) pomiêdzy dwoma klikniêciami myszy,
+by by³y one traktowane jako podwójne klikniêcie.
+Domy¶ln± warto¶ci± jest:
+.IR 250 .
+.TP
+.B session.screen0.edgeSnapThreshold:
+Gdy przemieszczasz okno po ekranie, Blackbox jest w stanie szybko dosun±æ
+je do krawêdzi ekranu. U³atwia to rozmieszczanie okien.
+Ta zmienna ustala odleg³o¶æ (w pikselach), przy której okno bêdzie dosuwane
+do krawêdzi ekranu.
+Domy¶ln± warto¶ci± jest:
+.IR 0 .
+.TP
+.B session.cacheMax:
+mówi Blackboxowi ile pamiêci (w kB) mo¿e zu¿yæ na buforowanie obrazków
+(piksmap) na serwerze X.
+Je¶li twojej maszynie brakuje pamiêci mo¿esz zmniejszyæ tê warto¶æ.
+Domy¶lnie jest: 
+.IR 200 .
+.TP
+.B session.cacheLife:
+mówi Blackboxowi jak d³ugo (w minutach) nieu¿ywane obrazki maj± pozostawaæ
+w pamiêci serwera X.
+Domy¶ln± warto¶ci± jest:
+.IR 5 .
+.TP
+.B session.colorsPerChannel:
+ustala ile kolorów wzi±æ z serwera X w trybie pseudokolor. Kana³ mo¿e byæ
+czerwony, zielony lub niebieski.
+Blackbox przydzieli (warto¶æ tej zmiennej) ^ 3 (do potêgi trzeciej) kolorów,
+które bêd± zawsze dostêpne.
+Warto¶æ ta musi byæ miêdzy 2 a 6.
+Gdy u¿ywasz Blackboxa na displeju w trybie 8-bitowym, warto¶æ tego zasobu
+musi byæ równa 4. 
+Domy¶lnie jest:
+.IR 4.
+.PP
+Gdy u¿ywasz wielu pulpitów (biurek) oprócz
+.B screen0
+mo¿esz u¿yæ tak¿e kluczy
+.B screen1, 2
+itd. dla odpowiednich pulpitów.
+.SH ZMIENNE ¦RODOWISKOWE
+.TP
+.B HOME
+Blackbox u¿ywa
+.RB $ HOME
+¿eby znale¼æ plik
+.I .blackboxrc
+i odszukaæ plik stylów oraz nazwy katalogów. 
+.TP
+.B DISPLAY
+Gdy ¿aden inny displej nie jest podany w linii poleceñ, Blackbox wykorzysta
+displej z tej zmiennej.
+.SH AUTOR i ZAS£U¯ENI
+Ca³y kod by³ na pocz±tku napisany i rozwijany przez Brada Hughesa
+.nh \" hyphenation off
+(blackbox@alug.org)
+.hy \" on again
+a potem Jeffa Ravena
+.nh
+(jraven@psu.edu).
+.hy
+Obecnie maintainerem jest Sean 'Shaleh' Perry
+.nh
+(shaleh@debian.org)
+.hy
+z udzia³em i poprawkami wielu indywidualno¶ci z ca³ego ¶wiata.
+.PP
+Oficjalna strona Blackboxa:
+.nh
+.B http://blackbox.alug.org/
+.hy
+.br
+B³êdy i usprawnienia nale¿y zg³aszaæ na:
+.nh
+.B http://sf.net/projects/blackboxwm
+.hy
+.br
+Tam te¿ mo¿na znale¼æ aktualn± wersjê Blackboxa.
+
+Wiele tematów i innych dodatków:
+.nh
+.B http://bb.themes.org/
+.hy
+.PP
+Ta strona manuala zosta³a posk³adana przez Wilberta Berendsena
+.nh
+(wbsoft@xs4all.nl).
+.hy
+Wiele innych wersji jêzykowych bêdzie dostêpnych.
+.SH T£UMACZENIE
+Witold Filipczyk (juandon@pld.org.pl)
+.SH ZOBACZ TAK¯E
+.IR bsetroot (1), \ bbkeys (1)  \" nie tutaj, jeszcze ;-(

@@ -1,0 +1,92 @@
+.\"
+.\" Man page for Bsetroot
+.\"
+.\" Copyright (c) 2000 by Wilbert Berendsen <wbsoft@xs4all.nl>
+.\"
+.TH bsetroot 1 "10 marca 2002" "0.60.3"
+.SH NAZWA
+bsetroot \- program do zmieniania wygl±du g³ównego okna
+.SH STRESZCZENIE
+.BR bsetroot " \-help"
+.br
+.B bsetroot
+.RI "[ \-display " displej " ] \-solid " kolor
+.br
+.B bsetroot
+.RI "[ \-display " displej " ] \-mod " "x y" " \-fg " kolor " \-bg " kolor
+.br
+.B bsetroot
+.RI "[ \-display " displej " ] \-gradient " tekstura " \-from " kolor " \-to " kolor
+.SH OPIS
+Bsetroot jest programem, który kontroluje wygl±d g³ównego okna na trzy sposoby:
+pokrywa je jednolitym kolorem, albo wzorem z³o¿onym z dwóch kolorów, albo
+tekstur± z gradacj± opart± na dwóch ró¿nych kolorach.
+.PP
+Bsetroot przypomina w funkcjonalno¶ci
+.IR xsetroot (1)
+ale Bsetroot potrafi obs³u¿yæ kilka pulpitów i tekstury z gradacj± tak jak robi
+to Blackbox.
+Bsetroot nale¿y do pakietu Blackbox.
+.SH OPCJE
+Bsetroot dzia³a na trzy sposoby.  Musisz wybraæ jedn± z trzech pierwszych opcji:
+.TP
+.BI \-solid " kolor"
+Ustala jednolity kolor w g³ównym oknie.
+.TP
+.BI \-mod " x y"
+Tworzy wzór modu³owy.  Musisz wybraæ dwa kolory
+.BR \-bg " i " \-fg
+.
+.TP
+.BI \-gradient " nazwatekstury"
+Renderuje podan± teksturê w g³ównym oknie.
+Zobacz
+.IR blackbox (1)
+, ¿eby dowiedzieæ siê o dostêpne rodzaje tekstur.
+
+Musisz tak¿e podaæ dwa kolory
+.BR \-from " i  " \-to
+.
+.TP
+.BI \-display " displej"
+Mówi Bsetroot, ¿eby u¿yæ podanego displeja.
+.TP
+.BI "\-bg, \-background " kolor
+Kolor t³a.
+Potrzebny przy wzorach tworzonych z opcj±
+.B \-mod
+.
+.TP
+.BI "\-fg, \-foreground " kolor
+Kolor pierwszoplanowy.
+Potrzebny przy wzorach z
+.B \-mod
+.
+.TP
+.BI \-from " kolor"
+Pocz±tkowy kolor do renderowania tekstur.
+Potrzebny przy trybie
+.B \-gradient
+.
+.TP
+.BI \-to " kolor"
+Koñcowy kolor do renderowania tekstur.
+Potrzebny przy trybie
+.B \-gradient
+.
+.TP
+.B \-help
+Wy¶wietla numer wersji i krótki tekst pomocy.
+.SH AUTOR
+Bsetroot zosta³ napisany przez Brada Hughesa, który opiekuje siê jego rozwojem
+.nh \" hyphenation off
+(blackbox@alug.org)
+.hy \" on again
+oraz Jeffa Ravena
+.nh
+(jraven@psu.edu).
+.hy
+.SH T£UMACZENIE
+Witold Filipczyk (juandon@pld.org.pl)
+.SH ZOBACZ TAK¯E
+.IR blackbox (1)
