@@ -1,15 +1,15 @@
-Summary:     Very small and fast window manger for the X Window.
-Summary(pl): Ma³y i szybki menad¿er okien dla X Window.
-Name:        blackbox
-Version:     0.50.3
-Release:     1
-Copyright:   GPL-2.0
-Group:       X11/Window Managers
-Group(pl):   X11/Zarz±dcy okien
-Vendor:      Brad Hughes <bhughes@arn.net>
-Source:      http://linux.wiw.org/blackbox/sources/%{name}-%{version}.tar.bz2
-URL:         http://linux.wiw.org/blackbox/
-Buildroot:   /tmp/%{name}-%{version}-root
+Summary:	Very small and fast window manger for the X Window.
+Summary(pl):	Ma³y i szybki menad¿er okien dla X Window.
+Name:		blackbox
+Version:	0.50.4
+Release:	1
+Copyright:	GPL-2.0
+Group:		X11/Window Managers
+Group(pl):	X11/Zarz±dcy okien
+Vendor:		Brad Hughes <bhughes@arn.net>
+Source:		http://linux.wiw.org/blackbox/%{name}-%{version}.tar.bz2
+URL:		http://linux.wiw.org/blackbox/
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 Blackbox is a window manager for the X Window environment, which is almost
