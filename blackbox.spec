@@ -2,7 +2,7 @@ Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.61.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
@@ -51,7 +51,7 @@ automake -a -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d RPM_BUILD_ROOT%{_datadir}/wm-properties
+install -d $RPM_BUILD_ROOT%{_datadir}/wm-properties
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
