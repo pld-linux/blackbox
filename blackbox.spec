@@ -8,8 +8,12 @@ Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy okien
 Vendor:		Brad Hughes <bhughes@arn.net>
 Source:		ftp://balance.wiw.org/pub/blackbox/%{name}-%{version}.tar.bz2
+Patch:		blackbox-no-brueghel.patch
 URL:		http://linux.wiw.org/blackbox/
 Buildroot:	/tmp/%{name}-%{version}-root
+
+%define		_prefix	/usr/X11R6
+%define		_mandir	/usr/X11R6/man
 
 %description
 Blackbox is a window manager for the X Window environment, which is almost
@@ -28,11 +32,12 @@ Blackbox oszczêdza pamiêæ i czas CPU.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure %{_target_platform} \
-	--prefix=/usr/X11R6 \
+	--prefix=%{_prefix} \
 	--datadir=/etc/X11 \
 	--enable-kde
 make
@@ -49,9 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.gz ChangeLog.gz
 %config(noreplace) %verify(not size md5 mtime) /etc/X11/Blackbox/menu
-%config(noreplace) %verify(not size md5 mtime) /etc/X11/Blackbox/rc
 %dir /etc/X11/Blackbox
 
 %attr(755,root,root) /usr/X11R6/bin/*
 /etc/X11/Blackbox/styles
-/etc/X11/Blackbox/brueghel
