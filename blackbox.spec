@@ -1,3 +1,6 @@
+# Conditional build
+# --with pipe	Experimental pipe usage for use with wmconfig mainly
+#
 Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
@@ -9,6 +12,7 @@ Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	http://prdownloads.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-am_fixes.patch
+Patch1:		%{name}-pipe.patch
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -43,6 +47,7 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 %prep
 %setup -q
 %patch0 -p1
+%{?_with_pipe:%patch1 -p1}
 
 %build
 aclocal
