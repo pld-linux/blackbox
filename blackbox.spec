@@ -54,7 +54,7 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 %build
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure
 %{__make}
 
