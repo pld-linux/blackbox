@@ -1,5 +1,7 @@
 [Desktop Entry]
-Name=blackbox
+Name=Blackbox
+Comment=Very small and fast window manger
+Comment[pl]=Mały i szybki zarządca okien
 Exec=blackbox
 Terminal=False
 TryExec=blackbox
