@@ -29,17 +29,17 @@ Blackbox oszczêdza pamiêæ i czas CPU.
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
-	--prefix=/usr/X11R6
+CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure --prefix=/usr/X11R6
 make
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/usr/X11R6/lib/X11/app-defaults
 make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644, root, root, 755)
@@ -48,24 +48,24 @@ make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
 /usr/X11R6/lib/X11/app-defaults/*
 
 %changelog
-* Wed Oct 21 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+* Mon Nov  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.40.11-1]
-- now on building blackbox is used autoconf.
+- updated for using new autoconf scheme (instead old Imake).
 
-* Sun Sep 27 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
+* Sun Sep 27 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
   [0.40.7-2]
 - rewritten %descriptions,
 - removed INSTALL-file from %doc.
 
-* Fri Sep 25 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
+* Fri Sep 25 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
   [0.40.7-1]
 - added -q in %setup,
 - added pl translation.
 
-* Sun Aug 23 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
+* Sun Aug 23 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
   [0.40.4-1]
 - removed old log enteries.
 
-* Thu Aug 13 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
+* Thu Aug 13 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
   [0.40.3-1]
 - aew version
