@@ -1,18 +1,17 @@
-# Conditional build
-# --with pipe	Experimental pipe usage for use with wmconfig mainly
-#
 Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.62.1
-Release:	4
+Release:	4.5
 License:	GPL
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	http://prdownloads.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
+Source2:	%{name}-nls-pl.tar.bz2
 Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
+Patch2:		%{name}-nls-pl.patch
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -45,9 +44,10 @@ algorytm rysowania dekoracji okien, które mog± byæ jednokolorowe,
 gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 
 %prep
-%setup -q
+%setup -q -a2
 %patch0 -p1
-%{?_with_pipe:%patch1 -p1}
+%patch1 -p1
+%patch2 -p1
 
 %build
 aclocal
