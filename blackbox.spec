@@ -12,6 +12,7 @@ Source0:	ftp://portal.alug.org/pub/blackbox/0.6x.x/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		%{name}-lowcase_name.patch
 Patch1:		%{name}-exitbutton.patch
+Patch2:		%{name}-am_fixes.patch
 URL:		http://blackbox.alug.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -19,8 +20,8 @@ BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
-%define		_mandir		/usr/X11R6/man
-%define		_datadir	/etc/X11
+%define		_mandir		%{_prefix}/man
+%define		_sysconfdir	/etc/X11/%{name}
 
 %description
 Blackbox is a window manager for the X Window environment, which is
@@ -41,6 +42,7 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 aclocal
@@ -55,7 +57,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/wm-properties
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/wm-properties
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/wm-properties/
 
 gzip -9nf README ChangeLog
 
@@ -65,9 +67,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/blackbox/menu
 %{_datadir}/wm-properties/blackbox.desktop
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
+%dir %{_sysconfdir}
+%{_sysconfdir}/menu
 %dir %{_datadir}/blackbox
 %{_datadir}/blackbox/styles
