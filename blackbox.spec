@@ -2,13 +2,15 @@ Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.62.1
-Release:	4.5
+Release:	4.6
 License:	GPL
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	http://prdownloads.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-nls-pl.tar.bz2
+Source3:	%{name}.1
+Source4:	bsetroot.1
 Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
 Patch2:		%{name}-nls-pl.patch
@@ -58,12 +60,13 @@ automake -a -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/wm-properties
+install -d $RPM_BUILD_ROOT{%{_datadir}/wm-properties,%{_mandir}/pl/man1}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/wm-properties/
-
+install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/pl/man1
+install %{SOURCE4} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 gzip -9nf README* ChangeLog
 
 %clean
@@ -79,4 +82,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/blackbox/nls/*
 %{_datadir}/wm-properties/blackbox.desktop
 %{_mandir}/man1/*
+%{_mandir}/pl/man1/*
 %{_sysconfdir}/menu
