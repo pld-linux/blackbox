@@ -2,12 +2,12 @@ Summary:     Very small and fast window manger for the X-Windows.
 Summary(pl): Ma³y i szybki menad¿er okien dla X-Windows.
 Name:        blackbox
 Version:     0.50.0
-Release:     1
-URL:         http://linux.wiw.org/blackbox/
+Release:     2
 Copyright:   GPL-2.0
 Group:       X11/Window Managers
 Vendor:      Brad Hughes <bhughes@arn.net>
 Source:      http://linux.wiw.org/blackbox/sources/%{name}-%{version}.tar.bz2
+URL:         http://linux.wiw.org/blackbox/
 Buildroot:   /tmp/%{name}-%{version}-root
 
 %description
@@ -30,13 +30,14 @@ Blackbox oszczêdza pamiêæ i czas CPU.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure --prefix=/usr/X11R6
+./configure \
+	--prefix=/usr/X11R6 \
+	--datadir=/etc/X11
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/X11R6/lib/X11/app-defaults
-make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
+make install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -44,16 +45,22 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644, root, root, 755)
 %doc README ChangeLog
+/etc/X11/Blackbox/styles/*
+%config(noreplace) %verify(not size md5 mtime) /etc/X11/Blackbox/menu
+%config(noreplace) %verify(not size md5 mtime) /etc/X11/Blackbox/rc
 %attr(755, root, root) /usr/X11R6/bin/*
-%dir /usr/X11R6/share/Blackbox
-%dir /usr/X11R6/share/Blackbox/styles
-%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/Blackbox/styles/*
-%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/Blackbox/menu
-%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/Blackbox/rc
+%dir /etc/X11/Blackbox
+%dir /etc/X11/Blackbox/styles
 
 %changelog
+* Tue Nov 24 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
+  [0.50.0-2]
+- %config files moved to /etc/X11,
+- Few fixes of %files macro.
+
 * Tue Nov 24 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.50.0-1]
+- simplification: added using $DESTDIR on "make install",
 - added CFLAGS="$RPM_OPT_FLAGS" to configure enviroment.
 
 * Thu Nov  5 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
@@ -67,20 +74,20 @@ rm -rf $RPM_BUILD_ROOT
   [0.40.11-1]
 - updated for using new autoconf scheme (instead old Imake).
 
-* Sun Sep 27 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
+* Sun Sep 27 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.40.7-2]
 - rewritten %descriptions,
 - removed INSTALL-file from %doc.
 
-* Fri Sep 25 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
+* Fri Sep 25 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.40.7-1]
 - added -q in %setup,
 - added pl translation.
 
-* Sun Aug 23 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
+* Sun Aug 23 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.40.4-1]
 - removed old log enteries.
 
-* Thu Aug 13 1998 Maciej Lesniewski <nimir@kis.p.lodz.pl>
+* Thu Aug 13 1998 Maciej Le¶niewski <nimir@kis.p.lodz.pl>
   [0.40.3-1]
 - aew version
