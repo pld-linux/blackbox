@@ -4,7 +4,7 @@ Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window
 Name:		blackbox
 Version:	0.65.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Vendor:		Brad Hughes <blackbox@alug.org>
@@ -16,6 +16,7 @@ Source5:	%{name}-README.PLD
 Patch0:		%{name}-am_fixes.patch
 Patch1:		%{name}-pipe.patch
 Patch3:		%{name}-epistrophy.patch
+Patch4:		%{name}-home_etc.patch
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -53,6 +54,7 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 %patch0 -p1
 %patch1 -p1
 %{?_with_epistrophy:%patch3 -p1}
+%patch4 -p1
 
 %build
 rm -f missing
