@@ -1,0 +1,11 @@
+--- blackbox-0.61.1/data/Makefile.am~	Sun Sep 10 10:37:42 2000
++++ blackbox-0.61.1/data/Makefile.am	Sun Jul 15 14:38:53 2001
+@@ -3,7 +3,7 @@
+ SUBDIRS = styles
+ CLEANFILES = menu
+ MAINTAINERCLEANFILES = Makefile.in
+-pkgdata_DATA = menu
++sysconf_DATA = menu
+ 
+ all-local: menu
+ distclean-local:
