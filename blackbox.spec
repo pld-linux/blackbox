@@ -115,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ko) %{_datadir}/blackbox/nls/ko*
 %lang(lv) %{_datadir}/blackbox/nls/lv*
 %lang(nl) %{_datadir}/blackbox/nls/nl*
-%lang(no) %{_datadir}/blackbox/nls/no*
+%lang(nb) %{_datadir}/blackbox/nls/no*
 %lang(pl) %{_datadir}/blackbox/nls/pl*
 %lang(pt_BR) %{_datadir}/blackbox/nls/pt_BR
 %lang(ro) %{_datadir}/blackbox/nls/ro*
