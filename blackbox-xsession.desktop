@@ -6,6 +6,7 @@ TryExec=blackbox
 Name=Blackbox
 Comment=A fast & light window manager
 Comment[nl]=Een snelle lichtgewicht window manager
+Comment[pl]=Szybki i lekki zarządca okien
 Comment[sr]=Брзи и лагани менаџер прозора
 Comment[sv]=En snabb och lättviktig fönsterhanterare
 # vi: encoding=utf-8
