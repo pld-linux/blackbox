@@ -2,7 +2,7 @@ Summary:	Very small and fast window manger for the X Window
 Summary(pl):	Ma³y i szybki menad¿er okien dla X Window
 Name:		blackbox
 Version:	0.62.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
@@ -17,6 +17,7 @@ URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	rpm >= 4.0.2-48
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -24,9 +25,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_sysconfdir	/etc/X11/%{name}
 
 %define		_gcc_ver	%(%{__cc} --version | cut -b 1)
-%if %{_gcc_ver} == 3
-%define		__cxx		"%{__cc} -lstdc++"
-%else
+%if %{_gcc_ver} == 2
 %define		__cxx		"%{__cc}"
 %endif
 
