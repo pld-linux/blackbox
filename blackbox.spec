@@ -39,7 +39,7 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 LDFLAGS="-s"; export LDFLAGS 
 %configure \
 	--enable-kde
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
