@@ -37,7 +37,7 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 %setup -q
 
 %build
-CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-exceptions -fno-rtti -fno-implicit-templates"
+CXXFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -fno-exceptions -fno-rtti -fno-implicit-templates"
 %configure
 %{__make}
 
