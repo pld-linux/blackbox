@@ -1,7 +1,7 @@
 Summary:     Very small and fast window manger for the X-Windows.
 Summary(pl): Ma³y i szybki menad¿er okien dla X-Windows.
 Name:        blackbox
-Version:     0.40.13
+Version:     0.50.0
 Release:     1
 URL:         http://linux.wiw.org/blackbox/
 Copyright:   GPL-2.0
@@ -44,16 +44,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644, root, root, 755)
 %doc README ChangeLog
-%attr(755, root, root) /usr/X11R6/bin/blackbox
+%attr(755, root, root) /usr/X11R6/bin/*
 %dir /usr/X11R6/share/Blackbox
 %config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/Blackbox/*
+%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/menu
+%config(noreplace) %verify(not size md5 mtime) /usr/X11R6/share/rc
 
 %changelog
 * Thu Nov  5 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.40.12-1]
 - changelog Changed to ChangeLog in %doc,
-- files in /usr/X11R6/share/Blackbox/ makked as %config with
-  %verify(not size md5 mtime),
+- files in /usr/X11R6/share/{menu,rc,Blackbox/*} marked as %config with
+  %verify rules,
 - removed /usr/X11R6/lib/X11/app-defaults/* from %files.
 
 * Mon Nov  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
