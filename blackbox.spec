@@ -11,8 +11,7 @@ Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	ftp://portal.alug.org/pub/blackbox/0.6x.x/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		%{name}-lowcase_name.patch
-Patch1:		%{name}-exitbutton.patch
-Patch2:		%{name}-am_fixes.patch
+Patch1:		%{name}-am_fixes.patch
 URL:		http://blackbox.alug.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -42,7 +41,6 @@ gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 aclocal
