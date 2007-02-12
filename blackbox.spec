@@ -3,8 +3,8 @@
 # _with_epistrophy	- enables using epistorophy key grabber
 #
 Summary:	Very small and fast window manger for the X Window
-Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window
-Summary(de):	Blackbox ist ein Windowmanager
+Summary(pl.UTF-8):   MaÅ‚y i szybki zarzÄ…dca okien dla X Window
+Summary(de.UTF-8):   Blackbox ist ein Windowmanager
 Name:		blackbox
 Version:	0.70.0
 Release:	0.1
@@ -49,16 +49,16 @@ simple menus. Fast built-in graphics code that can render solids,
 gradients and bevels is used to draw window decorations. Remaining
 small in size, blackbox preserves memory and CPU.
 
-%description -l pl
-Blackbox jest zarz±dc± okien dla X Window spe³niaj±cym prawie
-wszystkie zalecenia ICCM. Jego zalet± jest estetyczny i szybki
-interfejs z wieloma pulpitami i prostym menu. Wbudowano weñ tak¿e
-algorytm rysowania dekoracji okien, które mog± byæ jednokolorowe,
-gradientowe lub trójwymiarowe. Blackbox oszczêdza pamiêæ i czas CPU.
+%description -l pl.UTF-8
+Blackbox jest zarzÄ…dcÄ… okien dla X Window speÅ‚niajÄ…cym prawie
+wszystkie zalecenia ICCM. Jego zaletÄ… jest estetyczny i szybki
+interfejs z wieloma pulpitami i prostym menu. Wbudowano weÅ„ takÅ¼e
+algorytm rysowania dekoracji okien, ktÃ³re mogÄ… byÄ‡ jednokolorowe,
+gradientowe lub trÃ³jwymiarowe. Blackbox oszczÄ™dza pamiÄ™Ä‡ i czas CPU.
 
-%description -l de
-Blackbox ist ein Windowmanager für offene Betriebssystem wie z.B.
-Linux oder freie BSD-Varianten. Er erfreut sich einer großen
+%description -l de.UTF-8
+Blackbox ist ein Windowmanager fÃ¼r offene Betriebssystem wie z.B.
+Linux oder freie BSD-Varianten. Er erfreut sich einer groÃŸen
 Fangemeinde, da er sehr ressourcenschonend und voll konfigurierbar
 ist.
 
