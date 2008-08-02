@@ -25,11 +25,12 @@ Patch4:		%{name}-etc_dir.patch
 Patch5:		%{name}-nls-codesets.patch
 Patch6:		%{name}-assert.patch
 URL:		http://blackboxwm.sourceforge.net/
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	rpm >= 4.0.2-48
 %{?_with_epistrophy:Requires:	epistrophy}
+BuildRequires:	rpm >= 4.0.2-48
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXft-devel
 Obsoletes:	fluxbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -73,6 +74,7 @@ ist.
 
 %build
 rm -f missing
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
