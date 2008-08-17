@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_epistrophy	- enables using epistorophy key grabber
+%bcond_with	epistrophy	# enables using epistorophy key grabber
 #
 Summary:	Very small and fast window manger for the X Window
 Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window
@@ -10,7 +10,6 @@ Version:	0.70.0
 Release:	0.1
 License:	BSD-like
 Group:		X11/Window Managers
-Vendor:		Brad Hughes <blackbox@alug.org>
 Source0:	http://dl.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
 # Source0-md5:	033a92af3eecaa10bcb689e55a1ceadc
 Source1:	%{name}.desktop
@@ -27,7 +26,7 @@ Patch6:		%{name}-assert.patch
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-%{?_with_epistrophy:Requires:	epistrophy}
+%{?with_epistrophy:Requires:	epistrophy}
 BuildRequires:	rpm >= 4.0.2-48
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXft-devel
@@ -67,7 +66,7 @@ ist.
 %setup -q
 #%patch0 -p1
 #%patch1 -p1
-%{?_with_epistrophy:%patch3 -p1}
+%{?with_epistrophy:%patch3 -p1}
 #%patch4 -p1
 #%patch5 -p1
 #%patch6 -p1
