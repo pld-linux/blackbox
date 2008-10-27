@@ -1,0 +1,15 @@
+--- configure.ac.orig	2005-11-03 09:21:59.000000000 +0100
++++ configure.ac	2008-10-27 09:01:38.000000000 +0100
+@@ -10,10 +10,10 @@
+ 
+ dnl Look in the most logical places for external libraries
+ CPPFLAGS="$CPPFLAGS -I$prefix/include"
+-LDFLAGS="$LDFLAGS -L$prefix/lib"
++LDFLAGS="$LDFLAGS -L$prefix/lib64"
+ if test "x$prefix" != "x/usr/local"; then
+   CPPFLAGS="$CPPFLAGS -I/usr/local/include"
+-  LDFLAGS="$LDFLAGS -L/usr/local/lib"
++  LDFLAGS="$LDFLAGS -L/usr/local/lib64"
+ fi
+ 
+ dnl Locate required external software
