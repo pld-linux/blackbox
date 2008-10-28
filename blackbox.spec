@@ -9,7 +9,7 @@ Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window
 Summary(de.UTF-8):	Blackbox ist ein Windowmanager
 Name:		blackbox
 Version:	0.70.1
-Release:	3
+Release:	3.1
 License:	BSD-like
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/blackboxwm/%{name}-%{version}.tar.gz
@@ -74,7 +74,7 @@ ist.
 #%patch4 -p1
 #%patch5 -p1
 #%patch6 -p1
-%ifarch %{x8664}
+%if "%{_lib}" == "lib64"
 %patch7 -p0
 %endif
 
