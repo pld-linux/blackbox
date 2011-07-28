@@ -3,6 +3,7 @@
 #
 # Conditional build:
 %bcond_with	epistrophy	# enables using epistorophy key grabber
+%bcond_with	gnome2		# build with support for GNOME2 wm-properties
 #
 Summary:	Very small and fast window manger for the X Window
 Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window
@@ -96,7 +97,7 @@ install -d \
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
+%{?with_gnome2:install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 install %{SOURCE4} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 cp %{SOURCE5} README.PLD
@@ -113,7 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/blackbox
 %{_datadir}/blackbox/styles
 %{_datadir}/xsessions/%{name}.desktop
-%{_wmpropsdir}/blackbox.desktop
+%{?with_gnome2:%{_wmpropsdir}/blackbox.desktop}
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
 %{_datadir}/blackbox/menu
