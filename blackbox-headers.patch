@@ -1,0 +1,81 @@
+--- blackbox-0.70.1/lib/Resource.cc~	2005-04-06 23:16:50.000000000 +0200
++++ blackbox-0.70.1/lib/Resource.cc	2012-01-11 15:21:17.675011644 +0100
+@@ -27,6 +27,7 @@
+ 
+ #include <X11/Xlib.h>
+ #include <X11/Xresource.h>
++#include <strings.h>
+ 
+ #include <stdio.h>
+ 
+--- blackbox-0.70.1/lib/Image.cc~	2005-04-08 17:41:09.000000000 +0200
++++ blackbox-0.70.1/lib/Image.cc	2012-01-11 15:27:22.674988031 +0100
+@@ -44,6 +44,7 @@
+ #include <math.h>
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <string.h>
+ 
+ // #define COLORTABLE_DEBUG
+ // #define MITSHM_DEBUG
+--- blackbox-0.70.1/lib/XDG.cc~	2005-04-06 16:04:38.000000000 +0200
++++ blackbox-0.70.1/lib/XDG.cc	2012-01-11 15:42:22.908223679 +0100
+@@ -26,6 +26,7 @@
+ #include "XDG.hh"
+ 
+ #include <stdlib.h>
++#include <algorithm>
+ 
+ 
+ // make sure directory names end with a slash
+--- blackbox-0.70.1/src/BlackboxResource.cc~	2005-10-18 09:34:46.000000000 +0200
++++ blackbox-0.70.1/src/BlackboxResource.cc	2012-01-11 15:47:10.752352766 +0100
+@@ -32,6 +32,7 @@
+ #include <X11/Xlib.h>
+ #include <X11/Xutil.h>
+ #include <X11/cursorfont.h>
++#include <strings.h>
+ 
+ 
+ BlackboxResource::BlackboxResource(const std::string& rc): rc_file(rc) {
+--- blackbox-0.70.1/src/ScreenResource.cc~	2005-04-13 07:54:08.000000000 +0200
++++ blackbox-0.70.1/src/ScreenResource.cc	2012-01-11 15:48:21.508187413 +0100
+@@ -32,6 +32,7 @@
+ #include <Resource.hh>
+ 
+ #include <assert.h>
++#include <strings.h>
+ 
+ 
+ static const int iconify_width  = 9;
+--- blackbox-0.70.1/src/Screen.cc~	2005-10-18 10:07:22.000000000 +0200
++++ blackbox-0.70.1/src/Screen.cc	2012-01-11 15:50:26.161508387 +0100
+@@ -47,6 +47,7 @@
+ #include <assert.h>
+ #include <ctype.h>
+ #include <dirent.h>
++#include <string.h>
+ 
+ 
+ static bool running = true;
+--- blackbox-0.70.1/src/main.cc~	2005-01-03 10:42:57.000000000 +0100
++++ blackbox-0.70.1/src/main.cc	2012-01-11 15:51:55.055666254 +0100
+@@ -35,6 +35,7 @@
+ #include "../version.h"
+ 
+ #include <stdio.h>
++#include <string.h>
+ 
+ 
+ static void showHelp(int exitval) {
+--- blackbox-0.70.1/util/bsetroot.cc~	2005-03-15 08:01:37.000000000 +0100
++++ blackbox-0.70.1/util/bsetroot.cc	2012-01-11 16:22:52.285480550 +0100
+@@ -31,6 +31,8 @@
+ 
+ #include <X11/Xatom.h>
+ #include <stdio.h>
++#include <string.h>
++#include <stdlib.h>
+ 
+ 
+ // ignore all X errors

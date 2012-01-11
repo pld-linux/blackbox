@@ -27,11 +27,13 @@ Patch4:		%{name}-etc_dir.patch
 Patch5:		%{name}-nls-codesets.patch
 Patch6:		%{name}-assert.patch
 Patch7:		%{name}-lib64.patch
+Patch8:		%{name}-headers.patch
 URL:		http://blackboxwm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 %{?with_epistrophy:Requires:	epistrophy}
 BuildRequires:	rpm >= 4.0.2-48
+BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXft-devel
 Obsoletes:	fluxbox
@@ -78,6 +80,9 @@ ist.
 %if "%{_lib}" == "lib64"
 %patch7 -p0
 %endif
+%patch8 -p1
+
+%{__sed} -i 's,_XUTIL_H_,_X11&,' lib/Util.hh
 
 %build
 rm -f missing
